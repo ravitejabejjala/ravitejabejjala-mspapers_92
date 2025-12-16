@@ -46,6 +46,7 @@ export default function ContactPage() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [confirmationMessage, setConfirmationMessage] = useState("")
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.id]: e.target.value })
@@ -55,30 +56,47 @@ export default function ContactPage() {
     e.preventDefault()
     setIsSubmitting(true)
 
-    // Create mailto link with form data
-    const mailtoBody = `
-Name: ${formData.name}
-Company: ${formData.company}
-Email: ${formData.email}
-Phone: ${formData.phone}
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      })
 
-Subject: ${formData.subject}
+      const result = await response.json()
 
-Message:
-${formData.message}
-    `.trim()
+      if (result.success) {
+        if (result.mailtoFallback && result.mailtoLink) {
+          window.open(result.mailtoLink, "_blank")
+        }
 
-    const mailtoLink = `mailto:info@mspaperproducts.com?subject=${encodeURIComponent(formData.subject || "New Inquiry from Website")}&body=${encodeURIComponent(mailtoBody)}`
+        setConfirmationMessage(
+          "Thank you for your inquiry! Your requirements have been sent to info@mspaperproducts.com. Our team will contact you within 24 hours.",
+        )
+        setIsSubmitted(true)
+        setFormData({ name: "", company: "", email: "", phone: "", subject: "", message: "" })
+      } else {
+        const mailtoBody = `Name: ${formData.name}\nCompany: ${formData.company || "Not provided"}\nEmail: ${formData.email}\nPhone: ${formData.phone}\n\nRequirements:\n${formData.message}`
+        const mailtoLink = `mailto:info@mspaperproducts.com?subject=${encodeURIComponent(formData.subject || "New Inquiry from Website")}&body=${encodeURIComponent(mailtoBody)}`
+        window.location.href = mailtoLink
 
-    // Open mailto
-    window.location.href = mailtoLink
+        setConfirmationMessage("Your email client has been opened. Please send the email to complete your inquiry.")
+        setIsSubmitted(true)
+        setFormData({ name: "", company: "", email: "", phone: "", subject: "", message: "" })
+      }
+    } catch (error) {
+      const mailtoBody = `Name: ${formData.name}\nCompany: ${formData.company || "Not provided"}\nEmail: ${formData.email}\nPhone: ${formData.phone}\n\nRequirements:\n${formData.message}`
+      const mailtoLink = `mailto:info@mspaperproducts.com?subject=${encodeURIComponent(formData.subject || "New Inquiry from Website")}&body=${encodeURIComponent(mailtoBody)}`
+      window.location.href = mailtoLink
 
-    // Show success state
-    setTimeout(() => {
-      setIsSubmitting(false)
+      setConfirmationMessage("Your email client has been opened. Please send the email to complete your inquiry.")
       setIsSubmitted(true)
       setFormData({ name: "", company: "", email: "", phone: "", subject: "", message: "" })
-    }, 1000)
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -102,19 +120,30 @@ ${formData.message}
             {/* Contact Form */}
             <Card className="border-none shadow-lg">
               <CardContent className="p-8">
-                <h2 className="mb-6 text-2xl font-bold text-[#132635]">Send Us a Message</h2>
+                <h2 className="mb-6 text-2xl font-bold text-[#132635]">Send Us Your Requirements</h2>
                 {isSubmitted ? (
                   <div className="flex flex-col items-center justify-center py-12 text-center">
-                    <CheckCircle className="mb-4 h-16 w-16 text-green-500" />
-                    <h3 className="mb-2 text-xl font-semibold text-[#132635]">Message Sent!</h3>
-                    <p className="text-gray-600">
-                      Your email client should open. If not, please email us directly at info@mspaperproducts.com
-                    </p>
+                    <div className="mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-green-100">
+                      <CheckCircle className="h-12 w-12 text-green-500" />
+                    </div>
+                    <h3 className="mb-2 text-xl font-semibold text-[#132635]">Requirements Sent Successfully!</h3>
+                    <p className="mb-4 text-gray-600">{confirmationMessage}</p>
+                    <div className="mt-2 rounded-lg bg-[#132635]/5 p-4">
+                      <p className="text-sm text-[#132635]">
+                        <strong>Email:</strong> info@mspaperproducts.com
+                      </p>
+                      <p className="text-sm text-[#132635]">
+                        <strong>Phone:</strong> +91 81433 30028
+                      </p>
+                    </div>
                     <Button
-                      onClick={() => setIsSubmitted(false)}
-                      className="mt-4 bg-[#f19e1f] text-white hover:bg-[#f19e1f]/90"
+                      onClick={() => {
+                        setIsSubmitted(false)
+                        setConfirmationMessage("")
+                      }}
+                      className="mt-6 bg-[#f19e1f] text-white hover:bg-[#f19e1f]/90"
                     >
-                      Send Another Message
+                      Send Another Inquiry
                     </Button>
                   </div>
                 ) : (
@@ -167,17 +196,17 @@ ${formData.message}
                       <Label htmlFor="subject">Subject *</Label>
                       <Input
                         id="subject"
-                        placeholder="How can we help?"
+                        placeholder="What are you looking for?"
                         value={formData.subject}
                         onChange={handleChange}
                         required
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="message">Message *</Label>
+                      <Label htmlFor="message">Your Requirements *</Label>
                       <Textarea
                         id="message"
-                        placeholder="Tell us about your requirements..."
+                        placeholder="Please describe your paper bag requirements, including quantity, size, printing needs, and any other specifications..."
                         className="min-h-[150px]"
                         value={formData.message}
                         onChange={handleChange}
@@ -189,7 +218,14 @@ ${formData.message}
                       className="w-full bg-[#f19e1f] text-white hover:bg-[#f19e1f]/90"
                       disabled={isSubmitting}
                     >
-                      {isSubmitting ? "Sending..." : "Send Message"}
+                      {isSubmitting ? (
+                        "Sending..."
+                      ) : (
+                        <>
+                          <Mail className="mr-2 h-5 w-5" />
+                          Send the Mail
+                        </>
+                      )}
                     </Button>
                   </form>
                 )}
