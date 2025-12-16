@@ -1,123 +1,156 @@
-import type { Metadata } from "next"
-import { Sparkles, Award, Lightbulb } from "lucide-react"
+import Image from "next/image"
+import { Card, CardContent } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+import Link from "next/link"
+import { Award, Users, Leaf, Factory, Target, Eye } from "lucide-react"
 
-export const metadata: Metadata = {
-  title: "About Us - MS Paper Products | Premium Paper Bag Manufacturer Since 2015",
+export const metadata = {
+  title: "About Us | MS Paper Products - Premium Paper Bag Manufacturers",
   description:
-    "Learn about MS Paper Products, Hyderabad's trusted ISO certified paper bag manufacturer. 8+ years of excellence in eco-friendly packaging. Serving 500+ businesses across India. Custom designs, bulk orders, fast delivery.",
-  keywords: [
-    "about MS Paper Products",
-    "paper bag manufacturer Hyderabad",
-    "ISO certified packaging",
-    "eco friendly manufacturer",
-    "custom packaging company",
-  ],
-  openGraph: {
-    title: "About MS Paper Products - Premium Packaging Manufacturer",
-    description:
-      "Hyderabad's trusted ISO certified paper bag manufacturer. 8+ years of excellence in eco-friendly packaging.",
-    url: "https://mspaperproducts.com/about",
-  },
-  alternates: {
-    canonical: "https://mspaperproducts.com/about",
-  },
+    "Learn about MS Paper Products, a leading manufacturer of premium eco-friendly paper bags with over 15 years of experience in sustainable packaging solutions.",
 }
-
-const pillarsDetailed = [
-  {
-    icon: Sparkles,
-    title: "Adaptability",
-    description:
-      "We understand that every business has unique packaging needs. Our team works closely with clients to deliver custom designs, colors, and sizes that perfectly match their brand identity and product requirements.",
-  },
-  {
-    icon: Award,
-    title: "Quality",
-    description:
-      "Quality is at the heart of everything we do. Our bags are crafted to be durable, stylish, and reliable, ensuring your products are protected while maintaining an elegant presentation that enhances your brand.",
-  },
-  {
-    icon: Lightbulb,
-    title: "Innovation",
-    description:
-      "We continuously invest in improving our materials, printing techniques, and finishing processes. Our commitment to innovation ensures you receive packaging solutions that meet the highest industry standards.",
-  },
-]
 
 export default function AboutPage() {
   return (
-    <main>
-      <section className="relative h-[400px] bg-gradient-to-r from-[#132635] to-[#1a3645] flex items-center">
-        <div className="absolute inset-0 opacity-10">
-          <img
-            src="/abstract-paper-texture-pattern-in-navy-and-gold.jpg"
-            alt=""
-            className="object-cover w-full h-full"
-          />
-        </div>
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <h1 className="text-5xl lg:text-6xl font-serif font-bold text-white mb-4">About MS Paper Products</h1>
-          <p className="text-xl text-white/90 max-w-3xl">
-            Hyderabad's trusted partner for premium, sustainable packaging solutions
-          </p>
+    <main className="min-h-screen">
+      {/* Hero Section */}
+      <section className="relative bg-[#132635] text-white py-20 md:py-28">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">About MS Paper Products</h1>
+            <p className="text-lg md:text-xl text-gray-300">
+              Crafting premium eco-friendly paper bags with passion and precision since 2008.
+            </p>
+          </div>
         </div>
       </section>
 
-      <section className="py-24 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
+      {/* Our Story Section */}
+      <section className="py-16 md:py-24">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-4xl font-serif font-bold text-[#132635] mb-6">Our Story</h2>
-              <div className="space-y-4 text-lg text-gray-700 leading-relaxed">
-                <p>
-                  MS Paper Products is a trusted paper bag manufacturer and supplier based in Hyderabad, Telangana. We
-                  provide high-quality, customizable paper packaging solutions for apparel, footwear, jewelry,
-                  cosmetics, confectionery, gifting, and retail businesses.
-                </p>
-                <p>
-                  Our commitment to excellence and sustainability has made us the preferred choice for businesses
-                  looking for premium packaging that reflects their brand values while supporting environmental
-                  responsibility.
-                </p>
-                <p>
-                  With state-of-the-art manufacturing facilities and a dedicated team, we serve clients across India,
-                  delivering packaging solutions that combine functionality, aesthetics, and eco-friendliness.
-                </p>
-              </div>
+              <h2 className="text-3xl md:text-4xl font-bold text-[#132635] mb-6">Our Story</h2>
+              <p className="text-gray-600 mb-4">
+                MS Paper Products was founded with a simple yet powerful vision: to provide businesses with sustainable
+                packaging solutions that don't compromise on quality or aesthetics.
+              </p>
+              <p className="text-gray-600 mb-4">
+                Over the years, we have grown from a small workshop to a state-of-the-art manufacturing facility,
+                serving hundreds of clients across retail, food & beverage, fashion, and corporate sectors.
+              </p>
+              <p className="text-gray-600">
+                Our commitment to excellence, innovation, and environmental responsibility has made us a trusted partner
+                for businesses seeking premium paper packaging solutions.
+              </p>
             </div>
-            <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl">
-              <img
-                src="/premium-handcrafted-paper-bag-packaging-workspace-.jpg"
-                alt="Our manufacturing facility"
-                className="object-cover w-full h-full"
+            <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-xl">
+              <Image
+                src="/about-manufacturing-facility.jpg"
+                alt="MS Paper Products Manufacturing Facility"
+                fill
+                className="object-cover"
               />
-              <div className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-white/95 backdrop-blur-sm px-8 py-4 rounded-xl shadow-lg">
-                <img src="/ms-logo.png" alt="MS Paper Products" className="h-16 w-auto" />
-              </div>
             </div>
           </div>
+        </div>
+      </section>
 
-          <div className="mb-24">
-            <h2 className="text-4xl font-serif font-bold text-[#132635] mb-12 text-center">Our Core Values</h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              {pillarsDetailed.map((pillar, index) => (
-                <div key={index} className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
-                  <pillar.icon className="w-12 h-12 text-[#f19e1f] mb-4" />
-                  <h3 className="text-2xl font-semibold text-[#132635] mb-4">{pillar.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{pillar.description}</p>
+      {/* Mission & Vision */}
+      <section className="py-16 md:py-24 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-8">
+            <Card className="border-none shadow-lg">
+              <CardContent className="p-8">
+                <div className="w-14 h-14 bg-[#f19e1f]/10 rounded-full flex items-center justify-center mb-6">
+                  <Target className="w-7 h-7 text-[#f19e1f]" />
                 </div>
-              ))}
+                <h3 className="text-2xl font-bold text-[#132635] mb-4">Our Mission</h3>
+                <p className="text-gray-600">
+                  To deliver innovative, high-quality, and sustainable paper packaging solutions that help businesses
+                  make a positive environmental impact while enhancing their brand image.
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="border-none shadow-lg">
+              <CardContent className="p-8">
+                <div className="w-14 h-14 bg-[#f19e1f]/10 rounded-full flex items-center justify-center mb-6">
+                  <Eye className="w-7 h-7 text-[#f19e1f]" />
+                </div>
+                <h3 className="text-2xl font-bold text-[#132635] mb-4">Our Vision</h3>
+                <p className="text-gray-600">
+                  To be the leading provider of eco-friendly paper packaging in India, setting industry standards for
+                  quality, sustainability, and customer satisfaction.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-16 md:py-24 bg-[#132635] text-white">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div>
+              <div className="text-4xl md:text-5xl font-bold text-[#f19e1f] mb-2">15+</div>
+              <p className="text-gray-300">Years Experience</p>
+            </div>
+            <div>
+              <div className="text-4xl md:text-5xl font-bold text-[#f19e1f] mb-2">500+</div>
+              <p className="text-gray-300">Happy Clients</p>
+            </div>
+            <div>
+              <div className="text-4xl md:text-5xl font-bold text-[#f19e1f] mb-2">10M+</div>
+              <p className="text-gray-300">Bags Produced</p>
+            </div>
+            <div>
+              <div className="text-4xl md:text-5xl font-bold text-[#f19e1f] mb-2">100%</div>
+              <p className="text-gray-300">Eco-Friendly</p>
             </div>
           </div>
+        </div>
+      </section>
 
-          <div className="bg-gradient-to-br from-[#132635] to-[#1a3645] rounded-2xl p-12 text-white text-center">
-            <h2 className="text-3xl font-serif font-bold mb-4">Our Mission</h2>
-            <p className="text-xl leading-relaxed max-w-3xl mx-auto text-white/90">
-              To provide businesses with premium, eco-friendly packaging solutions that enhance their brand image while
-              contributing to a sustainable future. We strive to exceed expectations through quality, innovation, and
-              exceptional customer service.
-            </p>
+      {/* Why Choose Us */}
+      <section className="py-16 md:py-24">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#132635] text-center mb-12">Why Choose Us</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              {
+                icon: Award,
+                title: "Premium Quality",
+                desc: "We use only the finest materials and printing techniques.",
+              },
+              { icon: Users, title: "Expert Team", desc: "Skilled professionals with decades of combined experience." },
+              { icon: Leaf, title: "Eco-Friendly", desc: "100% recyclable and biodegradable materials." },
+              { icon: Factory, title: "Modern Facility", desc: "State-of-the-art manufacturing equipment." },
+            ].map((item, index) => (
+              <Card key={index} className="border-none shadow-md hover:shadow-xl transition-shadow">
+                <CardContent className="p-6 text-center">
+                  <div className="w-14 h-14 bg-[#f19e1f]/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <item.icon className="w-7 h-7 text-[#f19e1f]" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-[#132635] mb-2">{item.title}</h3>
+                  <p className="text-gray-600 text-sm">{item.desc}</p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 md:py-24 bg-[#f19e1f]">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Partner With Us?</h2>
+          <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
+            Let's create sustainable packaging solutions that elevate your brand.
+          </p>
+          <Button asChild size="lg" className="bg-[#132635] hover:bg-[#132635]/90 text-white">
+            <Link href="/contact">Get in Touch</Link>
+          </Button>
         </div>
       </section>
     </main>

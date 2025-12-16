@@ -1,69 +1,152 @@
-import type { Metadata } from "next"
-import { HeroCarousel } from "@/components/hero-carousel"
-import { ProductHighlights } from "@/components/product-highlights"
-import { ValuePillars } from "@/components/value-pillars"
-import { SustainabilityBanner } from "@/components/sustainability-banner"
-import { StatsStrip } from "@/components/stats-strip"
-import { CTASection } from "@/components/cta-section"
+import Link from "next/link"
+import Image from "next/image"
+import { ArrowRight, Package, Leaf, Award, Users } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import HeroCarousel from "@/components/hero-carousel"
 
-export const metadata: Metadata = {
-  title: "MS Paper Products | Premium Paper Bags & Eco-Friendly Packaging Manufacturer Hyderabad",
-  description:
-    "Leading paper bag manufacturer in Hyderabad offering custom printed bags, kraft bags, wedding bags, pharma packaging, sweet boxes. 100% biodegradable, eco-friendly. MOQ 500 units. Fast delivery across India. Call +91-81433-30028",
-  keywords: [
-    "paper bags Hyderabad",
-    "paper bag manufacturer",
-    "custom paper bags India",
-    "eco friendly bags",
-    "biodegradable packaging",
-    "kraft paper bags",
-    "luxury paper bags",
-    "wedding gift bags",
-    "corporate bags",
-    "retail packaging",
-  ],
-  openGraph: {
-    title: "MS Paper Products | Premium Paper Bags & Eco-Friendly Packaging",
-    description:
-      "Leading paper bag manufacturer in Hyderabad. Custom printed bags, kraft bags, wedding bags. 100% biodegradable, eco-friendly. Fast delivery.",
-    url: "https://mspaperproducts.com",
-    type: "website",
+const features = [
+  {
+    icon: Package,
+    title: "Premium Quality",
+    description: "Crafted with the finest materials for durability and elegance",
   },
-  alternates: {
-    canonical: "https://mspaperproducts.com",
+  {
+    icon: Leaf,
+    title: "Eco-Friendly",
+    description: "100% recyclable and biodegradable paper solutions",
   },
-}
+  {
+    icon: Award,
+    title: "Custom Designs",
+    description: "Tailored packaging solutions to match your brand identity",
+  },
+  {
+    icon: Users,
+    title: "Expert Team",
+    description: "Dedicated professionals committed to your satisfaction",
+  },
+]
+
+const productCategories = [
+  {
+    name: "Luxury Printed Bags",
+    description: "Premium bags with gold foiling and custom branding",
+    image: "/luxury-printed-paper-bag-with-gold-foiling-navy-bl.jpg",
+  },
+  {
+    name: "Kraft Paper Bags",
+    description: "Eco-friendly natural kraft bags with twisted handles",
+    image: "/natural-kraft-paper-bags-with-twisted-handles-eco-.jpg",
+  },
+  {
+    name: "Wedding Gift Bags",
+    description: "Elegant bags for special occasions and celebrations",
+    image: "/elegant-wedding-gift-bags-white-and-gold-luxury.jpg",
+  },
+  {
+    name: "Food Packaging",
+    description: "Food-grade bags for bakeries and restaurants",
+    image: "/food-grade-paper-bags-bakery-restaurant-clean.jpg",
+  },
+]
 
 export default function Home() {
   return (
     <main>
       <HeroCarousel />
-      <StatsStrip />
-      <section className="py-24 px-6 max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div>
-            <h2 className="text-4xl lg:text-5xl font-serif font-bold text-[#132635] mb-6">
-              Premium Packaging, Crafted with Care
-            </h2>
-            <p className="text-lg text-gray-700 leading-relaxed mb-6">
-              MS Paper Products is a Hyderabad-based manufacturer of premium, eco-friendly, and customizable paper bags.
-              We craft durable, stylish packaging for retail, gifting, corporate and food-grade applications.
+
+      {/* Features Section */}
+      <section className="py-16 md:py-24">
+        <div className="container mx-auto px-4">
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 text-3xl font-bold text-[#132635] md:text-4xl">Why Choose MS Paper Products?</h2>
+            <p className="mx-auto max-w-2xl text-gray-600">
+              We combine quality craftsmanship with sustainable practices to deliver packaging solutions that make a
+              difference.
             </p>
-            <ValuePillars />
           </div>
-          <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl">
-            <img
-              src="/premium-paper-bag-manufacturing-workspace-with-ele.jpg"
-              alt="Manufacturing workspace"
-              loading="lazy"
-              className="object-cover w-full h-full"
-            />
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {features.map((feature) => (
+              <Card key={feature.title} className="border-none bg-gray-50 transition-shadow hover:shadow-lg">
+                <CardContent className="p-6 text-center">
+                  <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-[#f19e1f]/10">
+                    <feature.icon className="h-7 w-7 text-[#f19e1f]" />
+                  </div>
+                  <h3 className="mb-2 text-lg font-semibold text-[#132635]">{feature.title}</h3>
+                  <p className="text-sm text-gray-600">{feature.description}</p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
-      <ProductHighlights />
-      <SustainabilityBanner />
-      <CTASection />
+
+      {/* Product Range Section */}
+      <section className="bg-gray-50 py-16 md:py-24">
+        <div className="container mx-auto px-4">
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 text-3xl font-bold text-[#132635] md:text-4xl">Our Product Range</h2>
+            <p className="mx-auto max-w-2xl text-gray-600">
+              From luxury retail bags to eco-friendly packaging, we offer a wide range of paper bag solutions.
+            </p>
+          </div>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {productCategories.map((category) => (
+              <Card
+                key={category.name}
+                className="group overflow-hidden border-none transition-all hover:-translate-y-1 hover:shadow-xl"
+              >
+                <div className="relative h-48 overflow-hidden">
+                  <Image
+                    src={category.image || "/placeholder.svg"}
+                    alt={category.name}
+                    fill
+                    className="object-cover transition-transform duration-300 group-hover:scale-110"
+                  />
+                </div>
+                <CardContent className="p-5">
+                  <h3 className="mb-2 text-lg font-semibold text-[#132635]">{category.name}</h3>
+                  <p className="text-sm text-gray-600">{category.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+          <div className="mt-10 text-center">
+            <Link href="/products">
+              <Button size="lg" className="bg-[#132635] hover:bg-[#132635]/90">
+                View All Products
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="bg-[#132635] py-16 md:py-24">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">
+            Ready to Elevate Your <span className="text-[#f19e1f]">Packaging?</span>
+          </h2>
+          <p className="mx-auto mb-8 max-w-2xl text-gray-300">
+            Get in touch with our team to discuss your custom paper bag requirements. We&apos;re here to bring your
+            vision to life.
+          </p>
+          <div className="flex flex-col justify-center gap-4 sm:flex-row">
+            <Link href="/contact">
+              <Button size="lg" className="bg-[#f19e1f] text-[#132635] hover:bg-[#f19e1f]/90">
+                Request a Quote
+              </Button>
+            </Link>
+            <a href="tel:+918143330028">
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 bg-transparent">
+                Call Us Now
+              </Button>
+            </a>
+          </div>
+        </div>
+      </section>
     </main>
   )
 }

@@ -1,319 +1,149 @@
-import type { Metadata } from "next"
-import { Leaf, Recycle, Trees, Droplets, Droplet, Zap, Scissors, Award, CheckCircle2 } from "lucide-react"
+import Image from "next/image"
+import { Card, CardContent } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+import Link from "next/link"
+import { Leaf, Recycle, TreePine, Droplets, Factory, Award } from "lucide-react"
 
-export const metadata: Metadata = {
-  title: "Sustainability & Eco-Friendly Packaging - 100% Biodegradable | MS Paper Products",
+export const metadata = {
+  title: "Sustainability | MS Paper Products - Eco-Friendly Paper Bags",
   description:
-    "100% biodegradable and recyclable paper packaging. FSC certified, using recycled kraft paper, vegetable inks, eco-friendly adhesives. 40% reduced carbon emissions. Zero plastic content. Sustainable manufacturing in Hyderabad.",
-  keywords: [
-    "biodegradable packaging India",
-    "eco friendly paper bags",
-    "FSC certified packaging",
-    "sustainable packaging manufacturer",
-    "recyclable paper bags",
-    "green packaging solutions",
-    "zero plastic packaging",
-    "carbon neutral packaging",
-  ],
-  openGraph: {
-    title: "Sustainability - 100% Biodegradable Packaging | MS Paper Products",
-    description:
-      "100% biodegradable and recyclable paper packaging. FSC certified. Zero plastic. Sustainable manufacturing.",
-    url: "https://mspaperproducts.com/sustainability",
-  },
-  alternates: {
-    canonical: "https://mspaperproducts.com/sustainability",
-  },
+    "Learn about our commitment to sustainability and eco-friendly manufacturing practices. 100% recyclable and biodegradable paper bags.",
 }
 
 const initiatives = [
   {
     icon: Recycle,
-    title: "Made from Recycled Paper",
-    description:
-      "We use high-quality recycled paper materials, reducing waste and conserving natural resources while maintaining premium quality.",
+    title: "100% Recyclable Materials",
+    description: "All our paper bags are made from fully recyclable materials that can be repurposed or composted.",
   },
   {
-    icon: Leaf,
-    title: "Biodegradable Materials",
-    description:
-      "All our products are 100% biodegradable, breaking down naturally without harming the environment or leaving toxic residues.",
-  },
-  {
-    icon: Trees,
-    title: "Eco-Friendly Twisted Handles",
-    description:
-      "Our paper twisted handles are sturdy, comfortable, and completely eco-friendly, providing a sustainable alternative to plastic.",
+    icon: TreePine,
+    title: "FSC Certified Paper",
+    description: "We source our paper from FSC-certified forests, ensuring responsible forestry practices.",
   },
   {
     icon: Droplets,
-    title: "Low Carbon Footprint",
-    description:
-      "Our manufacturing process is optimized to minimize energy consumption and reduce carbon emissions throughout production.",
+    title: "Water-Based Inks",
+    description: "Our printing uses eco-friendly water-based inks that are safe for the environment.",
   },
-]
-
-const ecoMaterials = [
   {
-    icon: Recycle,
-    title: "Recycled Kraft Paper",
-    description: "100% post-consumer recycled kraft paper with natural brown finish",
-    image: "/recycled-kraft-paper-texture.jpg",
+    icon: Factory,
+    title: "Clean Manufacturing",
+    description: "Our production facility follows strict environmental guidelines to minimize waste and emissions.",
   },
   {
     icon: Leaf,
-    title: "Biodegradable Adhesives",
-    description: "Plant-based adhesives that decompose naturally without toxic residue",
-    image: "/eco-friendly-adhesive.jpg",
+    title: "Biodegradable Products",
+    description: "Our bags naturally decompose, leaving no harmful residue in the environment.",
   },
-  {
-    icon: Trees,
-    title: "Eco-Friendly Twisted Handles",
-    description: "Durable paper twisted handles made from sustainable sources",
-    image: "/paper-twisted-handles.jpg",
-  },
-  {
-    icon: Droplet,
-    title: "Vegetable Ink Printing",
-    description: "Non-toxic vegetable-based inks for safe, eco-conscious printing",
-    image: "/vegetable-ink-printing.jpg",
-  },
-]
-
-const wasteReduction = [
-  {
-    icon: Recycle,
-    title: "Paper Recycling",
-    description:
-      "We recycle all paper waste and off-cuts back into production, achieving near-zero paper waste in our facility.",
-  },
-  {
-    icon: Droplet,
-    title: "Water-Based Inks",
-    description:
-      "Using water-based inks instead of solvent-based alternatives reduces harmful chemical emissions significantly.",
-  },
-  {
-    icon: Zap,
-    title: "Energy-Efficient Machines",
-    description: "Modern machinery optimized for lower power consumption, reducing our carbon footprint by 40%.",
-  },
-  {
-    icon: Scissors,
-    title: "Low-Waste Cutting",
-    description: "Precision die-cutting technology minimizes material waste and maximizes yield from each paper sheet.",
-  },
-]
-
-const certifications = [
   {
     icon: Award,
-    title: "ISO Certification",
-    description: "Quality management system certified to international standards",
-    status: "In Progress",
-  },
-  {
-    icon: CheckCircle2,
-    title: "FSC Certified",
-    description: "Forest Stewardship Council certified for responsible forestry",
-    status: "Compliant",
-  },
-  {
-    icon: Leaf,
-    title: "Eco-Safe Standards",
-    description: "Meeting all environmental safety and sustainability guidelines",
-    status: "Certified",
+    title: "Green Certifications",
+    description: "We maintain various environmental certifications to ensure our sustainability standards.",
   },
 ]
 
 export default function SustainabilityPage() {
   return (
-    <main>
+    <main className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-[400px] bg-gradient-to-r from-[#132635] to-[#1a3645] flex items-center">
-        <div className="absolute inset-0 opacity-20">
-          <img src="/sustainability-eco-friendly-packaging-hero.jpg" alt="" className="object-cover w-full h-full" />
-        </div>
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <h1 className="text-5xl lg:text-6xl font-serif font-bold text-white mb-4">Our Green Initiative</h1>
-          <p className="text-xl text-white/90 max-w-3xl">
-            Committed to sustainable packaging that protects your products and our planet
-          </p>
-        </div>
-      </section>
-
-      {/* Main Initiatives */}
-      <section className="py-24 px-6 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-serif font-bold text-[#132635] mb-4">
-              Eco-Friendly. Recyclable. Biodegradable.
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              At MS Paper Products, sustainability isn't just a buzzword—it's our commitment to future generations.
-              Every bag we produce is designed with environmental responsibility in mind.
+      <section className="relative bg-[#132635] text-white py-20 md:py-28">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Commitment to Sustainability</h1>
+            <p className="text-lg md:text-xl text-gray-300">
+              Creating eco-friendly packaging solutions for a greener tomorrow.
             </p>
           </div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {initiatives.map((initiative, index) => (
-              <div key={index} className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
-                <initiative.icon className="w-12 h-12 text-[#f19e1f] mb-4" />
-                <h3 className="text-2xl font-semibold text-[#132635] mb-4">{initiative.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{initiative.description}</p>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
-      {/* Eco Material Types */}
-      <section className="py-24 px-6 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-serif font-bold text-[#132635] mb-4">Eco-Friendly Materials We Use</h2>
-            <p className="text-gray-600 text-lg">Carefully selected sustainable materials for premium packaging</p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {ecoMaterials.map((material, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group"
-              >
-                <div className="relative h-48 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-50">
-                  <img
-                    src={material.image || "/placeholder.svg"}
-                    alt={material.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm p-2 rounded-full">
-                    <material.icon className="w-6 h-6 text-[#f19e1f]" />
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-semibold text-[#132635] mb-2">{material.title}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">{material.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Waste Reduction Process */}
-      <section className="py-24 px-6 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-serif font-bold text-[#132635] mb-4">Waste Reduction Process</h2>
-            <p className="text-gray-600 text-lg">Our commitment to minimizing environmental impact at every stage</p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {wasteReduction.map((process, index) => (
-              <div
-                key={index}
-                className="flex gap-6 p-8 bg-gradient-to-br from-gray-50 to-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                <div className="flex-shrink-0">
-                  <div className="w-16 h-16 bg-gradient-to-br from-[#132635] to-[#1a3645] rounded-xl flex items-center justify-center">
-                    <process.icon className="w-8 h-8 text-[#f19e1f]" />
-                  </div>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-[#132635] mb-3">{process.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{process.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Infographic Visual */}
-          <div className="mt-16 relative h-[300px] bg-gradient-to-r from-[#132635]/5 to-[#f19e1f]/5 rounded-2xl overflow-hidden flex items-center justify-center">
-            <div className="text-center px-6">
-              <div className="text-6xl font-bold text-[#132635] mb-2">40%</div>
-              <div className="text-xl text-gray-700 font-medium">Reduction in Carbon Emissions</div>
-              <div className="text-gray-600 mt-2">Through our sustainable manufacturing practices</div>
+      {/* Mission Statement */}
+      <section className="py-16 md:py-24">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold text-[#132635] mb-6">Packaging with Purpose</h2>
+              <p className="text-gray-600 mb-4">
+                At MS Paper Products, sustainability isn't just a buzzword—it's at the core of everything we do. We
+                believe that beautiful, functional packaging shouldn't come at the cost of our planet.
+              </p>
+              <p className="text-gray-600 mb-4">
+                Every paper bag we produce is designed with the environment in mind, from the raw materials we source to
+                our manufacturing processes and the final product that reaches your hands.
+              </p>
+              <p className="text-gray-600">
+                By choosing MS Paper Products, you're making a conscious choice to reduce plastic waste and support
+                sustainable business practices.
+              </p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Certifications & Compliance */}
-      <section className="py-24 px-6 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-serif font-bold text-[#132635] mb-4">Certifications & Compliance</h2>
-            <p className="text-gray-600 text-lg">Meeting international standards for quality and sustainability</p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {certifications.map((cert, index) => (
-              <div
-                key={index}
-                className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 text-center"
-              >
-                <div className="w-20 h-20 bg-gradient-to-br from-[#132635] to-[#1a3645] rounded-full flex items-center justify-center mx-auto mb-6">
-                  <cert.icon className="w-10 h-10 text-[#f19e1f]" />
-                </div>
-                <h3 className="text-xl font-semibold text-[#132635] mb-3">{cert.title}</h3>
-                <p className="text-gray-600 mb-4 leading-relaxed">{cert.description}</p>
-                <div
-                  className={`inline-block px-4 py-2 rounded-full text-sm font-medium ${
-                    cert.status === "Certified"
-                      ? "bg-green-100 text-green-700"
-                      : cert.status === "Compliant"
-                        ? "bg-blue-100 text-blue-700"
-                        : "bg-yellow-100 text-yellow-700"
-                  }`}
-                >
-                  {cert.status}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Sustainable */}
-      <section className="py-24 px-6 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl">
-              <img
-                src="/sustainable-packaging-nature.jpg"
-                alt="Sustainable packaging"
-                className="object-cover w-full h-full"
+            <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-xl">
+              <Image
+                src="/sustainability-eco-friendly.jpg"
+                alt="Eco-friendly paper bags"
+                fill
+                className="object-cover"
               />
             </div>
-            <div>
-              <h2 className="text-3xl font-serif font-bold text-[#132635] mb-6">Why Choose Sustainable Packaging?</h2>
-              <div className="space-y-4 text-lg text-gray-700 leading-relaxed">
-                <p>
-                  Traditional plastic bags take hundreds of years to decompose, polluting our oceans and harming
-                  wildlife. Our paper bags offer a sustainable alternative that doesn't compromise on quality or
-                  aesthetics.
-                </p>
-                <p>
-                  By choosing MS Paper Products, you're not just getting premium packaging—you're making a statement
-                  about your brand's values and commitment to environmental stewardship.
-                </p>
-                <p>Join us in creating a cleaner, greener future, one paper bag at a time.</p>
-              </div>
+          </div>
+        </div>
+      </section>
 
-              {/* Stats */}
-              <div className="grid grid-cols-2 gap-6 mt-8">
-                <div className="text-center p-6 bg-gradient-to-br from-[#132635]/5 to-transparent rounded-xl">
-                  <div className="text-3xl font-bold text-[#132635]">100%</div>
-                  <div className="text-sm text-gray-600 mt-1">Biodegradable</div>
-                </div>
-                <div className="text-center p-6 bg-gradient-to-br from-[#f19e1f]/5 to-transparent rounded-xl">
-                  <div className="text-3xl font-bold text-[#132635]">0%</div>
-                  <div className="text-sm text-gray-600 mt-1">Plastic Content</div>
-                </div>
-              </div>
+      {/* Initiatives Grid */}
+      <section className="py-16 md:py-24 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#132635] text-center mb-12">Our Green Initiatives</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {initiatives.map((initiative, index) => (
+              <Card key={index} className="border-none shadow-md hover:shadow-lg transition-shadow">
+                <CardContent className="p-6">
+                  <div className="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mb-4">
+                    <initiative.icon className="w-7 h-7 text-green-600" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-[#132635] mb-2">{initiative.title}</h3>
+                  <p className="text-gray-600 text-sm">{initiative.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Impact Stats */}
+      <section className="py-16 md:py-24 bg-green-700 text-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Our Environmental Impact</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div>
+              <div className="text-4xl md:text-5xl font-bold mb-2">50K+</div>
+              <p className="text-green-100">Trees Saved Annually</p>
+            </div>
+            <div>
+              <div className="text-4xl md:text-5xl font-bold mb-2">100%</div>
+              <p className="text-green-100">Recyclable Products</p>
+            </div>
+            <div>
+              <div className="text-4xl md:text-5xl font-bold mb-2">0</div>
+              <p className="text-green-100">Plastic in Our Bags</p>
+            </div>
+            <div>
+              <div className="text-4xl md:text-5xl font-bold mb-2">75%</div>
+              <p className="text-green-100">Waste Reduction</p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 md:py-24">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#132635] mb-6">Join Us in Making a Difference</h2>
+          <p className="text-gray-600 text-lg mb-8 max-w-2xl mx-auto">
+            Switch to sustainable packaging and show your customers that your brand cares about the environment.
+          </p>
+          <Button asChild size="lg" className="bg-[#f19e1f] hover:bg-[#f19e1f]/90 text-white">
+            <Link href="/contact">Get Eco-Friendly Bags</Link>
+          </Button>
         </div>
       </section>
     </main>

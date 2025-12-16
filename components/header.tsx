@@ -1,94 +1,103 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { Menu, X } from "lucide-react"
+import Image from "next/image"
+import { Menu, Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 
-const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/products", label: "Products" },
-  { href: "/services", label: "Services" },
-  { href: "/sustainability", label: "Sustainability" },
-  { href: "/contact", label: "Contact" },
+const navigation = [
+  { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
+  { name: "Products", href: "/products" },
+  { name: "Services", href: "/services" },
+  { name: "Sustainability", href: "/sustainability" },
+  { name: "Contact", href: "/contact" },
 ]
 
-export function Header() {
+export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
-  const pathname = usePathname()
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20)
-    }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
 
   return (
-    <header
-      className={`sticky top-0 z-50 bg-[#132635] backdrop-blur-sm border-b border-[#132635]/20 transition-all duration-300 ${
-        isScrolled ? "shadow-lg" : ""
-      }`}
-    >
-      <nav className="max-w-7xl mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-3">
-            <img src="/ms-logo.png" alt="MS Paper Products" className="h-12 w-auto sm:h-16" />
-          </Link>
+    <header className="sticky top-0 z-50 w-full border-b bg-[#132635] shadow-sm">
+      <div className="container mx-auto flex h-16 items-center justify-between px-4 md:h-20">
+        {/* Logo */}
+        <Link href="/" className="flex items-center">
+          <Image
+            src="/ms-logo-horizontal.png"
+            alt="MS Paper Products"
+            width={200}
+            height={56}
+            className="h-10 w-auto sm:h-12 md:h-14"
+            priority
+          />
+        </Link>
 
-          <div className="hidden lg:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`text-white hover:text-[#f19e1f] font-medium transition-colors relative ${
-                  pathname === link.href ? "text-[#f19e1f]" : ""
-                }`}
-              >
-                {link.label}
-                {pathname === link.href && <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#f19e1f]" />}
-              </Link>
-            ))}
-            <Button asChild className="bg-[#f19e1f] hover:bg-[#d88a1a] text-white transition-transform hover:scale-105">
-              <Link href="/contact">Get Quote</Link>
+        {/* Desktop Navigation */}
+        <nav className="hidden lg:flex lg:items-center lg:gap-6">
+          {navigation.map((item) => (
+            <Link
+              key={item.name}
+              href={item.href}
+              className="text-sm font-medium text-white transition-colors hover:text-[#f19e1f]"
+            >
+              {item.name}
+            </Link>
+          ))}
+        </nav>
+
+        {/* CTA Button & Mobile Menu */}
+        <div className="flex items-center gap-4">
+          <a href="tel:+918143330028" className="hidden md:flex">
+            <Button className="bg-[#f19e1f] text-[#132635] hover:bg-[#f19e1f]/90">
+              <Phone className="mr-2 h-4 w-4" />
+              +91 81433 30028
             </Button>
-          </div>
+          </a>
 
-          <button onClick={() => setIsOpen(!isOpen)} className="lg:hidden text-white" aria-label="Toggle menu">
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          {/* Mobile Menu */}
+          <Sheet open={isOpen} onOpenChange={setIsOpen}>
+            <SheetTrigger asChild className="lg:hidden">
+              <Button variant="ghost" size="icon" className="text-white">
+                <Menu className="h-6 w-6" />
+                <span className="sr-only">Toggle menu</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-[300px] bg-[#132635]">
+              <div className="flex flex-col gap-6 pt-6">
+                <Link href="/" onClick={() => setIsOpen(false)}>
+                  <Image
+                    src="/ms-logo-horizontal.png"
+                    alt="MS Paper Products"
+                    width={150}
+                    height={42}
+                    className="h-10 w-auto"
+                  />
+                </Link>
+                <nav className="flex flex-col gap-4">
+                  {navigation.map((item) => (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      onClick={() => setIsOpen(false)}
+                      className="text-lg font-medium text-white transition-colors hover:text-[#f19e1f]"
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </nav>
+                <a href="tel:+918143330028">
+                  <Button className="w-full bg-[#f19e1f] text-[#132635] hover:bg-[#f19e1f]/90">
+                    <Phone className="mr-2 h-4 w-4" />
+                    +91 81433 30028
+                  </Button>
+                </a>
+              </div>
+            </SheetContent>
+          </Sheet>
         </div>
-
-        <div
-          className={`lg:hidden overflow-hidden transition-all duration-300 ${
-            isOpen ? "max-h-96 pt-4 pb-2" : "max-h-0"
-          }`}
-        >
-          <div className="flex flex-col gap-4">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setIsOpen(false)}
-                className={`text-white hover:text-[#f19e1f] font-medium py-2 transition-colors ${
-                  pathname === link.href ? "text-[#f19e1f]" : ""
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
-            <Button asChild className="bg-[#f19e1f] hover:bg-[#d88a1a] text-white">
-              <Link href="/contact" onClick={() => setIsOpen(false)}>
-                Get Quote
-              </Link>
-            </Button>
-          </div>
-        </div>
-      </nav>
+      </div>
     </header>
   )
 }
