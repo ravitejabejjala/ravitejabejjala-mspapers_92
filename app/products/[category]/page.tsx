@@ -3,7 +3,7 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Check, ArrowLeft, Package, Phone, ArrowRight } from "lucide-react"
+import { Check, ArrowLeft, Phone, ArrowRight } from "lucide-react"
 import { getCategoryBySlug, categories, mainCategories } from "@/lib/products-data"
 import type { Metadata } from "next"
 import Script from "next/script"
@@ -152,10 +152,13 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
                   key={product.id}
                   className="group overflow-hidden border-none shadow-lg transition-all hover:-translate-y-1 hover:shadow-xl"
                 >
-                  <div className="relative h-56 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
-                    <div className="flex h-full items-center justify-center">
-                      <Package className="h-20 w-20 text-gray-300" />
-                    </div>
+                  <div className="relative h-56 overflow-hidden bg-gray-100">
+                    <Image
+                      src={product.image || "/placeholder.svg"}
+                      alt={product.name}
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
                   </div>
                   <CardContent className="p-6">
                     <h3 className="mb-2 text-xl font-bold text-[#132635]">{product.name}</h3>
