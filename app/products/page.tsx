@@ -1,160 +1,255 @@
+import type React from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Check, ArrowRight } from "lucide-react"
-import { categories } from "@/lib/products-data"
+import { Check, ArrowRight, ShoppingBag, Gift, Package, Folder, Calendar, Leaf } from "lucide-react"
+import { mainCategories } from "@/lib/products-data"
+import Script from "next/script"
 
 export const metadata = {
-  title: "Products | MS Paper Products - Premium Paper Bags Collection",
+  title: "Products | MS Paper Products - Premium Paper Bags, Boxes, Folders & More",
   description:
-    "Explore our wide range of premium paper bags including shopping bags, gift bags, food packaging, and custom printed bags for all your business needs.",
+    "Explore our wide range of premium paper bags, gift packaging, boxes, cartons, file folders, calendars, and eco-friendly solutions. Quality paper products manufacturer in Hyderabad.",
+  keywords: "paper bags, gift boxes, carton boxes, file folders, calendars, diaries, eco-friendly packaging, Hyderabad",
+  openGraph: {
+    title: "Products | MS Paper Products - Premium Paper Bags & Packaging",
+    description:
+      "Explore our wide range of premium paper bags, gift packaging, boxes, folders, calendars, and eco-friendly solutions.",
+    type: "website",
+  },
 }
 
 const featuredProducts = [
   {
-    name: "Luxury Shopping Bags",
-    description: "Premium paper bags with gold/silver foiling, perfect for retail and fashion brands.",
-    image: "/luxury-printed-paper-bag-with-gold-foiling-navy-bl.jpg",
-    features: ["Gold/Silver Foiling", "Twisted Rope Handles", "Custom Sizes", "Premium Finish"],
+    name: "All Paper Bags",
+    description: "Complete range of premium paper bags for retail, corporate, and everyday use.",
+    image: "/categories/all-paper-bags.jpg",
+    features: ["Multiple Styles", "Custom Printing", "All Sizes Available", "Premium Quality"],
   },
   {
-    name: "Kraft Paper Bags",
-    description: "Eco-friendly natural kraft bags with sturdy handles for everyday use.",
-    image: "/natural-kraft-paper-bags-with-twisted-handles-eco-.jpg",
-    features: ["100% Recyclable", "Multiple Sizes", "Strong & Durable", "Natural Look"],
+    name: "Carton Boxes",
+    description: "Durable and customizable carton boxes for packaging, shipping, and storage needs.",
+    image: "/categories/carton-boxes.jpg",
+    features: ["Heavy Duty", "Custom Sizes", "Printable Surface", "Eco-Friendly"],
   },
   {
-    name: "Gift & Wedding Bags",
-    description: "Elegant bags designed for special occasions and premium gifting.",
-    image: "/elegant-wedding-gift-bags-white-and-gold-luxury.jpg",
-    features: ["Elegant Designs", "Ribbon Handles", "Custom Printing", "Premium Quality"],
+    name: "Files & Folders",
+    description: "Professional file folders, document organizers, and office stationery solutions.",
+    image: "/categories/files-folders.jpg",
+    features: ["Multiple Styles", "Custom Branding", "Durable Material", "Professional Look"],
   },
   {
-    name: "Food Grade Bags",
-    description: "Safe and hygienic paper bags for bakeries, restaurants, and food businesses.",
-    image: "/food-grade-paper-bags-bakery-restaurant-clean.jpg",
-    features: ["Food Safe", "Grease Resistant", "Various Sizes", "Brand Printing"],
+    name: "Calendars & Diaries",
+    description: "Premium quality calendars and diaries for corporate gifting and personal use.",
+    image: "/categories/calendars-diaries.jpg",
+    features: ["Wall & Desk Options", "Custom Designs", "Premium Paper", "Corporate Branding"],
   },
 ]
 
+const iconMap: { [key: string]: React.ReactNode } = {
+  ShoppingBag: <ShoppingBag className="h-8 w-8 text-[#f19e1f]" />,
+  Gift: <Gift className="h-8 w-8 text-[#f19e1f]" />,
+  Package: <Package className="h-8 w-8 text-[#f19e1f]" />,
+  Folder: <Folder className="h-8 w-8 text-[#f19e1f]" />,
+  Calendar: <Calendar className="h-8 w-8 text-[#f19e1f]" />,
+  Leaf: <Leaf className="h-8 w-8 text-[#f19e1f]" />,
+}
+
 export default function ProductsPage() {
   return (
-    <main className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative bg-[#132635] py-20 text-white md:py-28">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl">
-            <h1 className="mb-6 text-4xl font-bold md:text-5xl">Our Products</h1>
-            <p className="text-lg text-gray-300 md:text-xl">
-              Discover our extensive range of premium paper bags designed to meet every business need.
-            </p>
-          </div>
-        </div>
-      </section>
+    <>
+      {/* Google Ads Conversion Tracking for Products Page */}
+      <Script id="gtag-products-page" strategy="afterInteractive">
+        {`
+          gtag('event', 'page_view', {
+            'page_title': 'Products',
+            'page_location': window.location.href,
+            'page_path': '/products'
+          });
+        `}
+      </Script>
 
-      {/* Featured Products */}
-      <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4">
-          <h2 className="mb-12 text-center text-3xl font-bold text-[#132635] md:text-4xl">Featured Products</h2>
-          <div className="grid gap-8 md:grid-cols-2">
-            {featuredProducts.map((product, index) => (
-              <Card
-                key={index}
-                className="group overflow-hidden border-none shadow-lg transition-shadow hover:shadow-xl"
-              >
-                <div className="relative h-64 overflow-hidden">
-                  <Image
-                    src={product.image || "/placeholder.svg"}
-                    alt={product.name}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                </div>
-                <CardContent className="p-6">
-                  <h3 className="mb-2 text-xl font-bold text-[#132635]">{product.name}</h3>
-                  <p className="mb-4 text-gray-600">{product.description}</p>
-                  <ul className="grid grid-cols-2 gap-2">
-                    {product.features.map((feature, i) => (
-                      <li key={i} className="flex items-center gap-2 text-sm text-gray-600">
-                        <Check className="h-4 w-4 text-[#f19e1f]" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            ))}
+      <main className="min-h-screen">
+        {/* Hero Section */}
+        <section className="relative bg-[#132635] py-20 text-white md:py-28">
+          <div className="container mx-auto px-4">
+            <div className="max-w-3xl">
+              <h1 className="mb-6 text-4xl font-bold md:text-5xl">Our Products</h1>
+              <p className="text-lg text-gray-300 md:text-xl">
+                Discover our extensive range of premium paper products designed to meet every business need - from paper
+                bags and gift packaging to boxes, folders, and calendars.
+              </p>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Product Categories - Made categories clickable with links to individual category pages */}
-      <section className="bg-gray-50 py-16 md:py-24">
-        <div className="container mx-auto px-4">
-          <h2 className="mb-12 text-center text-3xl font-bold text-[#132635] md:text-4xl">Product Categories</h2>
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-            {categories.map((category) => (
-              <Link key={category.slug} href={`/products/${category.slug}`}>
-                <Card className="group h-full cursor-pointer border-none shadow-md transition-all hover:-translate-y-1 hover:border-[#f19e1f] hover:shadow-lg">
-                  <CardContent className="flex h-full flex-col items-center justify-center p-6 text-center">
-                    <p className="font-medium text-[#132635] group-hover:text-[#f19e1f]">{category.name}</p>
-                    <ArrowRight className="mt-2 h-4 w-4 text-[#f19e1f] opacity-0 transition-opacity group-hover:opacity-100" />
+        {/* Featured Products */}
+        <section className="py-16 md:py-24">
+          <div className="container mx-auto px-4">
+            <h2 className="mb-12 text-center text-3xl font-bold text-[#132635] md:text-4xl">Featured Products</h2>
+            <div className="grid gap-8 md:grid-cols-2">
+              {featuredProducts.map((product, index) => (
+                <Card
+                  key={index}
+                  className="group overflow-hidden border-none shadow-lg transition-shadow hover:shadow-xl"
+                >
+                  <div className="relative h-64 overflow-hidden">
+                    <Image
+                      src={product.image || "/placeholder.svg"}
+                      alt={product.name}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                  <CardContent className="p-6">
+                    <h3 className="mb-2 text-xl font-bold text-[#132635]">{product.name}</h3>
+                    <p className="mb-4 text-gray-600">{product.description}</p>
+                    <ul className="grid grid-cols-2 gap-2">
+                      {product.features.map((feature, i) => (
+                        <li key={i} className="flex items-center gap-2 text-sm text-gray-600">
+                          <Check className="h-4 w-4 text-[#f19e1f]" />
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
                   </CardContent>
                 </Card>
-              </Link>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Customization Section */}
-      <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4">
-          <div className="grid items-center gap-12 md:grid-cols-2">
-            <div>
-              <h2 className="mb-6 text-3xl font-bold text-[#132635] md:text-4xl">Custom Printing & Branding</h2>
-              <p className="mb-6 text-gray-600">
-                Make your brand stand out with our custom printing services. We offer a wide range of printing
-                techniques and finishing options to create the perfect packaging for your business.
-              </p>
-              <ul className="mb-8 space-y-3">
-                {[
-                  "Full-color offset printing",
-                  "Gold & silver foil stamping",
-                  "Embossing & debossing",
-                  "Spot UV coating",
-                  "Custom die-cut handles",
-                ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-3">
-                    <Check className="h-5 w-5 text-[#f19e1f]" />
-                    <span className="text-gray-600">{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <Button asChild className="bg-[#f19e1f] text-white hover:bg-[#f19e1f]/90">
-                <Link href="/contact">Request a Quote</Link>
+        <section className="bg-gray-50 py-16 md:py-24">
+          <div className="container mx-auto px-4">
+            <h2 className="mb-4 text-center text-3xl font-bold text-[#132635] md:text-4xl">Product Categories</h2>
+            <p className="mb-12 text-center text-gray-600 max-w-2xl mx-auto">
+              Browse our complete range of paper products organized by category. Click on any subcategory to explore
+              products.
+            </p>
+
+            <div className="space-y-12">
+              {mainCategories.map((mainCategory) => (
+                <div key={mainCategory.slug} className="bg-white rounded-2xl shadow-lg p-6 md:p-8">
+                  <div className="flex items-center gap-4 mb-6">
+                    {iconMap[mainCategory.icon]}
+                    <div>
+                      <h3 className="text-2xl font-bold text-[#132635]">{mainCategory.name}</h3>
+                      <p className="text-gray-600">{mainCategory.description}</p>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4">
+                    {mainCategory.subcategories.map((subcategory) => (
+                      <Link key={subcategory.slug} href={`/products/${subcategory.slug}`}>
+                        <Card className="group h-full cursor-pointer border border-gray-200 shadow-sm transition-all hover:-translate-y-1 hover:border-[#f19e1f] hover:shadow-md">
+                          <CardContent className="flex h-full flex-col items-center justify-center p-4 text-center min-h-[100px]">
+                            <p className="font-medium text-[#132635] group-hover:text-[#f19e1f] text-sm md:text-base">
+                              {subcategory.name}
+                            </p>
+                            <ArrowRight className="mt-2 h-4 w-4 text-[#f19e1f] opacity-0 transition-opacity group-hover:opacity-100" />
+                          </CardContent>
+                        </Card>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Customization Section */}
+        <section className="py-16 md:py-24">
+          <div className="container mx-auto px-4">
+            <div className="grid items-center gap-12 md:grid-cols-2">
+              <div>
+                <h2 className="mb-6 text-3xl font-bold text-[#132635] md:text-4xl">Custom Printing & Branding</h2>
+                <p className="mb-6 text-gray-600">
+                  Make your brand stand out with our custom printing services. We offer a wide range of printing
+                  techniques and finishing options to create the perfect packaging for your business.
+                </p>
+                <ul className="mb-8 space-y-3">
+                  {[
+                    "Full-color offset printing",
+                    "Gold & silver foil stamping",
+                    "Embossing & debossing",
+                    "Spot UV coating",
+                    "Custom die-cut handles",
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-center gap-3">
+                      <Check className="h-5 w-5 text-[#f19e1f]" />
+                      <span className="text-gray-600">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Button asChild className="bg-[#f19e1f] text-white hover:bg-[#f19e1f]/90">
+                  <Link href="/contact">Request a Quote</Link>
+                </Button>
+              </div>
+              <div className="relative h-[400px] overflow-hidden rounded-2xl shadow-xl">
+                <Image
+                  src="/custom-printing-showcase.jpg"
+                  alt="Custom Printing Services"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Supply Capabilities */}
+        <section className="bg-[#132635] py-16 md:py-24">
+          <div className="container mx-auto px-4">
+            <h2 className="mb-12 text-center text-3xl font-bold text-white md:text-4xl">Supply & Order Capabilities</h2>
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {[
+                { title: "Bulk Manufacturing", desc: "Large-scale production facilities for high-volume orders" },
+                { title: "Wholesale Supply", desc: "Competitive wholesale pricing for distributors and retailers" },
+                { title: "Custom Size & Design", desc: "Tailored solutions to meet your specific requirements" },
+                {
+                  title: "B2B & Institutional Supply",
+                  desc: "Dedicated support for business and institutional orders",
+                },
+                { title: "Corporate & Retail Orders", desc: "Flexible ordering for both corporate and retail clients" },
+                { title: "Pan-India Delivery", desc: "Reliable delivery across India and international shipping" },
+              ].map((item, i) => (
+                <div key={i} className="rounded-xl bg-white/10 p-6 backdrop-blur">
+                  <h3 className="mb-2 text-lg font-semibold text-[#f19e1f]">{item.title}</h3>
+                  <p className="text-gray-300">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="py-16 md:py-24">
+          <div className="container mx-auto px-4 text-center">
+            <h2 className="mb-6 text-3xl font-bold text-[#132635] md:text-4xl">Need a Custom Solution?</h2>
+            <p className="mx-auto mb-8 max-w-2xl text-lg text-gray-600">
+              We can create bespoke paper products tailored to your exact specifications. Contact us to discuss your
+              requirements.
+            </p>
+            <div className="flex flex-col justify-center gap-4 sm:flex-row">
+              <Button asChild size="lg" className="bg-[#f19e1f] text-white hover:bg-[#f19e1f]/90">
+                <Link href="/contact">Contact Us Today</Link>
+              </Button>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="border-[#132635] text-[#132635] hover:bg-[#132635] hover:text-white bg-transparent"
+              >
+                <a href="https://wa.me/918143330028" target="_blank" rel="noopener noreferrer">
+                  WhatsApp Us
+                </a>
               </Button>
             </div>
-            <div className="relative h-[400px] overflow-hidden rounded-2xl shadow-xl">
-              <Image src="/custom-printing-showcase.jpg" alt="Custom Printing Services" fill className="object-cover" />
-            </div>
           </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="bg-[#132635] py-16 md:py-24">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="mb-6 text-3xl font-bold text-white md:text-4xl">Need a Custom Solution?</h2>
-          <p className="mx-auto mb-8 max-w-2xl text-lg text-gray-300">
-            We can create bespoke paper bags tailored to your exact specifications.
-          </p>
-          <Button asChild size="lg" className="bg-[#f19e1f] text-white hover:bg-[#f19e1f]/90">
-            <Link href="/contact">Contact Us Today</Link>
-          </Button>
-        </div>
-      </section>
-    </main>
+        </section>
+      </main>
+    </>
   )
 }

@@ -30,24 +30,28 @@ const features = [
 
 const productCategories = [
   {
-    name: "Luxury Printed Bags",
-    description: "Premium bags with gold foiling and custom branding",
-    image: "/luxury-printed-paper-bag-with-gold-foiling-navy-bl.jpg",
+    name: "Paper Bags",
+    description: "Premium quality paper bags for retail, gifting, and packaging needs",
+    image: "/categories/all-paper-bags.jpg",
+    href: "/products/paper-bags",
   },
   {
-    name: "Kraft Paper Bags",
-    description: "Eco-friendly natural kraft bags with twisted handles",
-    image: "/natural-kraft-paper-bags-with-twisted-handles-eco-.jpg",
+    name: "Boxes & Cartons",
+    description: "Durable carton boxes for secure packaging and shipping solutions",
+    image: "/categories/carton-boxes.jpg",
+    href: "/products/boxes-cartons",
   },
   {
-    name: "Wedding Gift Bags",
-    description: "Elegant bags for special occasions and celebrations",
-    image: "/elegant-wedding-gift-bags-white-and-gold-luxury.jpg",
+    name: "Files & Folders",
+    description: "Professional document organizers for corporate and office use",
+    image: "/categories/files-folders.jpg",
+    href: "/products/files-folders",
   },
   {
-    name: "Food Packaging",
-    description: "Food-grade bags for bakeries and restaurants",
-    image: "/food-grade-paper-bags-bakery-restaurant-clean.jpg",
+    name: "Gold & Silver Foiling",
+    description: "Luxurious metallic finishing for premium branding and packaging",
+    image: "/services/gold-silver-foiling.jpg",
+    href: "/services",
   },
 ]
 
@@ -93,23 +97,22 @@ export default function Home() {
           </div>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {productCategories.map((category) => (
-              <Card
-                key={category.name}
-                className="group overflow-hidden border-none transition-all hover:-translate-y-1 hover:shadow-xl"
-              >
-                <div className="relative h-48 overflow-hidden">
-                  <Image
-                    src={category.image || "/placeholder.svg"}
-                    alt={category.name}
-                    fill
-                    className="object-cover transition-transform duration-300 group-hover:scale-110"
-                  />
-                </div>
-                <CardContent className="p-5">
-                  <h3 className="mb-2 text-lg font-semibold text-[#132635]">{category.name}</h3>
-                  <p className="text-sm text-gray-600">{category.description}</p>
-                </CardContent>
-              </Card>
+              <Link key={category.name} href={category.href}>
+                <Card className="group overflow-hidden border-none transition-all hover:-translate-y-1 hover:shadow-xl h-full">
+                  <div className="relative h-48 overflow-hidden">
+                    <Image
+                      src={category.image || "/placeholder.svg"}
+                      alt={category.name}
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-110"
+                    />
+                  </div>
+                  <CardContent className="p-5">
+                    <h3 className="mb-2 text-lg font-semibold text-[#132635]">{category.name}</h3>
+                    <p className="text-sm text-gray-600">{category.description}</p>
+                  </CardContent>
+                </Card>
+              </Link>
             ))}
           </div>
           <div className="mt-10 text-center">

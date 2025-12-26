@@ -10,48 +10,48 @@ import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/com
 const heroSlides = [
   {
     id: 1,
-    title: "Premium Paper Bags",
-    subtitle: "for Your Brand",
+    title: "Premium",
+    subtitle: "Paper Bags",
     description:
-      "Elevate your packaging with our sustainable, high-quality paper bags. Custom designs, eco-friendly materials, and exceptional craftsmanship.",
-    image: "/hero/hero-premium-bags.jpg",
-    cta: { text: "Explore Products", href: "/products" },
+      "Elevate your brand with our sustainable, high-quality paper bags. Custom designs, eco-friendly materials, and exceptional craftsmanship for retail, boutique, and corporate needs.",
+    image: "/hero/hero-paper-bags.jpg",
+    cta: { text: "Explore Paper Bags", href: "/products/paper-bags" },
   },
   {
     id: 2,
-    title: "Luxury Printed",
-    subtitle: "Paper Bags",
+    title: "Durable",
+    subtitle: "Boxes & Cartons",
     description:
-      "Make a lasting impression with our premium printed paper bags featuring gold foiling, embossing, and custom branding options.",
-    image: "/hero/hero-luxury-printed.jpg",
-    cta: { text: "View Collection", href: "/products" },
+      "Protect and present your products with our premium carton boxes. From corrugated shipping boxes to elegant gift packaging, we deliver strength and style.",
+    image: "/hero/hero-boxes-cartons.jpg",
+    cta: { text: "View Boxes", href: "/products/boxes-cartons" },
   },
   {
     id: 3,
-    title: "Eco-Friendly",
-    subtitle: "Packaging Solutions",
+    title: "Professional",
+    subtitle: "Files & Folders",
     description:
-      "Join the sustainability movement with our 100% recyclable and biodegradable paper bags. Good for your brand, great for the planet.",
-    image: "/hero/hero-eco-friendly.jpg",
-    cta: { text: "Learn More", href: "/sustainability" },
+      "Organize in style with our premium files and folders. Custom printed presentation folders, document organizers, and corporate stationery for your business needs.",
+    image: "/hero/hero-files-folders.jpg",
+    cta: { text: "Browse Files", href: "/products/files-folders" },
   },
   {
     id: 4,
-    title: "Custom Design",
-    subtitle: "& Printing",
+    title: "Premium",
+    subtitle: "Calendars & Diaries",
     description:
-      "From concept to creation, our expert team brings your vision to life with state-of-the-art printing and finishing techniques.",
-    image: "/hero/hero-custom-design.jpg",
-    cta: { text: "Our Services", href: "/services" },
+      "Make every day count with our beautifully crafted calendars and diaries. Perfect for corporate gifting, brand promotion, and personal organization.",
+    image: "/hero/hero-calendars-diaries.jpg",
+    cta: { text: "Shop Calendars", href: "/products/calendars-diaries" },
   },
   {
     id: 5,
-    title: "Quality",
-    subtitle: "Craftsmanship",
+    title: "Luxurious",
+    subtitle: "Gold & Silver Foiling",
     description:
-      "With decades of experience, we deliver paper bags that meet the highest standards of quality and durability for every industry.",
-    image: "/hero/hero-craftsmanship.jpg",
-    cta: { text: "Contact Us", href: "/contact" },
+      "Add elegance and sophistication to your packaging with our premium gold and silver foiling services. Transform ordinary into extraordinary with metallic finishes.",
+    image: "/hero/hero-gold-silver-foiling.jpg",
+    cta: { text: "Our Services", href: "/services" },
   },
 ]
 
