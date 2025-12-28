@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import Script from "next/script"
+import FloatingCTA from "@/components/floating-cta"
 import "./globals.css"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
@@ -42,32 +43,41 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* LinkedIn Insight Tag for B2B tracking */}
+        <Script id="linkedin-insight" strategy="afterInteractive">
+          {`
+            _linkedin_partner_id = "5559497";
+            window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+            window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+            (function(l) {
+              if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+              window.lintrk.q=[]}
+              var s = document.getElementsByTagName("script")[0];
+              var b = document.createElement("script");
+              b.type = "text/javascript";b.async = true;
+              b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+              s.parentNode.insertBefore(b, s);})(window.lintrk);
+          `}
+        </Script>
+        <noscript>
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            alt=""
+            src="https://px.ads.linkedin.com/collect/?pid=5559497&fmt=gif"
+          />
+        </noscript>
+        {/* End LinkedIn Insight Tag */}
+
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-HKLGQT74VV" strategy="afterInteractive" />
-        <Script id="google-analytics-new" strategy="afterInteractive">
+        <Script id="google-analytics-combined" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'G-HKLGQT74VV');
-          `}
-        </Script>
-
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-2F47PMEFD0" strategy="afterInteractive" />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
             gtag('config', 'G-2F47PMEFD0');
-          `}
-        </Script>
-
-        <Script src="https://www.googletagmanager.com/gtag/js?id=AW-17803736252" strategy="afterInteractive" />
-        <Script id="google-ads" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
             gtag('config', 'AW-17803736252');
           `}
         </Script>
@@ -101,6 +111,7 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
+        <FloatingCTA />
         <Analytics />
       </body>
     </html>

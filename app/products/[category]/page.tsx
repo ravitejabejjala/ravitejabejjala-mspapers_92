@@ -3,23 +3,44 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Check, ArrowLeft, Phone, ArrowRight } from "lucide-react"
-import { getCategoryBySlug, categories, mainCategories } from "@/lib/products-data"
+import { Check, ArrowLeft, Phone, ArrowRight, MessageCircle } from "lucide-react"
+import { getCategoryBySlug, categories, mainCategories, getMainCategoryBySlug } from "@/lib/products-data"
 import type { Metadata } from "next"
 import Script from "next/script"
+import ProductInquiryButton from "@/components/product-inquiry-button"
+import TrustBadges from "@/components/trust-badges"
 
 interface CategoryPageProps {
   params: Promise<{ category: string }>
 }
 
 export async function generateStaticParams() {
-  return categories.map((category) => ({
+  const subcategorySlugs = categories.map((category) => ({
     category: category.slug,
   }))
+  const mainCategorySlugs = mainCategories.map((main) => ({
+    category: main.slug,
+  }))
+  return [...subcategorySlugs, ...mainCategorySlugs]
 }
 
 export async function generateMetadata({ params }: CategoryPageProps): Promise<Metadata> {
   const { category: categorySlug } = await params
+
+  const mainCategory = getMainCategoryBySlug(categorySlug)
+  if (mainCategory) {
+    return {
+      title: `${mainCategory.name} | MS Paper Products Hyderabad`,
+      description: `Explore our ${mainCategory.name.toLowerCase()} collection. ${mainCategory.description}. Premium quality products from MS Paper Products, Hyderabad.`,
+      keywords: `${mainCategory.name.toLowerCase()}, paper products, packaging, Hyderabad`,
+      openGraph: {
+        title: `${mainCategory.name} | MS Paper Products`,
+        description: mainCategory.description,
+        type: "website",
+      },
+    }
+  }
+
   const category = getCategoryBySlug(categorySlug)
 
   if (!category) {
@@ -48,6 +69,143 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
 
 export default async function CategoryPage({ params }: CategoryPageProps) {
   const { category: categorySlug } = await params
+
+  const mainCategory = getMainCategoryBySlug(categorySlug)
+
+  if (mainCategory) {
+    // Render main category page showing all subcategories
+    return (
+      <>
+        <Script id="gtag-main-category-page" strategy="afterInteractive">
+          {`
+            gtag('event', 'page_view', {
+              'page_title': '${mainCategory.name}',
+              'page_location': window.location.href,
+              'page_path': '/products/${categorySlug}'
+            });
+            
+            gtag('event', 'view_item_list', {
+              'item_list_id': '${categorySlug}',
+              'item_list_name': '${mainCategory.name}'
+            });
+            
+            if (typeof fbq !== 'undefined') {
+              fbq('track', 'ViewContent', {
+                content_name: '${mainCategory.name}',
+                content_category: 'Main Category',
+                content_type: 'product_group'
+              });
+            }
+          `}
+        </Script>
+
+        <main className="min-h-screen">
+          {/* Hero Section */}
+          <section className="relative bg-[#132635] py-20 text-white md:py-28">
+            <div className="container mx-auto px-4">
+              <Link
+                href="/products"
+                className="mb-6 inline-flex items-center gap-2 text-sm text-gray-300 transition-colors hover:text-[#f19e1f]"
+              >
+                <ArrowLeft className="h-4 w-4" />
+                Back to Products
+              </Link>
+              <div className="max-w-3xl">
+                <h1 className="mb-6 text-4xl font-bold md:text-5xl">{mainCategory.name}</h1>
+                <p className="text-lg text-gray-300 md:text-xl">{mainCategory.description}</p>
+              </div>
+              <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+                <Button asChild size="lg" className="bg-[#f19e1f] text-white hover:bg-[#f19e1f]/90">
+                  <a href="tel:+918143330028">
+                    <Phone className="mr-2 h-5 w-5" />
+                    Get Bulk Pricing
+                  </a>
+                </Button>
+                <Button asChild size="lg" className="bg-[#25D366] text-white hover:bg-[#25D366]/90">
+                  <a
+                    href={`https://wa.me/918143330028?text=Hi%2C%20I%27m%20interested%20in%20${encodeURIComponent(mainCategory.name)}.%20Please%20share%20details.`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <MessageCircle className="mr-2 h-5 w-5" />
+                    Quick Inquiry
+                  </a>
+                </Button>
+              </div>
+            </div>
+          </section>
+
+          <TrustBadges />
+
+          {/* Subcategories Grid */}
+          <section className="py-16 md:py-24">
+            <div className="container mx-auto px-4">
+              <h2 className="mb-12 text-center text-3xl font-bold text-[#132635] md:text-4xl">
+                Browse {mainCategory.name}
+              </h2>
+              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                {mainCategory.subcategories.map((subcategory) => (
+                  <Link key={subcategory.slug} href={`/products/${subcategory.slug}`}>
+                    <Card className="group h-full overflow-hidden border-none shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer">
+                      <div className="relative h-48 overflow-hidden">
+                        <Image
+                          src={subcategory.image || `/placeholder.svg?height=200&width=400&query=${subcategory.name}`}
+                          alt={subcategory.name}
+                          fill
+                          className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-[#132635]/0 transition-colors duration-300 group-hover:bg-[#132635]/20 flex items-center justify-center">
+                          <div className="bg-[#f19e1f] rounded-full p-3 opacity-0 transform scale-75 transition-all duration-300 group-hover:opacity-100 group-hover:scale-100">
+                            <ArrowRight className="h-5 w-5 text-white" />
+                          </div>
+                        </div>
+                      </div>
+                      <CardContent className="p-6">
+                        <h3 className="mb-2 text-xl font-bold text-[#132635] group-hover:text-[#f19e1f] transition-colors">
+                          {subcategory.name}
+                        </h3>
+                        <p className="text-gray-600 text-sm line-clamp-2">{subcategory.description}</p>
+                        <p className="mt-3 text-[#f19e1f] text-sm font-medium flex items-center gap-1">
+                          View Products <ArrowRight className="h-4 w-4" />
+                        </p>
+                      </CardContent>
+                    </Card>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* CTA Section */}
+          <section className="bg-[#132635] py-16 md:py-24">
+            <div className="container mx-auto px-4 text-center">
+              <h2 className="mb-6 text-3xl font-bold text-white md:text-4xl">Need Custom {mainCategory.name}?</h2>
+              <p className="mx-auto mb-8 max-w-2xl text-lg text-gray-300">
+                Contact us today to discuss your requirements and get a customized quote for your business.
+              </p>
+              <div className="flex flex-col justify-center gap-4 sm:flex-row">
+                <Button asChild size="lg" className="bg-[#f19e1f] text-white hover:bg-[#f19e1f]/90">
+                  <Link href="/contact">Get a Quote</Link>
+                </Button>
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="border-white bg-transparent text-white hover:bg-white hover:text-[#132635]"
+                >
+                  <a href="https://wa.me/918143330028" target="_blank" rel="noopener noreferrer">
+                    WhatsApp Us
+                  </a>
+                </Button>
+              </div>
+            </div>
+          </section>
+        </main>
+      </>
+    )
+  }
+
+  // Original subcategory logic
   const category = getCategoryBySlug(categorySlug)
 
   if (!category) {
@@ -105,6 +263,8 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
           </div>
         </section>
 
+        <TrustBadges />
+
         {/* Category Overview */}
         <section className="py-16 md:py-24">
           <div className="container mx-auto px-4">
@@ -150,18 +310,23 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
               {category.products.map((product) => (
                 <Card
                   key={product.id}
-                  className="group overflow-hidden border-none shadow-lg transition-all hover:-translate-y-1 hover:shadow-xl"
+                  className="group overflow-hidden border-none shadow-lg transition-all hover:-translate-y-2 hover:shadow-2xl"
                 >
                   <div className="relative h-56 overflow-hidden bg-gray-100">
                     <Image
                       src={product.image || "/placeholder.svg"}
                       alt={product.name}
                       fill
-                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      className="object-cover transition-transform duration-500 group-hover:scale-110"
                     />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#132635]/70 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 flex items-end justify-center pb-4">
+                      <span className="text-white text-sm font-medium">Click for Quick Inquiry</span>
+                    </div>
                   </div>
                   <CardContent className="p-6">
-                    <h3 className="mb-2 text-xl font-bold text-[#132635]">{product.name}</h3>
+                    <h3 className="mb-2 text-xl font-bold text-[#132635] group-hover:text-[#f19e1f] transition-colors">
+                      {product.name}
+                    </h3>
                     <p className="mb-4 text-sm text-gray-600">{product.description}</p>
 
                     <div className="mb-4">
@@ -184,12 +349,14 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
                     )}
 
                     {product.minOrder && (
-                      <div className="rounded-lg bg-[#f19e1f]/10 p-3">
+                      <div className="rounded-lg bg-[#f19e1f]/10 p-3 mb-3">
                         <p className="text-xs text-[#132635]">
                           <span className="font-semibold">Min. Order:</span> {product.minOrder}
                         </p>
                       </div>
                     )}
+
+                    <ProductInquiryButton productName={product.name} categoryName={category.name} />
                   </CardContent>
                 </Card>
               ))}
@@ -207,10 +374,9 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
               <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
                 {relatedCategories.map((cat) => (
                   <Link key={cat.slug} href={`/products/${cat.slug}`}>
-                    <Card className="group h-full cursor-pointer border-none shadow-md transition-all hover:-translate-y-1 hover:shadow-lg">
-                      <CardContent className="flex h-full flex-col items-center justify-center p-6 text-center min-h-[120px]">
-                        <p className="font-medium text-[#132635] group-hover:text-[#f19e1f]">{cat.name}</p>
-                        <ArrowRight className="mt-2 h-4 w-4 text-[#f19e1f] opacity-0 transition-opacity group-hover:opacity-100" />
+                    <Card className="group h-full cursor-pointer border-none shadow-md transition-all hover:-translate-y-1 hover:shadow-lg hover:border-[#f19e1f]">
+                      <CardContent className="flex h-full flex-col items-center justify-center p-4 text-center min-h-[100px]">
+                        <p className="font-medium text-[#132635] group-hover:text-[#f19e1f] text-sm">{cat.name}</p>
                       </CardContent>
                     </Card>
                   </Link>
@@ -226,7 +392,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
             <h2 className="mb-12 text-center text-3xl font-bold text-[#132635]">Explore Other Product Categories</h2>
             <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">
               {mainCategories.map((main) => (
-                <Link key={main.slug} href="/products" className="block">
+                <Link key={main.slug} href={`/products/${main.slug}`} className="block">
                   <Card className="group h-full cursor-pointer border-none shadow-md transition-all hover:-translate-y-1 hover:shadow-lg hover:border-[#f19e1f]">
                     <CardContent className="flex h-full flex-col items-center justify-center p-4 text-center min-h-[100px]">
                       <p className="font-medium text-[#132635] group-hover:text-[#f19e1f] text-sm">{main.name}</p>

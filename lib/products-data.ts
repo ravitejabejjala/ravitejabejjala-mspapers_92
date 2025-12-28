@@ -257,7 +257,7 @@ export const mainCategories: MainCategory[] = [
         name: "Corporate Paper Bags",
         description: "Professional paper bags for corporate gifting and events",
         longDescription:
-          "Make a professional impression with our corporate paper bags. Designed for business events, conferences, client gifting, and corporate branding, these bags feature premium materials and elegant finishes. Customize with your company logo, colors, and messaging to reinforce your brand identity.",
+          "Make a professional impression with our corporate paper bags. Designed for business events, conferences, clients gifting, and corporate branding, these bags feature premium materials and elegant finishes. Customize with your company logo, colors, and messaging to reinforce your brand identity.",
         image: "/categories/corporate-paper-bags.jpg",
         icon: "Briefcase",
         seoTitle: "Corporate Paper Bags | Business Gift Bags | MS Paper Products",
@@ -1233,6 +1233,10 @@ export function getAllCategories(): Category[] {
 
 export function getMainCategories(): MainCategory[] {
   return mainCategories
+}
+
+export function getMainCategoryBySlug(slug: string) {
+  return mainCategories.find((category) => category.slug === slug)
 }
 
 export function getCategoriesByMainCategory(mainSlug: string): Category[] {
