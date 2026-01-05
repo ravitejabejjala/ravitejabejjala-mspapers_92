@@ -101,8 +101,20 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
 
         <main className="min-h-screen">
           {/* Hero Section */}
-          <section className="relative bg-[#132635] py-20 text-white md:py-28">
-            <div className="container mx-auto px-4">
+          <section className="relative bg-[#132635] py-20 text-white md:py-28 overflow-hidden">
+            {mainCategory.image && (
+              <div className="absolute inset-0 z-0">
+                <Image
+                  src={mainCategory.image || "/placeholder.svg"}
+                  alt={mainCategory.name}
+                  fill
+                  className="object-cover opacity-30"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#132635] via-[#132635]/90 to-[#132635]/70" />
+              </div>
+            )}
+            <div className="container mx-auto px-4 relative z-10">
               <Link
                 href="/products"
                 className="mb-6 inline-flex items-center gap-2 text-sm text-gray-300 transition-colors hover:text-[#f19e1f]"
@@ -246,8 +258,20 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
 
       <main className="min-h-screen">
         {/* Hero Section */}
-        <section className="relative bg-[#132635] py-20 text-white md:py-28">
-          <div className="container mx-auto px-4">
+        <section className="relative bg-[#132635] py-20 text-white md:py-28 overflow-hidden">
+          {parentCategory && (
+            <div className="absolute inset-0 z-0">
+              <Image
+                src={parentCategory.image || "/placeholder.svg"}
+                alt={parentCategory.name}
+                fill
+                className="object-cover opacity-30"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#132635] via-[#132635]/90 to-[#132635]/70" />
+            </div>
+          )}
+          <div className="container mx-auto px-4 relative z-10">
             <Link
               href="/products"
               className="mb-6 inline-flex items-center gap-2 text-sm text-gray-300 transition-colors hover:text-[#f19e1f]"

@@ -26,6 +26,7 @@ export interface MainCategory {
   slug: string
   description: string
   icon: string
+  image?: string
   subcategories: Category[]
 }
 
@@ -333,6 +334,64 @@ export const mainCategories: MainCategory[] = [
           },
         ],
       },
+      {
+        slug: "wine-bottle-bags",
+        name: "Wine & Bottle Bags",
+        description: "Elegant paper bags designed for wine bottles and beverages",
+        longDescription:
+          "Our wine and bottle bags are specially designed to safely carry and present wine bottles, champagne, spirits, and other beverages. Made from sturdy paper with reinforced bottoms, these bags feature elegant designs and secure handles. Perfect for liquor stores, wine shops, restaurants, and corporate gifting.",
+        image: "/categories/wine-bottle-bags.jpg",
+        icon: "Wine",
+        seoTitle: "Wine & Bottle Bags | Wine Packaging | MS Paper Products Hyderabad",
+        seoDescription:
+          "Premium wine and bottle paper bags for wine shops, liquor stores, and gifting. Elegant designs with reinforced construction. Wine bag manufacturer in Hyderabad.",
+        seoKeywords: [
+          "wine bottle bags",
+          "wine paper bags",
+          "bottle bags",
+          "liquor bags",
+          "wine packaging",
+          "champagne bags",
+        ],
+        products: [
+          {
+            id: "wbb-001",
+            name: "Single Wine Bottle Bag",
+            description: "Elegant bag designed for one wine bottle",
+            image: "/products/single-wine-bag.jpg",
+            features: ["Fits standard wine bottles", "Reinforced bottom", "Twisted rope handles", "Elegant finish"],
+            sizes: ["Standard (4x4x14 inches)"],
+            minOrder: "500 pieces",
+          },
+          {
+            id: "wbb-002",
+            name: "Double Wine Bottle Bag",
+            description: "Premium bag for two wine bottles with divider",
+            image: "/products/double-wine-bag.jpg",
+            features: ["Fits two bottles", "Internal divider", "Extra strong construction", "Premium handles"],
+            sizes: ["Double (8x4x14 inches)"],
+            minOrder: "300 pieces",
+          },
+          {
+            id: "wbb-003",
+            name: "Luxury Wine Gift Bag",
+            description: "Premium wine bag with gift finishing",
+            image: "/products/luxury-wine-gift-bag.jpg",
+            features: ["Luxury paper stock", "Foil stamping", "Satin ribbon handles", "Gift tag included"],
+            sizes: ["Single", "Double"],
+            minOrder: "250 pieces",
+          },
+          {
+            id: "wbb-004",
+            name: "Kraft Wine Bag",
+            description: "Eco-friendly kraft paper wine bag",
+            image: "/products/kraft-wine-bag.jpg",
+            features: ["Natural kraft paper", "Eco-friendly", "Twisted handles", "Recyclable"],
+            sizes: ["Single", "Double"],
+            minOrder: "500 pieces",
+          },
+        ],
+      },
     ],
   },
   {
@@ -447,6 +506,7 @@ export const mainCategories: MainCategory[] = [
     slug: "boxes-cartons",
     description: "Quality packaging boxes and cartons for all needs",
     icon: "Package",
+    image: "/categories/boxes-cartons-hero.jpg",
     subcategories: [
       {
         slug: "paper-boxes",
