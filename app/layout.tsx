@@ -1,9 +1,10 @@
 import type React from "react"
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import Script from "next/script"
 import FloatingCTA from "@/components/floating-cta"
+import MobileStickyBar from "@/components/mobile-sticky-bar"
 import "./globals.css"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
@@ -12,27 +13,147 @@ const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "MS Paper Products | Premium Paper Bag Manufacturer",
+  title: {
+    default: "MS Paper Products | Premium Paper Bag & Packaging Manufacturer in Hyderabad",
+    template: "%s | MS Paper Products",
+  },
   description:
-    "Leading manufacturer of premium paper bags, eco-friendly packaging solutions, and custom printed bags. Quality craftsmanship with sustainable materials.",
-  generator: "v0.app",
-  icons: {
-    icon: [
+    "Leading manufacturer of premium paper bags, food packaging, medicine boxes, carton boxes & eco-friendly packaging solutions in Hyderabad, Telangana. Quality craftsmanship with 15+ years experience. Call +91 81433 30028",
+  keywords: [
+    "paper bags manufacturer Hyderabad",
+    "paper packaging Telangana",
+    "medicine boxes manufacturer",
+    "pharmaceutical packaging",
+    "food packaging boxes",
+    "carton boxes Hyderabad",
+    "eco-friendly packaging India",
+    "custom paper bags",
+    "bulk paper bags supplier",
+  ],
+  authors: [{ name: "MS Paper Products" }],
+  creator: "MS Paper Products",
+  publisher: "MS Paper Products",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  alternates: {
+    canonical: "https://mspaperproducts.com",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    url: "https://mspaperproducts.com",
+    siteName: "MS Paper Products",
+    title: "MS Paper Products | Premium Paper Bag & Packaging Manufacturer",
+    description:
+      "Leading manufacturer of premium paper bags, food packaging, medicine boxes & eco-friendly packaging solutions in Hyderabad. 15+ years experience. Call +91 81433 30028",
+    images: [
       {
-        url: "/icon-light-32x32.png",
-        media: "(prefers-color-scheme: light)",
-      },
-      {
-        url: "/icon-dark-32x32.png",
-        media: "(prefers-color-scheme: dark)",
-      },
-      {
-        url: "/icon.svg",
-        type: "image/svg+xml",
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "MS Paper Products - Premium Paper Packaging Manufacturer",
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "MS Paper Products | Premium Paper Bag Manufacturer",
+    description:
+      "Leading manufacturer of premium paper bags & eco-friendly packaging solutions in Hyderabad. Call +91 81433 30028",
+    images: ["/og-image.jpg"],
+  },
+  icons: {
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
     apple: "/apple-icon.png",
   },
+  verification: {
+    google: "google-site-verification-code",
+  },
+    generator: 'v0.app'
+}
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: "#132635",
+}
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://mspaperproducts.com/#business",
+      name: "MS Paper Products",
+      image: "https://mspaperproducts.com/ms-logo-horizontal.png",
+      description:
+        "Leading manufacturer of premium paper bags, food packaging, medicine boxes, carton boxes & eco-friendly packaging solutions in Hyderabad, Telangana.",
+      url: "https://mspaperproducts.com",
+      telephone: "+91-81433-30028",
+      email: "info@mspaperproducts.com",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "7-1-307/14/G/119, DNM Colony, Tulasi Nagar, Balkampet",
+        addressLocality: "Hyderabad",
+        addressRegion: "Telangana",
+        postalCode: "500018",
+        addressCountry: "IN",
+      },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: 17.447536,
+        longitude: 78.430192,
+      },
+      openingHoursSpecification: [
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          opens: "09:00",
+          closes: "18:00",
+        },
+      ],
+      priceRange: "$$",
+      areaServed: {
+        "@type": "State",
+        name: "Telangana",
+      },
+      sameAs: ["https://wa.me/918143330028"],
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://mspaperproducts.com/#organization",
+      name: "MS Paper Products",
+      url: "https://mspaperproducts.com",
+      logo: "https://mspaperproducts.com/ms-logo-horizontal.png",
+      contactPoint: {
+        "@type": "ContactPoint",
+        telephone: "+91-81433-30028",
+        contactType: "sales",
+        areaServed: "IN",
+        availableLanguage: ["English", "Hindi", "Telugu"],
+      },
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://mspaperproducts.com/#website",
+      url: "https://mspaperproducts.com",
+      name: "MS Paper Products",
+      publisher: {
+        "@id": "https://mspaperproducts.com/#organization",
+      },
+    },
+  ],
 }
 
 export default function RootLayout({
@@ -43,6 +164,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+
         {/* LinkedIn Insight Tag for B2B tracking */}
         <Script id="linkedin-insight" strategy="afterInteractive">
           {`
@@ -68,9 +191,9 @@ export default function RootLayout({
             src="https://px.ads.linkedin.com/collect/?pid=5559497&fmt=gif"
           />
         </noscript>
-        {/* End LinkedIn Insight Tag */}
 
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-HKLGQT74VV" strategy="afterInteractive" />
+        {/* Google Tag - GA4 + Google Ads (single instance) */}
+        <Script src="https://www.googletagmanager.com/gtag/js?id=AW-17803736252" strategy="afterInteractive" />
         <Script id="google-analytics-combined" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
@@ -109,9 +232,10 @@ export default function RootLayout({
       </head>
       <body className={`font-sans antialiased`}>
         <Header />
-        {children}
+        <main>{children}</main>
         <Footer />
         <FloatingCTA />
+        <MobileStickyBar />
         <Analytics />
       </body>
     </html>

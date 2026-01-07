@@ -8,7 +8,8 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
-import { MapPin, Phone, Mail, Clock, MessageCircle, CheckCircle } from "lucide-react"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { MapPin, Phone, Mail, Clock, MessageCircle, CheckCircle, Shield, Truck, Users } from "lucide-react"
 
 const contactInfo = [
   {
@@ -35,13 +36,33 @@ const contactInfo = [
   },
 ]
 
+const trustSignals = [
+  { icon: MapPin, text: "Serving Hyderabad & Telangana" },
+  { icon: Users, text: "Bulk Orders Accepted" },
+  { icon: Truck, text: "Fast Turnaround Time" },
+  { icon: Shield, text: "Quality Assured" },
+]
+
+const productInterests = [
+  "Paper Bags",
+  "Food & Beverage Packaging",
+  "Paper Cups",
+  "Medicine Boxes",
+  "Pharmaceutical Cartons",
+  "Carton Boxes",
+  "Files & Folders",
+  "Calendars & Diaries",
+  "Gold & Silver Foiling",
+  "Other",
+]
+
 export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: "",
     company: "",
     email: "",
     phone: "",
-    subject: "",
+    productInterest: "",
     message: "",
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -52,9 +73,25 @@ export default function ContactPage() {
     setFormData({ ...formData, [e.target.id]: e.target.value })
   }
 
+  const handleSelectChange = (value: string) => {
+    setFormData({ ...formData, productInterest: value })
+  }
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
+
+    // Track form submission
+    if (typeof window !== "undefined" && typeof (window as any).gtag !== "undefined") {
+      ;(window as any).gtag("event", "generate_lead", {
+        event_category: "engagement",
+        event_label: "Contact Form",
+        value: 1,
+      })
+    }
+    if (typeof window !== "undefined" && typeof (window as any).fbq !== "undefined") {
+      ;(window as any).fbq("track", "Lead", { content_name: formData.productInterest })
+    }
 
     try {
       const response = await fetch("/api/contact", {
@@ -62,7 +99,10 @@ export default function ContactPage() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          subject: `Inquiry for ${formData.productInterest || "Paper Products"}`,
+        }),
       })
 
       const result = await response.json()
@@ -76,31 +116,31 @@ export default function ContactPage() {
           "Thank you for your inquiry! Your requirements have been sent to info@mspaperproducts.com. Our team will contact you within 24 hours.",
         )
         setIsSubmitted(true)
-        setFormData({ name: "", company: "", email: "", phone: "", subject: "", message: "" })
+        setFormData({ name: "", company: "", email: "", phone: "", productInterest: "", message: "" })
       } else {
-        const mailtoBody = `Name: ${formData.name}\nCompany: ${formData.company || "Not provided"}\nEmail: ${formData.email}\nPhone: ${formData.phone}\n\nRequirements:\n${formData.message}`
-        const mailtoLink = `mailto:info@mspaperproducts.com?subject=${encodeURIComponent(formData.subject || "New Inquiry from Website")}&body=${encodeURIComponent(mailtoBody)}`
+        const mailtoBody = `Name: ${formData.name}\nCompany: ${formData.company || "Not provided"}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nProduct Interest: ${formData.productInterest}\n\nRequirements:\n${formData.message}`
+        const mailtoLink = `mailto:info@mspaperproducts.com?subject=${encodeURIComponent(`Inquiry for ${formData.productInterest || "Paper Products"}`)}&body=${encodeURIComponent(mailtoBody)}`
         window.location.href = mailtoLink
 
         setConfirmationMessage("Your email client has been opened. Please send the email to complete your inquiry.")
         setIsSubmitted(true)
-        setFormData({ name: "", company: "", email: "", phone: "", subject: "", message: "" })
+        setFormData({ name: "", company: "", email: "", phone: "", productInterest: "", message: "" })
       }
     } catch (error) {
-      const mailtoBody = `Name: ${formData.name}\nCompany: ${formData.company || "Not provided"}\nEmail: ${formData.email}\nPhone: ${formData.phone}\n\nRequirements:\n${formData.message}`
-      const mailtoLink = `mailto:info@mspaperproducts.com?subject=${encodeURIComponent(formData.subject || "New Inquiry from Website")}&body=${encodeURIComponent(mailtoBody)}`
+      const mailtoBody = `Name: ${formData.name}\nCompany: ${formData.company || "Not provided"}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nProduct Interest: ${formData.productInterest}\n\nRequirements:\n${formData.message}`
+      const mailtoLink = `mailto:info@mspaperproducts.com?subject=${encodeURIComponent(`Inquiry for ${formData.productInterest || "Paper Products"}`)}&body=${encodeURIComponent(mailtoBody)}`
       window.location.href = mailtoLink
 
       setConfirmationMessage("Your email client has been opened. Please send the email to complete your inquiry.")
       setIsSubmitted(true)
-      setFormData({ name: "", company: "", email: "", phone: "", subject: "", message: "" })
+      setFormData({ name: "", company: "", email: "", phone: "", productInterest: "", message: "" })
     } finally {
       setIsSubmitting(false)
     }
   }
 
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen pb-16 md:pb-0">
       {/* Hero Section */}
       <section className="relative bg-[#132635] py-20 text-white md:py-28">
         <div className="container mx-auto px-4">
@@ -109,6 +149,26 @@ export default function ContactPage() {
             <p className="text-lg text-gray-300 md:text-xl">
               Have questions or ready to place an order? We'd love to hear from you.
             </p>
+            <a
+              href="tel:+918143330028"
+              className="mt-6 inline-flex items-center gap-2 text-2xl font-bold text-[#f19e1f] hover:underline"
+            >
+              <Phone className="h-6 w-6" />
+              +91 81433 30028
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#f19e1f] py-4">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-wrap justify-center gap-6 md:gap-12">
+            {trustSignals.map((signal, index) => (
+              <div key={index} className="flex items-center gap-2 text-white">
+                <signal.icon className="h-5 w-5" />
+                <span className="text-sm font-medium">{signal.text}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -117,7 +177,7 @@ export default function ContactPage() {
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4">
           <div className="grid gap-12 lg:grid-cols-2">
-            {/* Contact Form */}
+            {/* Contact Form - Updated with Product Interest dropdown */}
             <Card className="border-none shadow-lg">
               <CardContent className="p-8">
                 <h2 className="mb-6 text-2xl font-bold text-[#132635]">Send Us Your Requirements</h2>
@@ -160,28 +220,6 @@ export default function ContactPage() {
                         />
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="company">Company</Label>
-                        <Input
-                          id="company"
-                          placeholder="Your company"
-                          value={formData.company}
-                          onChange={handleChange}
-                        />
-                      </div>
-                    </div>
-                    <div className="grid gap-4 md:grid-cols-2">
-                      <div className="space-y-2">
-                        <Label htmlFor="email">Email *</Label>
-                        <Input
-                          id="email"
-                          type="email"
-                          placeholder="your@email.com"
-                          value={formData.email}
-                          onChange={handleChange}
-                          required
-                        />
-                      </div>
-                      <div className="space-y-2">
                         <Label htmlFor="phone">Phone *</Label>
                         <Input
                           id="phone"
@@ -192,22 +230,48 @@ export default function ContactPage() {
                         />
                       </div>
                     </div>
+                    <div className="grid gap-4 md:grid-cols-2">
+                      <div className="space-y-2">
+                        <Label htmlFor="email">Email</Label>
+                        <Input
+                          id="email"
+                          type="email"
+                          placeholder="your@email.com"
+                          value={formData.email}
+                          onChange={handleChange}
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="company">Company</Label>
+                        <Input
+                          id="company"
+                          placeholder="Your company"
+                          value={formData.company}
+                          onChange={handleChange}
+                        />
+                      </div>
+                    </div>
                     <div className="space-y-2">
-                      <Label htmlFor="subject">Subject *</Label>
-                      <Input
-                        id="subject"
-                        placeholder="What are you looking for?"
-                        value={formData.subject}
-                        onChange={handleChange}
-                        required
-                      />
+                      <Label htmlFor="productInterest">Product Interest *</Label>
+                      <Select onValueChange={handleSelectChange} value={formData.productInterest} required>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select a product category" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {productInterests.map((product) => (
+                            <SelectItem key={product} value={product}>
+                              {product}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="message">Your Requirements *</Label>
                       <Textarea
                         id="message"
-                        placeholder="Please describe your paper bag requirements, including quantity, size, printing needs, and any other specifications..."
-                        className="min-h-[150px]"
+                        placeholder="Please describe your requirements, including quantity, size, printing needs, and any other specifications..."
+                        className="min-h-[120px]"
                         value={formData.message}
                         onChange={handleChange}
                         required
@@ -223,7 +287,7 @@ export default function ContactPage() {
                       ) : (
                         <>
                           <Mail className="mr-2 h-5 w-5" />
-                          Send the Mail
+                          Send Enquiry
                         </>
                       )}
                     </Button>

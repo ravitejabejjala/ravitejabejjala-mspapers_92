@@ -1,0 +1,14 @@
+# robots.txt for MS Paper Products
+# https://mspaperproducts.com
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://mspaperproducts.com/sitemap.xml
+
+# Crawl-delay (optional, for politeness)
+Crawl-delay: 1
+
+# Disallow admin or private paths (none currently)
+# Disallow: /admin/

@@ -1,32 +1,68 @@
+import type { Metadata } from "next"
 import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import { ClipboardCheck, Palette, Factory, Truck } from "lucide-react"
+import { ClipboardCheck, Palette, Factory, Truck, CheckCircle } from "lucide-react"
 
-export const metadata = {
-  title: "Premium Finishing Services | MS Paper Products",
+export const metadata: Metadata = {
+  title: "Premium Finishing Services - Gold Foiling, Punching & Lamination",
   description:
-    "Explore our premium finishing services including Gold & Silver Foiling, Precision Punching, and Gloss & Matte Lamination for exceptional paper bag packaging.",
+    "Elevate your packaging with MS Paper Products premium finishing services: Gold & Silver Foiling, Precision Punching, and Gloss/Matte Lamination. Serving Hyderabad & Telangana. Call +91 81433 30028",
+  keywords: [
+    "gold foiling Hyderabad",
+    "silver foiling packaging",
+    "paper bag lamination",
+    "punching services",
+    "premium packaging finishing",
+    "luxury paper bag finishing",
+  ],
+  openGraph: {
+    title: "Premium Finishing Services | MS Paper Products",
+    description:
+      "Gold & Silver Foiling, Precision Punching, and Lamination services for premium packaging in Hyderabad.",
+    url: "https://mspaperproducts.com/services",
+  },
 }
 
 const services = [
   {
     name: "Gold & Silver Foiling",
     description:
-      "Add a touch of luxury to your paper bags with our premium gold and silver foil stamping. Perfect for high-end retail, jewelry, and fashion brands seeking an elegant, eye-catching finish.",
+      "Transform your paper bags and packaging into luxurious masterpieces with our premium gold and silver foil stamping services. Our state-of-the-art hot foil stamping technology ensures precise application with brilliant metallic shine that catches the eye. Ideal for high-end retail brands, jewelry stores, fashion boutiques, and corporate gifting, our foiling services add that essential touch of elegance that sets your brand apart from competitors.",
+    highlights: [
+      "Hot foil stamping with precision application",
+      "Available in gold, silver, rose gold & custom colors",
+      "Perfect for logos, patterns & text embellishment",
+      "Enhances perceived brand value instantly",
+      "Suitable for all paper types and thicknesses",
+    ],
     image: "/services/gold-silver-foiling.jpg",
   },
   {
     name: "Precision Punching",
     description:
-      "Our state-of-the-art die-cutting and punching services create clean, precise handles and custom shapes. From twisted rope handles to ribbon cutouts, we deliver perfect results every time.",
+      "Our advanced die-cutting and punching services deliver clean, precise cuts every single time. From custom handle cutouts to intricate decorative patterns, our precision machinery handles complex designs with exceptional accuracy. Whether you need twisted rope handle holes, ribbon slots, or unique window cutouts, our experienced team ensures consistent quality across your entire order, maintaining tight tolerances that ensure perfect assembly.",
+    highlights: [
+      "Custom die-cutting for unique shapes",
+      "Handle punching for rope, ribbon & flat handles",
+      "Window cutouts for product visibility",
+      "Consistent accuracy across bulk orders",
+      "Quick turnaround for urgent requirements",
+    ],
     image: "/services/precision-punching.jpg",
   },
   {
     name: "Gloss & Matte Lamination",
     description:
-      "Protect and enhance your paper bags with our professional lamination services. Choose from high-gloss for a vibrant shine or soft-touch matte for a sophisticated, premium feel.",
+      "Protect and enhance your paper packaging with our professional lamination services that add both durability and visual appeal. Choose high-gloss lamination for a vibrant, reflective finish that makes colors pop, or opt for soft-touch matte lamination for a sophisticated, premium feel. Our lamination process extends product life, provides moisture resistance, and creates a tactile experience that elevates your brand perception in the competitive marketplace.",
+    highlights: [
+      "High-gloss finish for vibrant color enhancement",
+      "Soft-touch matte for premium tactile feel",
+      "Moisture and scuff resistance protection",
+      "Extends packaging durability significantly",
+      "Available for paper bags, boxes & cartons",
+    ],
     image: "/services/gloss-matte-lamination.jpg",
   },
 ]
@@ -47,7 +83,7 @@ export default function ServicesPage() {
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">Premium Finishing Services</h1>
             <p className="text-lg md:text-xl text-gray-300">
-              Elevate your packaging with our expert finishing techniques.
+              Elevate your packaging with our expert finishing techniques. Serving Hyderabad & Telangana.
             </p>
           </div>
         </div>
@@ -65,7 +101,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Services Grid */}
+      {/* Services Grid - Updated with bullet highlights */}
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -83,8 +119,16 @@ export default function ServicesPage() {
                   />
                 </div>
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-bold text-[#132635] mb-3">{service.name}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">{service.description}</p>
+                  <h2 className="text-xl font-bold text-[#132635] mb-3">{service.name}</h2>
+                  <p className="text-gray-600 text-sm leading-relaxed mb-4">{service.description}</p>
+                  <ul className="space-y-2">
+                    {service.highlights.map((highlight, i) => (
+                      <li key={i} className="flex items-start gap-2 text-sm text-gray-700">
+                        <CheckCircle className="h-4 w-4 text-[#f19e1f] mt-0.5 flex-shrink-0" />
+                        <span>{highlight}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </CardContent>
               </Card>
             ))}
@@ -118,11 +162,21 @@ export default function ServicesPage() {
             Want to add a premium finish to your packaging?
           </h2>
           <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
-            Get in touch with our team to discuss your finishing requirements.
+            Get in touch with our team to discuss your finishing requirements. Serving Hyderabad & all of Telangana.
           </p>
-          <Button asChild size="lg" className="bg-[#132635] hover:bg-[#132635]/90 text-white">
-            <Link href="/contact">Enquire Now</Link>
-          </Button>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <Button asChild size="lg" className="bg-[#132635] hover:bg-[#132635]/90 text-white">
+              <Link href="/contact">Enquire Now</Link>
+            </Button>
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="border-white bg-transparent text-white hover:bg-white hover:text-[#f19e1f]"
+            >
+              <a href="tel:+918143330028">Call +91 81433 30028</a>
+            </Button>
+          </div>
         </div>
       </section>
     </main>
