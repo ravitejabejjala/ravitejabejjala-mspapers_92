@@ -15,7 +15,7 @@ const contactInfo = [
   {
     icon: MapPin,
     title: "Location",
-    details: ["7-1-307/14/G/119, DNM Colony,", "Tulasi Nagar, Balkampet,", "Hyderabad, Telangana 500018"],
+    details: ["7-1-307/14/G/95, DNM colony,", "BK Guda, Balkampet,", "Hyderabad, Telangana 500018"],
   },
   {
     icon: Phone,

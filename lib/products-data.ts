@@ -758,7 +758,7 @@ export const mainCategories: MainCategory[] = [
             image: "/products/patient-file-folder.jpg",
             features: ["Durable material", "Label area", "Color coded", "Easy clean"],
             sizes: ["A4", "Legal"],
-            minOrder: "500 pieces",
+            minOrder: "1000 pieces",
           },
           {
             id: "mff-002",
@@ -767,7 +767,7 @@ export const mainCategories: MainCategory[] = [
             image: "/products/xray-film-folder.jpg",
             features: ["Large size", "Film protection", "Easy access", "Durable"],
             sizes: ["Standard X-ray size"],
-            minOrder: "200 pieces",
+            minOrder: "1000 pieces",
           },
         ],
       },
@@ -797,7 +797,7 @@ export const mainCategories: MainCategory[] = [
             image: "/products/manila-file-folder.jpg",
             features: ["Classic design", "Tab position options", "Multiple colors", "Economical"],
             sizes: ["A4", "Letter", "Legal"],
-            minOrder: "500 pieces",
+            minOrder: "1000 pieces",
           },
           {
             id: "off-002",
@@ -806,7 +806,7 @@ export const mainCategories: MainCategory[] = [
             image: "/products/expanding-file-folder.jpg",
             features: ["Expanding pockets", "Elastic closure", "Index tabs", "High capacity"],
             sizes: ["A4", "Legal"],
-            minOrder: "200 pieces",
+            minOrder: "1000 pieces",
           },
         ],
       },
@@ -836,7 +836,7 @@ export const mainCategories: MainCategory[] = [
             image: "/products/presentation-folder.jpg",
             features: ["Twin pockets", "Business card slot", "Full branding", "Premium stock"],
             sizes: ["A4", "Letter"],
-            minOrder: "250 pieces",
+            minOrder: "1000 pieces",
           },
           {
             id: "corp-002",
@@ -845,7 +845,7 @@ export const mainCategories: MainCategory[] = [
             image: "/products/conference-folder.jpg",
             features: ["Padded cover", "Notepad included", "Pen loop", "Custom branding"],
             sizes: ["A4"],
-            minOrder: "100 pieces",
+            minOrder: "1000 pieces",
           },
         ],
       },
@@ -869,7 +869,7 @@ export const mainCategories: MainCategory[] = [
             image: "/products/clear-front-folder.jpg",
             features: ["Clear front", "Spine label", "Secure binding", "Professional look"],
             sizes: ["A4"],
-            minOrder: "500 pieces",
+            minOrder: "1000 pieces",
           },
           {
             id: "doc-002",
@@ -878,7 +878,7 @@ export const mainCategories: MainCategory[] = [
             image: "/products/ring-binder-folder.jpg",
             features: ["2-3 ring options", "Spine pocket", "Durable cover", "Various capacities"],
             sizes: ["A4", "Letter"],
-            minOrder: "100 pieces",
+            minOrder: "1000 pieces",
           },
         ],
       },
@@ -902,7 +902,7 @@ export const mainCategories: MainCategory[] = [
             image: "/products/subject-folder-set.jpg",
             features: ["5-color set", "Subject labels", "Durable plastic", "Affordable"],
             sizes: ["A4"],
-            minOrder: "100 sets",
+            minOrder: "1000 sets",
           },
           {
             id: "sch-002",
@@ -911,7 +911,7 @@ export const mainCategories: MainCategory[] = [
             image: "/products/project-folder.jpg",
             features: ["Expanding pockets", "Sturdy construction", "Multiple colors", "Elastic closure"],
             sizes: ["A4", "A3"],
-            minOrder: "200 pieces",
+            minOrder: "1000 pieces",
           },
         ],
       },
@@ -935,7 +935,7 @@ export const mainCategories: MainCategory[] = [
             image: "/products/full-custom-folder.jpg",
             features: ["Full customization", "Any design", "Multiple materials", "Various finishes"],
             sizes: ["Custom sizes"],
-            minOrder: "250 pieces",
+            minOrder: "1000 pieces",
           },
         ],
       },
@@ -1558,15 +1558,15 @@ export const mainCategories: MainCategory[] = [
       {
         slug: "medicine-boxes",
         name: "Medicine Boxes",
-        description: "Pharmaceutical packaging boxes for medicines and tablets",
+        description: "Pharmaceutical packaging boxes for medicines and tablets - GMP Compliant",
         longDescription:
-          "Our medicine boxes are designed to meet pharmaceutical industry standards. Manufactured with food-grade and pharma-safe materials, these boxes ensure product safety and compliance. Available in mono cartons, blister pack boxes, and customized sizes for various medicine formats.",
+          "Our medicine boxes are designed to meet pharmaceutical industry standards and GMP (Good Manufacturing Practice) compliance. Manufactured with food-grade and pharma-safe materials, these boxes ensure product safety and regulatory adherence. GMP certified production ensures consistent quality, proper labeling, and secure packaging for all medicine formats. Available in mono cartons, blister pack boxes, and customized sizes for various medicine formats.",
         image: "/categories/medicine-boxes.jpg",
         icon: "Pill",
-        seoTitle: "Medicine Boxes | Pharmaceutical Packaging | MS Paper Products",
+        seoTitle: "Medicine Boxes | GMP Compliant Pharmaceutical Packaging | MS Paper Products",
         seoDescription:
-          "Pharmaceutical medicine boxes and cartons for tablets, capsules, and syrups. FDA compliant pharma packaging manufacturer in Hyderabad.",
-        seoKeywords: ["medicine boxes", "pharmaceutical boxes", "pharma packaging", "medicine cartons", "tablet boxes"],
+          "GMP compliant pharmaceutical medicine boxes and cartons for tablets, capsules, and syrups. FDA compliant pharma packaging manufacturer in Hyderabad.",
+        seoKeywords: ["medicine boxes", "pharmaceutical boxes", "pharma packaging", "GMP compliant packaging", "medicine cartons", "tablet boxes"],
         products: [
           {
             id: "mb-001",
@@ -1600,15 +1600,15 @@ export const mainCategories: MainCategory[] = [
       {
         slug: "pharmaceutical-cartons",
         name: "Pharmaceutical Cartons",
-        description: "Bulk pharmaceutical cartons for medical supplies",
+        description: "Bulk pharmaceutical cartons for medical supplies - GMP Compliant",
         longDescription:
-          "Our pharmaceutical cartons are designed for bulk packaging of medical supplies, equipment, and products. Meeting stringent quality standards, these cartons ensure safe storage and transport of pharmaceutical goods.",
+          "Our pharmaceutical cartons are designed for bulk packaging of medical supplies, equipment, and products. Meeting stringent quality standards and GMP compliance requirements, these cartons ensure safe storage and transport of pharmaceutical goods. All cartons are produced under GMP conditions with proper documentation and quality control measures.",
         image: "/categories/pharmaceutical-cartons.jpg",
         icon: "Package",
-        seoTitle: "Pharmaceutical Cartons | Medical Packaging | MS Paper Products",
+        seoTitle: "Pharmaceutical Cartons | GMP Compliant Medical Packaging | MS Paper Products",
         seoDescription:
-          "Bulk pharmaceutical cartons for medical supplies and equipment. Quality pharma packaging solutions manufacturer in Hyderabad.",
-        seoKeywords: ["pharmaceutical cartons", "medical cartons", "pharma shipping boxes", "medical packaging"],
+          "Bulk pharmaceutical cartons for medical supplies and equipment. GMP compliant quality pharma packaging solutions manufacturer in Hyderabad.",
+        seoKeywords: ["pharmaceutical cartons", "GMP compliant cartons", "medical cartons", "pharma shipping boxes", "medical packaging"],
         products: [
           {
             id: "phc-001",

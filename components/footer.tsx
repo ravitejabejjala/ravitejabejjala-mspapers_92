@@ -95,9 +95,9 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-[#f19e1f]" />
                 <span className="text-sm text-gray-300">
-                  7-1-307/14/G/119, DNM Colony,
+                  7-1-307/14/G/95, DNM colony,
                   <br />
-                  Tulasi Nagar, Balkampet,
+                  BK Guda, Balkampet,
                   <br />
                   Hyderabad, Telangana 500018
                 </span>
