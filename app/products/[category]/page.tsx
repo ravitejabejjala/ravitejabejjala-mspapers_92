@@ -287,45 +287,8 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
           </div>
         </section>
 
-        <TrustBadges />
-
-        {/* Category Overview */}
-        <section className="py-16 md:py-24">
-          <div className="container mx-auto px-4">
-            <div className="grid items-center gap-12 md:grid-cols-2">
-              <div className="relative h-[400px] overflow-hidden rounded-2xl shadow-xl">
-                <Image
-                  src={category.image || `/placeholder.svg?height=400&width=600&query=${category.name}`}
-                  alt={category.name}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div>
-                <h2 className="mb-6 text-3xl font-bold text-[#132635]">About {category.name}</h2>
-                <p className="mb-6 text-gray-600 leading-relaxed">{category.longDescription}</p>
-                <div className="flex flex-col gap-4 sm:flex-row">
-                  <Button asChild className="bg-[#f19e1f] text-white hover:bg-[#f19e1f]/90">
-                    <Link href="/contact">Request a Quote</Link>
-                  </Button>
-                  <Button
-                    asChild
-                    variant="outline"
-                    className="border-[#132635] text-[#132635] hover:bg-[#132635] hover:text-white bg-transparent"
-                  >
-                    <a href="tel:+918143330028">
-                      <Phone className="mr-2 h-4 w-4" />
-                      Call Us
-                    </a>
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Products Grid */}
-        <section className="bg-gray-50 py-16 md:py-24">
+        {/* Products Grid - Display Immediately */}
+        <section className="bg-gray-50 py-12 md:py-16">
           <div className="container mx-auto px-4">
             <h2 className="mb-12 text-center text-3xl font-bold text-[#132635] md:text-4xl">
               Our {category.name} Collection
@@ -372,14 +335,6 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
                       </div>
                     )}
 
-                    {product.minOrder && (
-                      <div className="rounded-lg bg-[#f19e1f]/10 p-3 mb-3">
-                        <p className="text-xs text-[#132635]">
-                          <span className="font-semibold">Min. Order:</span> {product.minOrder}
-                        </p>
-                      </div>
-                    )}
-
                     <ProductInquiryButton productName={product.name} categoryName={category.name} />
                   </CardContent>
                 </Card>
@@ -388,30 +343,10 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
           </div>
         </section>
 
-        {/* Related Categories */}
-        {relatedCategories.length > 0 && (
-          <section className="py-16 md:py-24">
-            <div className="container mx-auto px-4">
-              <h2 className="mb-12 text-center text-3xl font-bold text-[#132635]">
-                Related Categories in {parentCategory?.name}
-              </h2>
-              <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-                {relatedCategories.map((cat) => (
-                  <Link key={cat.slug} href={`/products/${cat.slug}`}>
-                    <Card className="group h-full cursor-pointer border-none shadow-md transition-all hover:-translate-y-1 hover:shadow-lg hover:border-[#f19e1f]">
-                      <CardContent className="flex h-full flex-col items-center justify-center p-4 text-center min-h-[100px]">
-                        <p className="font-medium text-[#132635] group-hover:text-[#f19e1f] text-sm">{cat.name}</p>
-                      </CardContent>
-                    </Card>
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </section>
-        )}
+
 
         {/* Explore Other Main Categories */}
-        <section className="bg-gray-50 py-16 md:py-24">
+        <section className="bg-white py-12 md:py-16">
           <div className="container mx-auto px-4">
             <h2 className="mb-12 text-center text-3xl font-bold text-[#132635]">Explore Other Product Categories</h2>
             <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">

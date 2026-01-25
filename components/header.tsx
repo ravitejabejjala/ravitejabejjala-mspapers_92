@@ -40,8 +40,8 @@ const productCategories = [
     ],
   },
   {
-    name: "Boxes & Cartons",
-    href: "/products/boxes-cartons",
+    name: "Medicine Boxes & Packing Solutions",
+    href: "/products/medicine-boxes-packing-solutions",
     icon: Package,
     subcategories: [
       { name: "Paper Boxes", href: "/products/paper-boxes" },
