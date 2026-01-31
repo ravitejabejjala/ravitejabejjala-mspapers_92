@@ -18,47 +18,40 @@ const navigation = [
 const productCategories = [
   {
     name: "Paper Bags",
-    href: "/products",
+    href: "/products/paper-bags",
     icon: ShoppingBag,
     subcategories: [
       { name: "Kraft Paper Bags", href: "/products/kraft-paper-bags" },
-      { name: "Luxury Printed Paper Bags", href: "/products/printed-paper-bags" },
-      { name: "Wedding & Gifting Bags", href: "/products/theme-gift-bags" },
+      { name: "Printed Paper Bags", href: "/products/printed-paper-bags" },
+      { name: "Custom Paper Bags", href: "/products/custom-paper-bags" },
+      { name: "Eco-Friendly Paper Bags", href: "/products/eco-friendly-paper-bags" },
+      { name: "Retail Carry Bags", href: "/products/retail-carry-bags" },
+      { name: "Corporate Paper Bags", href: "/products/corporate-paper-bags" },
+      { name: "Theme & Gift Bags", href: "/products/theme-gift-bags" },
+      { name: "Wine Bottle Bags", href: "/products/wine-bottle-bags" },
     ],
   },
   {
-    name: "Food & Beverage Packaging",
-    href: "/products/food-beverage-packaging",
-    icon: Coffee,
+    name: "Gift Packaging",
+    href: "/products/gift-packaging",
+    icon: ShoppingBag,
     subcategories: [
-      { name: "Paper Cups", href: "/products/paper-cups" },
-      { name: "Paper Food Boxes", href: "/products/paper-food-boxes" },
-      { name: "Paper Trays", href: "/products/paper-trays" },
-      { name: "Paper Bowls & Tubs", href: "/products/paper-bowls" },
-      { name: "Buckets & Containers", href: "/products/paper-buckets" },
-      { name: "Cup Holders & Accessories", href: "/products/cup-holders-accessories" },
+      { name: "Paper Gift Bags", href: "/products/paper-gift-bags" },
+      { name: "Christmas & New Year Bags", href: "/products/christmas-new-year-gift-bags" },
+      { name: "Custom Printed Gift Bags", href: "/products/custom-printed-gift-bags" },
     ],
   },
   {
-    name: "Medicine Boxes & Packing Solutions",
-    href: "/products/medicine-boxes-packing-solutions",
+    name: "Boxes & Cartons",
+    href: "/products/boxes-cartons",
     icon: Package,
     subcategories: [
       { name: "Paper Boxes", href: "/products/paper-boxes" },
       { name: "Gift Boxes", href: "/products/gift-boxes" },
       { name: "Carton Boxes", href: "/products/carton-boxes" },
       { name: "Corrugated Carton Boxes", href: "/products/corrugated-carton-boxes" },
+      { name: "Pharmaceutical Boxes", href: "/products/pharmaceutical-packaging-boxes" },
       { name: "Industrial Packing Boxes", href: "/products/industrial-packing-boxes" },
-    ],
-  },
-  {
-    name: "Pharma & Medical Packaging",
-    href: "/products/pharma-medical-packaging",
-    icon: Pill,
-    subcategories: [
-      { name: "Medicine Boxes", href: "/products/medicine-boxes" },
-      { name: "Pharmaceutical Cartons", href: "/products/pharmaceutical-packaging-boxes" },
-      { name: "Printed Medical Packaging", href: "/products/printed-medical-packaging" },
     ],
   },
   {
@@ -66,10 +59,12 @@ const productCategories = [
     href: "/products/files-folders",
     icon: FolderOpen,
     subcategories: [
-      { name: "Hospital / Medical Folders", href: "/products/hospital-medical-file-folders" },
+      { name: "Hospital/Medical Folders", href: "/products/hospital-medical-file-folders" },
       { name: "Office File Folders", href: "/products/office-file-folders" },
       { name: "Corporate File Folders", href: "/products/corporate-file-folders" },
       { name: "Document & Report Folders", href: "/products/document-report-folders" },
+      { name: "School/College Folders", href: "/products/school-college-file-folders" },
+      { name: "Custom Branded Folders", href: "/products/custom-branded-file-folders" },
     ],
   },
   {
@@ -79,8 +74,44 @@ const productCategories = [
     subcategories: [
       { name: "Table Calendars", href: "/products/table-calendars" },
       { name: "Wall Calendars", href: "/products/wall-calendars" },
+      { name: "Corporate Calendars", href: "/products/corporate-calendars" },
+      { name: "Custom Printed Calendars", href: "/products/custom-printed-calendars" },
+      { name: "Diaries & Planners", href: "/products/diaries-planners" },
       { name: "Corporate Diaries", href: "/products/corporate-diaries" },
       { name: "Promotional Diaries", href: "/products/promotional-diaries" },
+    ],
+  },
+  {
+    name: "Food & Beverage",
+    href: "/products/food-beverage-packaging",
+    icon: Coffee,
+    subcategories: [
+      { name: "Paper Cups", href: "/products/paper-cups" },
+      { name: "Paper Food Boxes", href: "/products/paper-food-boxes" },
+      { name: "Paper Trays", href: "/products/paper-trays" },
+      { name: "Paper Bowls & Tubs", href: "/products/paper-bowls" },
+      { name: "Paper Buckets", href: "/products/paper-buckets" },
+      { name: "Cup Holders & Accessories", href: "/products/cup-holders-accessories" },
+    ],
+  },
+  {
+    name: "Pharma & Medical",
+    href: "/products/pharma-medical-packaging",
+    icon: Pill,
+    subcategories: [
+      { name: "Medicine Boxes", href: "/products/medicine-boxes" },
+      { name: "Pharmaceutical Cartons", href: "/products/pharmaceutical-cartons" },
+      { name: "Printed Medical Packaging", href: "/products/printed-medical-packaging" },
+    ],
+  },
+  {
+    name: "Eco-Friendly Solutions",
+    href: "/products/eco-friendly-solutions",
+    icon: ShoppingBag,
+    subcategories: [
+      { name: "Recyclable Paper Packaging", href: "/products/recyclable-paper-packaging" },
+      { name: "Sustainable Paper Products", href: "/products/sustainable-paper-products" },
+      { name: "Eco-Friendly Bags & Boxes", href: "/products/eco-friendly-bags-boxes" },
     ],
   },
 ]
@@ -126,8 +157,8 @@ export default function Header() {
 
             {isProductsOpen && (
               <div className="absolute left-0 top-full pt-2">
-                <div className="w-[700px] rounded-lg border border-[#f19e1f]/20 bg-[#132635] p-4 shadow-xl">
-                  <div className="grid grid-cols-3 gap-4">
+                <div className="w-[1000px] rounded-lg border border-[#f19e1f]/20 bg-[#132635] p-4 shadow-xl max-h-[600px] overflow-y-auto">
+                  <div className="grid grid-cols-4 gap-4">
                     {productCategories.map((category) => (
                       <div key={category.name} className="space-y-2">
                         <Link
@@ -246,7 +277,7 @@ export default function Header() {
                               {category.name}
                             </Link>
                             <ul className="space-y-1 pl-6">
-                              {category.subcategories.slice(0, 3).map((sub) => (
+                              {category.subcategories.map((sub) => (
                                 <li key={sub.name}>
                                   <Link
                                     href={sub.href}
@@ -257,17 +288,6 @@ export default function Header() {
                                   </Link>
                                 </li>
                               ))}
-                              {category.subcategories.length > 3 && (
-                                <li>
-                                  <Link
-                                    href={category.href}
-                                    onClick={() => setIsOpen(false)}
-                                    className="block text-xs text-[#f19e1f]/70 hover:text-[#f19e1f]"
-                                  >
-                                    + {category.subcategories.length - 3} more
-                                  </Link>
-                                </li>
-                              )}
                             </ul>
                           </div>
                         ))}
