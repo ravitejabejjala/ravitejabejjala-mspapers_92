@@ -346,7 +346,7 @@ export default function ContactPage() {
               {/* Map */}
               <Card className="overflow-hidden border-none shadow-md">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.2775839193987!2d78.43019261487756!3d17.44753598804207!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb90c8b0e9a5a1%3A0x5d5e5e5e5e5e5e5e!2sBalkampet%2C%20Hyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.250622!2d78.448055!3d17.450562!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb90c8b0e9a5a1%3A0xa1b2c3d4e5f6g7h8!2s7-1-307%2F14%2FG%2F95%2C%20DNM%20colony%2C%20BK%20Guda%2C%20Balkampet%2C%20Hyderabad%2C%20Telangana%20500018!5e0!3m2!1sen!2sin!4v1650000000000!5m2!1sen!2sin"
                   width="100%"
                   height="250"
                   style={{ border: 0 }}
