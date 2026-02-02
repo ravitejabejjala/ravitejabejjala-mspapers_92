@@ -4,6 +4,7 @@ import { ArrowRight, Package, Leaf, Award, Users } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import HeroCarousel from "@/components/hero-carousel"
+import ClientsSection from "@/components/clients-section"
 
 const features = [
   {
@@ -59,6 +60,8 @@ export default function Home() {
   return (
     <main>
       <HeroCarousel />
+
+      <ClientsSection />
 
       {/* Features Section */}
       <section className="py-16 md:py-24">

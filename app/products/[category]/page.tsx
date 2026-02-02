@@ -30,13 +30,23 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
   const mainCategory = getMainCategoryBySlug(categorySlug)
   if (mainCategory) {
     return {
-      title: `${mainCategory.name} | MS Paper Products Hyderabad`,
-      description: `Explore our ${mainCategory.name.toLowerCase()} collection. ${mainCategory.description}. Premium quality products from MS Paper Products, Hyderabad.`,
-      keywords: `${mainCategory.name.toLowerCase()}, paper products, packaging, Hyderabad`,
+      title: `${mainCategory.name} | Premium Paper Products | MS Paper Products Hyderabad`,
+      description: `Explore our ${mainCategory.name.toLowerCase()} collection. ${mainCategory.description}. Premium quality packaging solutions from MS Paper Products, Hyderabad. Call +91 81433 30028.`,
+      keywords: `${mainCategory.name.toLowerCase()}, paper products, packaging, boxes, bags, Hyderabad, Telangana, wholesale supplier`,
       openGraph: {
         title: `${mainCategory.name} | MS Paper Products`,
         description: mainCategory.description,
         type: "website",
+        url: `https://mspaperproducts.com/products/${categorySlug}`,
+        siteName: "MS Paper Products",
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: `${mainCategory.name} | MS Paper Products`,
+        description: mainCategory.description,
+      },
+      alternates: {
+        canonical: `https://mspaperproducts.com/products/${categorySlug}`,
       },
     }
   }
@@ -52,17 +62,22 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
   return {
     title: category.seoTitle,
     description: category.seoDescription,
-    keywords: category.seoKeywords.join(", "),
+    keywords: category.seoKeywords.join(", ") + ", Hyderabad, Telangana, wholesale, supplier, manufacturer",
     openGraph: {
       title: category.seoTitle,
       description: category.seoDescription,
       type: "website",
       images: [category.image],
+      url: `https://mspaperproducts.com/products/${categorySlug}`,
+      siteName: "MS Paper Products",
     },
     twitter: {
       card: "summary_large_image",
       title: category.seoTitle,
       description: category.seoDescription,
+    },
+    alternates: {
+      canonical: `https://mspaperproducts.com/products/${categorySlug}`,
     },
   }
 }
