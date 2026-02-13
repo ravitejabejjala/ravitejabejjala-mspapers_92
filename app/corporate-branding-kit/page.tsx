@@ -3,7 +3,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Phone, MessageCircle, FileText, CheckCircle2, Package, Zap, Leaf, Award } from "lucide-react"
+import { Phone, MessageCircle, FileText, CheckCircle2, Package, Zap, Leaf, Award, Factory } from "lucide-react"
 
 export const metadata: Metadata = {
   title: "Corporate Branding Kit Manufacturer in Hyderabad | MS Paper Products",
