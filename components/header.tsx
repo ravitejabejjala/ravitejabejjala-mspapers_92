@@ -13,6 +13,7 @@ const navigation = [
   { name: "Corporate Branding Kit", href: "/corporate-branding-kit" },
   { name: "Services", href: "/services" },
   { name: "Sustainability", href: "/sustainability" },
+  { name: "Blog", href: "/blog" },
   { name: "Contact", href: "/contact" },
 ]
 
@@ -145,6 +146,9 @@ export default function Header() {
           <Link href="/about" className="text-sm font-medium text-white transition-colors hover:text-[#f19e1f]">
             About
           </Link>
+          <Link href="/corporate-branding-kit" className="text-sm font-medium text-white transition-colors hover:text-[#f19e1f]">
+            Corporate Branding Kit
+          </Link>
 
           <div
             className="relative"
@@ -253,6 +257,13 @@ export default function Header() {
                     className="text-lg font-medium text-white transition-colors hover:text-[#f19e1f]"
                   >
                     About
+                  </Link>
+                  <Link
+                    href="/corporate-branding-kit"
+                    onClick={() => setIsOpen(false)}
+                    className="text-lg font-medium text-white transition-colors hover:text-[#f19e1f]"
+                  >
+                    Corporate Branding Kit
                   </Link>
 
                   <div>

@@ -53,13 +53,20 @@ export default function Footer() {
           <div>
             <h3 className="mb-4 text-lg font-semibold text-[#f19e1f]">Quick Links</h3>
             <ul className="space-y-2">
-              {["Home", "About", "Products", "Services", "Sustainability", "Contact"].map((item) => (
-                <li key={item}>
+              {[
+                { name: "Home", href: "/" },
+                { name: "About", href: "/about" },
+                { name: "Corporate Branding Kit", href: "/corporate-branding-kit" },
+                { name: "Products", href: "/products" },
+                { name: "Services", href: "/services" },
+                { name: "Contact", href: "/contact" },
+              ].map((item) => (
+                <li key={item.href}>
                   <Link
-                    href={item === "Home" ? "/" : `/${item.toLowerCase()}`}
+                    href={item.href}
                     className="text-sm text-gray-300 transition-colors hover:text-[#f19e1f]"
                   >
-                    {item}
+                    {item.name}
                   </Link>
                 </li>
               ))}
@@ -68,14 +75,14 @@ export default function Footer() {
 
           {/* Products */}
           <div>
-            <h3 className="mb-4 text-lg font-semibold text-[#f19e1f]">Products</h3>
+            <h3 className="mb-4 text-lg font-semibold text-[#f19e1f]">Popular Products</h3>
             <ul className="space-y-2">
               {[
-                { name: "Retail Shopping Bags", slug: "retail-shopping-bags" },
-                { name: "Boutique Bags", slug: "boutique-bags" },
-                { name: "Wine & Bottle Bags", slug: "wine-bottle-bags" },
-                { name: "Jewelry Bags", slug: "jewelry-bags" },
-                { name: "Corporate Gift Bags", slug: "corporate-gift-bags" },
+                { name: "Kraft Paper Bags", slug: "kraft-paper-bags" },
+                { name: "Gift Boxes", slug: "gift-boxes" },
+                { name: "File Folders", slug: "files-folders" },
+                { name: "Corporate Diaries", slug: "corporate-diaries" },
+                { name: "Medicine Boxes", slug: "medicine-boxes" },
               ].map((item) => (
                 <li key={item.slug}>
                   <Link
