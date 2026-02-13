@@ -28,8 +28,8 @@ const productCategories = [
       { name: "Eco-Friendly Paper Bags", href: "/products/eco-friendly-paper-bags" },
       { name: "Retail Carry Bags", href: "/products/retail-carry-bags" },
       { name: "Corporate Paper Bags", href: "/products/corporate-paper-bags" },
-      { name: "Theme & Gift Bags", href: "/products/theme-gift-bags" },
-      { name: "Wine Bottle Bags", href: "/products/wine-bottle-bags" },
+      { name: "Theme & Festive Bags", href: "/products/theme-gift-bags" },
+      { name: "Wine & Bottle Bags", href: "/products/wine-bottle-bags" },
     ],
   },
   {
