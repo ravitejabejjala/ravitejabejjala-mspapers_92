@@ -1,9 +1,12 @@
+'use client'
+
+import { useState } from 'react'
 import type { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Phone, MessageCircle, FileText, CheckCircle2, Package, Zap, Leaf, Award, Factory } from "lucide-react"
+import { Phone, MessageCircle, FileText, CheckCircle2, Package, Zap, Leaf, Award, Factory, ChevronDown } from "lucide-react"
 
 export const metadata: Metadata = {
   title: "Corporate Branding Kit Manufacturer in Hyderabad | MS Paper Products",
@@ -31,6 +34,7 @@ const industryKits = [
   {
     title: "Onboarding & Welcome Kits",
     description: "Create memorable first impressions with thoughtfully designed employee onboarding packages.",
+    image: "/corporate-branding-kit/branding-kits-showcase.jpg",
     materials: [
       "Welcome Boxes",
       "Employee Handbook Folders",
@@ -45,6 +49,7 @@ const industryKits = [
   {
     title: "Corporate Stationery Sets",
     description: "Professional stationery packages that reinforce your brand identity across all communications.",
+    image: "/corporate-branding-kit/branding-kits-showcase.jpg",
     materials: [
       "Premium Letterheads",
       "Business Cards",
@@ -59,6 +64,7 @@ const industryKits = [
   {
     title: "Pharmaceuticals & Nutraceuticals",
     description: "Compliant packaging solutions with branding elements for pharmaceutical products.",
+    image: "/corporate-branding-kit/branding-kits-showcase.jpg",
     materials: [
       "Medicine Boxes (GMP Compliant)",
       "Product Cartons",
@@ -73,6 +79,7 @@ const industryKits = [
   {
     title: "Food & Bakeries",
     description: "Custom branding kits for food businesses with quality packaging and promotional materials.",
+    image: "/corporate-branding-kit/branding-kits-showcase.jpg",
     materials: [
       "Paper Cups (Branded)",
       "Cake Boxes",
@@ -87,6 +94,7 @@ const industryKits = [
   {
     title: "Education Institutes",
     description: "Comprehensive branding kits for schools and colleges covering admission to student experience.",
+    image: "/corporate-branding-kit/branding-kits-showcase.jpg",
     materials: [
       "Admission Brochures",
       "Prospectus Folders",
@@ -101,6 +109,7 @@ const industryKits = [
   {
     title: "Jewellery & Lifestyle Boutiques",
     description: "Luxury branding solutions that reflect the premium nature of jewelry and lifestyle brands.",
+    image: "/corporate-branding-kit/branding-kits-showcase.jpg",
     materials: [
       "Luxury Paper Bags (Foiled)",
       "Foiled Packaging Boxes",
@@ -115,6 +124,7 @@ const industryKits = [
   {
     title: "Real Estate & Construction",
     description: "Professional branding kits that build confidence in your real estate projects and services.",
+    image: "/corporate-branding-kit/branding-kits-showcase.jpg",
     materials: [
       "Project Brochures",
       "Presentation Folders",
@@ -129,6 +139,7 @@ const industryKits = [
   {
     title: "Corporate & IT Companies",
     description: "Modern branding solutions for corporate and technology sector companies.",
+    image: "/corporate-branding-kit/branding-kits-showcase.jpg",
     materials: [
       "Employee Onboarding Kits",
       "Office Stationery Sets",
@@ -143,6 +154,7 @@ const industryKits = [
   {
     title: "Hospitals & Diagnostic Centers",
     description: "Professional and compliant branding for healthcare institutions.",
+    image: "/corporate-branding-kit/branding-kits-showcase.jpg",
     materials: [
       "Lab Report Covers",
       "Medicine Packaging",
@@ -157,6 +169,7 @@ const industryKits = [
   {
     title: "Mobiles & Electronics Accessories",
     description: "Premium packaging solutions for electronics and mobile accessory retailers.",
+    image: "/corporate-branding-kit/branding-kits-showcase.jpg",
     materials: [
       "Product Packaging Boxes",
       "Printed Inserts & Dividers",
@@ -171,6 +184,7 @@ const industryKits = [
   {
     title: "Automobile Showrooms",
     description: "Professional branding kits for automotive dealerships and service centers.",
+    image: "/corporate-branding-kit/branding-kits-showcase.jpg",
     materials: [
       "Delivery Kits & Folders",
       "Owner Manual Folders",
@@ -185,6 +199,7 @@ const industryKits = [
   {
     title: "Event & Hospitality",
     description: "Complete branding solutions for hotels, resorts, and event management companies.",
+    image: "/corporate-branding-kit/branding-kits-showcase.jpg",
     materials: [
       "Welcome Kits",
       "Event Brochures",
@@ -235,9 +250,80 @@ const faqs = [
   },
 ]
 
+function ExpandableIndustryCard({ kit, index }: { kit: typeof industryKits[0]; index: number }) {
+  const [isExpanded, setIsExpanded] = useState(false)
+
+  return (
+    <Card
+      className="border border-gray-200 shadow-md hover:shadow-lg transition-all cursor-pointer overflow-hidden"
+      onClick={() => setIsExpanded(!isExpanded)}
+    >
+      <CardContent className="p-6">
+        <div className="flex items-start justify-between gap-4 mb-4">
+          <div className="flex-1">
+            <h3 className="text-xl font-bold text-[#132635] mb-2">{kit.title}</h3>
+            <p className="text-gray-600 text-sm">{kit.description}</p>
+          </div>
+          <ChevronDown
+            className={`w-6 h-6 text-[#f19e1f] flex-shrink-0 transition-transform ${
+              isExpanded ? "rotate-180" : ""
+            }`}
+          />
+        </div>
+
+        {isExpanded && (
+          <div className="space-y-6 pt-6 border-t border-gray-200 animate-in fade-in duration-300">
+            {/* Image Section */}
+            <div className="relative h-64 rounded-lg overflow-hidden">
+              <Image
+                src={kit.image}
+                alt={kit.title}
+                fill
+                className="object-cover"
+              />
+            </div>
+
+            {/* Materials List */}
+            <div>
+              <h4 className="font-semibold text-[#132635] mb-4 text-lg">Kit Includes:</h4>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {kit.materials.map((material, i) => (
+                  <li key={i} className="flex items-center gap-3">
+                    <CheckCircle2 className="w-4 h-4 text-[#f19e1f] flex-shrink-0" />
+                    <span className="text-gray-700 text-sm">{material}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* CTA */}
+            <Button
+              asChild
+              className="w-full bg-[#f19e1f] text-white hover:bg-[#f19e1f]/90"
+            >
+              <Link href="/contact">Get Custom Quote for This Kit</Link>
+            </Button>
+          </div>
+        )}
+      </CardContent>
+    </Card>
+  )
+}
+
 export default function CorporateBrandingKitPage() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen relative">
+      {/* Background Image with Low Opacity */}
+      <div
+        className="fixed inset-0 opacity-5 pointer-events-none -z-10"
+        style={{
+          backgroundImage: "url('/corporate-branding-kit/manufacturing-facility.jpg')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed',
+        }}
+      />
+
       {/* Hero Section */}
       <section className="relative bg-[#132635] text-white py-20 md:py-32">
         <div className="absolute inset-0 opacity-10">
@@ -272,8 +358,25 @@ export default function CorporateBrandingKitPage() {
         </div>
       </section>
 
+      {/* Industry-Wise Kit Showcase - Moved Below Hero */}
+      <section className="py-16 md:py-24 bg-white relative z-10">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#132635] text-center mb-4">
+            Industry-Specific Branding Solutions
+          </h2>
+          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+            Click on any industry to explore the complete branding kit components and see what's included
+          </p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {industryKits.map((kit, index) => (
+              <ExpandableIndustryCard key={index} kit={kit} index={index} />
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Intro Section */}
-      <section className="py-12 md:py-16 bg-white">
+      <section className="py-12 md:py-16 bg-white relative z-10">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <p className="text-lg text-gray-700 leading-relaxed mb-6">
@@ -290,7 +393,7 @@ export default function CorporateBrandingKitPage() {
       </section>
 
       {/* Manufacturing Facility Showcase */}
-      <section className="py-16 md:py-24 bg-gray-50">
+      <section className="py-16 md:py-24 bg-gray-50 relative z-10">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -327,45 +430,8 @@ export default function CorporateBrandingKitPage() {
         </div>
       </section>
 
-      {/* Industry-Wise Kit Showcase */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#132635] text-center mb-12">
-            Industry-Specific Branding Solutions
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {industryKits.map((kit, index) => (
-              <Card key={index} className="border border-gray-200 shadow-md hover:shadow-lg transition-shadow">
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-bold text-[#132635] mb-2">{kit.title}</h3>
-                  <p className="text-gray-600 text-sm mb-4">{kit.description}</p>
-                  <div className="space-y-2">
-                    <p className="text-sm font-semibold text-[#132635]">Kit Includes:</p>
-                    <div className="flex flex-wrap gap-2">
-                      {kit.materials.slice(0, 4).map((material, i) => (
-                        <span
-                          key={i}
-                          className="text-xs bg-[#f19e1f]/10 text-[#132635] px-2 py-1 rounded border border-[#f19e1f]/20"
-                        >
-                          {material}
-                        </span>
-                      ))}
-                      {kit.materials.length > 4 && (
-                        <span className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded">
-                          +{kit.materials.length - 4} more
-                        </span>
-                      )}
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Why Choose Us */}
-      <section className="py-16 md:py-24 bg-gray-50">
+      <section className="py-16 md:py-24 bg-white relative z-10">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-[#132635] text-center mb-12">Why Choose MS Paper Products</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -383,12 +449,12 @@ export default function CorporateBrandingKitPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-16 md:py-24 bg-gray-50 relative z-10">
         <div className="container mx-auto px-4 max-w-4xl">
           <h2 className="text-3xl md:text-4xl font-bold text-[#132635] text-center mb-12">Frequently Asked Questions</h2>
           <div className="space-y-6">
             {faqs.map((faq, index) => (
-              <div key={index} className="border border-gray-200 rounded-lg p-6">
+              <div key={index} className="border border-gray-200 rounded-lg p-6 bg-white">
                 <h3 className="text-lg font-bold text-[#132635] mb-3 flex items-start gap-3">
                   <FileText className="w-5 h-5 text-[#f19e1f] mt-0.5 flex-shrink-0" />
                   {faq.question}
@@ -401,7 +467,7 @@ export default function CorporateBrandingKitPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-20 bg-[#132635] text-white">
+      <section className="py-16 md:py-20 bg-[#132635] text-white relative z-10">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Create Your Corporate Branding Kit?</h2>
           <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
