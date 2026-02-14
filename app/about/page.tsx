@@ -56,6 +56,53 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Advanced Printing Technology - Lithrone Machine Section */}
+      <section className="py-16 md:py-24 bg-gradient-to-r from-[#132635] to-[#1a3a4f] text-white">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">Lithrone 5-Color Printing Machine</h2>
+              <p className="text-gray-200 mb-4">
+                Our state-of-the-art Lithrone 5-color offset printing machine is the heart of our printing operations. This advanced equipment enables us to produce vibrant, high-quality prints with exceptional color accuracy and precision.
+              </p>
+              <p className="text-gray-200 mb-6">
+                Equipped with gold foiling and punching capabilities, we can create premium branded packaging with metallic accents and custom die-cut designs. Every print undergoes rigorous quality checks to ensure your branding standards are met perfectly.
+              </p>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-3">
+                  <span className="text-[#f19e1f] font-bold mt-1">✓</span>
+                  <span>5-Color Offset Printing for vibrant, accurate colors</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-[#f19e1f] font-bold mt-1">✓</span>
+                  <span>Gold & Silver Foiling for premium branding</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-[#f19e1f] font-bold mt-1">✓</span>
+                  <span>Precision Punching for custom shapes and designs</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-[#f19e1f] font-bold mt-1">✓</span>
+                  <span>High-Speed Production for bulk orders</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-[#f19e1f] font-bold mt-1">✓</span>
+                  <span>Superior Color Management System</span>
+                </li>
+              </ul>
+            </div>
+            <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-xl">
+              <Image
+                src="/corporate-branding-kit/lithrone-machine.jpg"
+                alt="Lithrone 5-Color Printing Machine with Gold Foiling"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Mission & Vision */}
       <section className="py-16 md:py-24 bg-gray-50">
         <div className="container mx-auto px-4">

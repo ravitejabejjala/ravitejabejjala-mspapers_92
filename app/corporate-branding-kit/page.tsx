@@ -34,7 +34,7 @@ const industryKits = [
   {
     title: "Onboarding & Welcome Kits",
     description: "Create memorable first impressions with thoughtfully designed employee onboarding packages.",
-    image: "/corporate-branding-kit/branding-kits-showcase.jpg",
+    image: "/corporate-branding-kit/onboarding-welcome-kits.jpg",
     materials: [
       "Welcome Boxes",
       "Employee Handbook Folders",
@@ -49,7 +49,7 @@ const industryKits = [
   {
     title: "Corporate Stationery Sets",
     description: "Professional stationery packages that reinforce your brand identity across all communications.",
-    image: "/corporate-branding-kit/branding-kits-showcase.jpg",
+    image: "/corporate-branding-kit/corporate-stationery.jpg",
     materials: [
       "Premium Letterheads",
       "Business Cards",
@@ -64,7 +64,7 @@ const industryKits = [
   {
     title: "Pharmaceuticals & Nutraceuticals",
     description: "Compliant packaging solutions with branding elements for pharmaceutical products.",
-    image: "/corporate-branding-kit/branding-kits-showcase.jpg",
+    image: "/corporate-branding-kit/pharma-packaging.jpg",
     materials: [
       "Medicine Boxes (GMP Compliant)",
       "Product Cartons",
@@ -79,7 +79,7 @@ const industryKits = [
   {
     title: "Food & Bakeries",
     description: "Custom branding kits for food businesses with quality packaging and promotional materials.",
-    image: "/corporate-branding-kit/branding-kits-showcase.jpg",
+    image: "/corporate-branding-kit/food-bakery-packaging.jpg",
     materials: [
       "Paper Cups (Branded)",
       "Cake Boxes",
@@ -94,7 +94,7 @@ const industryKits = [
   {
     title: "Education Institutes",
     description: "Comprehensive branding kits for schools and colleges covering admission to student experience.",
-    image: "/corporate-branding-kit/branding-kits-showcase.jpg",
+    image: "/corporate-branding-kit/education-institution.jpg",
     materials: [
       "Admission Brochures",
       "Prospectus Folders",
@@ -109,7 +109,7 @@ const industryKits = [
   {
     title: "Jewellery & Lifestyle Boutiques",
     description: "Luxury branding solutions that reflect the premium nature of jewelry and lifestyle brands.",
-    image: "/corporate-branding-kit/branding-kits-showcase.jpg",
+    image: "/corporate-branding-kit/jewelry-luxury.jpg",
     materials: [
       "Luxury Paper Bags (Foiled)",
       "Foiled Packaging Boxes",
@@ -124,7 +124,7 @@ const industryKits = [
   {
     title: "Real Estate & Construction",
     description: "Professional branding kits that build confidence in your real estate projects and services.",
-    image: "/corporate-branding-kit/branding-kits-showcase.jpg",
+    image: "/corporate-branding-kit/real-estate.jpg",
     materials: [
       "Project Brochures",
       "Presentation Folders",
@@ -139,7 +139,7 @@ const industryKits = [
   {
     title: "Corporate & IT Companies",
     description: "Modern branding solutions for corporate and technology sector companies.",
-    image: "/corporate-branding-kit/branding-kits-showcase.jpg",
+    image: "/corporate-branding-kit/it-tech.jpg",
     materials: [
       "Employee Onboarding Kits",
       "Office Stationery Sets",
@@ -154,7 +154,7 @@ const industryKits = [
   {
     title: "Hospitals & Diagnostic Centers",
     description: "Professional and compliant branding for healthcare institutions.",
-    image: "/corporate-branding-kit/branding-kits-showcase.jpg",
+    image: "/corporate-branding-kit/healthcare.jpg",
     materials: [
       "Lab Report Covers",
       "Medicine Packaging",
@@ -169,7 +169,7 @@ const industryKits = [
   {
     title: "Mobiles & Electronics Accessories",
     description: "Premium packaging solutions for electronics and mobile accessory retailers.",
-    image: "/corporate-branding-kit/branding-kits-showcase.jpg",
+    image: "/corporate-branding-kit/electronics-retail.jpg",
     materials: [
       "Product Packaging Boxes",
       "Printed Inserts & Dividers",
@@ -184,7 +184,7 @@ const industryKits = [
   {
     title: "Automobile Showrooms",
     description: "Professional branding kits for automotive dealerships and service centers.",
-    image: "/corporate-branding-kit/branding-kits-showcase.jpg",
+    image: "/corporate-branding-kit/automobile.jpg",
     materials: [
       "Delivery Kits & Folders",
       "Owner Manual Folders",
@@ -199,7 +199,7 @@ const industryKits = [
   {
     title: "Event & Hospitality",
     description: "Complete branding solutions for hotels, resorts, and event management companies.",
-    image: "/corporate-branding-kit/branding-kits-showcase.jpg",
+    image: "/corporate-branding-kit/events-hospitality.jpg",
     materials: [
       "Welcome Kits",
       "Event Brochures",
@@ -392,24 +392,24 @@ export default function CorporateBrandingKitPage() {
         </div>
       </section>
 
-      {/* Manufacturing Facility Showcase */}
+      {/* Manufacturing Facility Showcase - Lithrone Machine */}
       <section className="py-16 md:py-24 bg-gray-50 relative z-10">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-[#132635] mb-6">In-House Manufacturing Facility</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-[#132635] mb-6">Lithrone 5-Color Printing Machine</h2>
               <p className="text-gray-700 mb-6 leading-relaxed">
-                Our state-of-the-art manufacturing facility is equipped with the latest technology for comprehensive branding kit production. Everything happens under one roof – from design and printing to specialized finishing techniques.
+                Our state-of-the-art Lithrone 5-color offset printing machine is the centerpiece of our manufacturing facility. This advanced equipment delivers exceptional color accuracy, vibrant prints, and professional-grade finishing for all your branding kit needs.
               </p>
               <ul className="space-y-3">
                 {[
-                  "Own production unit with advanced machinery",
-                  "Professional printing machines for high-volume runs",
-                  "In-house foiling, punching & lamination services",
-                  "No middlemen – direct manufacturer advantage",
-                  "Bulk production capacity for enterprise clients",
+                  "5-color offset printing for vibrant, accurate colors",
+                  "Gold foiling & punching capabilities for premium finishes",
+                  "High-speed production for bulk orders",
+                  "Precision die-cutting for custom shapes and designs",
+                  "Advanced color management system",
+                  "Lamination & specialty coating options",
                   "Strict quality control at every production stage",
-                  "Competitive pricing through vertical integration",
                 ].map((point, i) => (
                   <li key={i} className="flex items-start gap-3">
                     <CheckCircle2 className="h-5 w-5 text-[#f19e1f] mt-0.5 flex-shrink-0" />
@@ -420,8 +420,8 @@ export default function CorporateBrandingKitPage() {
             </div>
             <div className="relative h-96 rounded-lg overflow-hidden shadow-lg">
               <Image
-                src="/corporate-branding-kit/manufacturing-facility.jpg"
-                alt="MS Paper Products Manufacturing Facility"
+                src="/corporate-branding-kit/lithrone-machine.jpg"
+                alt="Lithrone 5-Color Printing Machine with Gold Foiling & Punching"
                 fill
                 className="object-cover"
               />
