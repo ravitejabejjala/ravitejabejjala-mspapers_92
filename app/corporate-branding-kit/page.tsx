@@ -324,30 +324,50 @@ export default function CorporateBrandingKitPage() {
         }}
       />
 
-      {/* Hero Section */}
-      <section className="relative bg-[#132635] text-white py-20 md:py-32">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#f19e1f] to-transparent" />
+      {/* Hero Banner with Image */}
+      <section className="relative h-[300px] md:h-[400px] overflow-hidden bg-gradient-to-r from-[#132635] to-[#1a3a4f]">
+        <div className="absolute inset-0">
+          <Image
+            src="/corporate-branding-kit/hero-banner.jpg"
+            alt="Corporate Branding Kit Hero Banner"
+            fill
+            className="object-cover opacity-30"
+            priority
+          />
         </div>
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="absolute inset-0 bg-gradient-to-r from-[#132635]/80 via-[#1a3a4f]/80 to-[#132635]/80" />
+        <div className="relative z-10 h-full flex items-center">
+          <div className="container mx-auto px-4">
+            <div className="max-w-3xl">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-white text-balance leading-tight">
+                Corporate Branding Kit Manufacturer in Hyderabad
+              </h1>
+              <p className="text-lg md:text-xl text-gray-100 font-medium">
+                Complete customized branding solutions for every business need
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Hero Section with CTA */}
+      <section className="relative bg-white text-gray-900 py-16 md:py-20 border-b-4 border-[#f19e1f]">
+        <div className="container mx-auto px-4">
           <div className="max-w-4xl">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-balance">
-              Corporate Branding Kit Manufacturer in Hyderabad
-            </h1>
-            <p className="text-lg md:text-xl text-gray-200 mb-8 leading-relaxed">
-              Complete customized branding kits for businesses — designed, printed, and manufactured under one roof.
+            <p className="text-lg md:text-xl text-gray-700 mb-8 leading-relaxed">
+              Complete customized branding kits for businesses — designed, printed, and manufactured under one roof. From onboarding kits to pharma packaging, we deliver premium quality with fast turnaround times.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button asChild className="bg-[#f19e1f] text-white hover:bg-[#f19e1f]/90 text-base">
+              <Button asChild className="bg-[#f19e1f] text-[#132635] hover:bg-[#f19e1f]/90 text-base font-semibold">
                 <Link href="/contact">Get Bulk Quote</Link>
               </Button>
-              <Button asChild className="border-2 border-white text-white hover:bg-white hover:text-[#132635] bg-transparent text-base">
+              <Button asChild className="border-2 border-[#132635] text-[#132635] hover:bg-[#132635] hover:text-white bg-transparent text-base font-semibold">
                 <a href="tel:+918143330028">
                   <Phone className="mr-2 h-5 w-5" />
-                  Call Now
+                  Call Now: +91 81433 30028
                 </a>
               </Button>
-              <Button asChild className="bg-green-600 text-white hover:bg-green-700 text-base">
+              <Button asChild className="bg-green-600 text-white hover:bg-green-700 text-base font-semibold">
                 <a href="https://wa.me/918143330028" target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="mr-2 h-5 w-5" />
                   WhatsApp Now
