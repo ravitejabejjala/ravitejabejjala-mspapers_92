@@ -1,13 +1,31 @@
+import type { Metadata } from "next"
 import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { Leaf, Recycle, TreePine, Droplets, Factory, Award } from "lucide-react"
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Sustainability | MS Paper Products - Eco-Friendly Paper Bags",
   description:
     "Learn about our commitment to sustainability and eco-friendly manufacturing practices. 100% recyclable and biodegradable paper bags.",
+  keywords: [
+    "eco-friendly paper bags",
+    "sustainable packaging",
+    "recyclable paper products",
+    "biodegradable bags",
+    "FSC certified paper",
+  ],
+  openGraph: {
+    title: "Sustainability | MS Paper Products",
+    description:
+      "Our commitment to sustainability and eco-friendly manufacturing practices.",
+    url: "https://mspaperproducts.com/sustainability",
+    type: "website",
+  },
+  alternates: {
+    canonical: "https://mspaperproducts.com/sustainability",
+  },
 }
 
 const initiatives = [

@@ -1,7 +1,5 @@
-'use client'
-
-import { useState } from 'react'
 import type { Metadata } from "next"
+import { useState } from 'react'
 import Image from "next/image"
 import Link from "next/link"
 import { Card, CardContent } from "@/components/ui/card"
@@ -27,8 +25,16 @@ export const metadata: Metadata = {
     description:
       "Complete customized branding kits for businesses - designed, printed, and manufactured under one roof in Hyderabad.",
     url: "https://mspaperproducts.com/corporate-branding-kit",
+    type: "website",
+  },
+  alternates: {
+    canonical: "https://mspaperproducts.com/corporate-branding-kit",
   },
 }
+
+'use client'
+
+import { useState } from 'react'
 
 const industryKits = [
   {

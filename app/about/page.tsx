@@ -1,13 +1,30 @@
+import type { Metadata } from "next"
 import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { Award, Users, Leaf, Factory, Target, Eye } from "lucide-react"
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "About Us | MS Paper Products - Premium Paper Bag Manufacturers",
   description:
     "Learn about MS Paper Products, a leading manufacturer of premium eco-friendly paper bags with over 15 years of experience in sustainable packaging solutions.",
+  keywords: [
+    "about MS Paper Products",
+    "paper bag manufacturer history",
+    "eco-friendly packaging company",
+    "Hyderabad paper products",
+  ],
+  openGraph: {
+    title: "About Us | MS Paper Products",
+    description:
+      "A leading manufacturer of premium eco-friendly paper bags with over 15 years of experience.",
+    url: "https://mspaperproducts.com/about",
+    type: "website",
+  },
+  alternates: {
+    canonical: "https://mspaperproducts.com/about",
+  },
 }
 
 export default function AboutPage() {

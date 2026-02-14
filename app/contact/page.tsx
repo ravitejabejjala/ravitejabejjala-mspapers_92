@@ -1,8 +1,31 @@
 "use client"
 
 import type React from "react"
+import type { Metadata } from "next"
 
 import { useState } from "react"
+
+export const metadata: Metadata = {
+  title: "Contact Us | MS Paper Products - Get in Touch",
+  description:
+    "Contact MS Paper Products for bulk paper bag orders, custom packaging solutions, and inquiries. Hyderabad-based manufacturer. Call +91 81433 30028 or visit our office.",
+  keywords: [
+    "contact MS Paper Products",
+    "paper bag supplier contact",
+    "packaging manufacturer Hyderabad",
+    "bulk order inquiry",
+  ],
+  openGraph: {
+    title: "Contact Us | MS Paper Products",
+    description:
+      "Get in touch with MS Paper Products for bulk orders and custom packaging solutions.",
+    url: "https://mspaperproducts.com/contact",
+    type: "website",
+  },
+  alternates: {
+    canonical: "https://mspaperproducts.com/contact",
+  },
+}
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"

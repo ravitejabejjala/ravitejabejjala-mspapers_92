@@ -1,4 +1,5 @@
 import type React from "react"
+import type { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
 import { Card, CardContent } from "@/components/ui/card"
@@ -19,16 +20,29 @@ import { mainCategories } from "@/lib/products-data"
 import Script from "next/script"
 import TrustBadges from "@/components/trust-badges"
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Products | MS Paper Products - Premium Paper Bags, Boxes, Folders & More",
   description:
     "Explore our wide range of premium paper bags, gift packaging, boxes, cartons, file folders, calendars, and eco-friendly solutions. Quality paper products manufacturer in Hyderabad.",
-  keywords: "paper bags, gift boxes, carton boxes, file folders, calendars, diaries, eco-friendly packaging, Hyderabad",
+  keywords: [
+    "paper bags",
+    "gift boxes",
+    "carton boxes",
+    "file folders",
+    "calendars",
+    "diaries",
+    "eco-friendly packaging",
+    "Hyderabad",
+  ],
   openGraph: {
     title: "Products | MS Paper Products - Premium Paper Bags & Packaging",
     description:
       "Explore our wide range of premium paper bags, gift packaging, boxes, folders, calendars, and eco-friendly solutions.",
     type: "website",
+    url: "https://mspaperproducts.com/products",
+  },
+  alternates: {
+    canonical: "https://mspaperproducts.com/products",
   },
 }
 
