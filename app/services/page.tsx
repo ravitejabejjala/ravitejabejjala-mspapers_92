@@ -22,10 +22,6 @@ export const metadata: Metadata = {
     description:
       "Gold & Silver Foiling, Precision Punching, and Lamination services for premium packaging in Hyderabad.",
     url: "https://mspaperproducts.com/services",
-    type: "website",
-  },
-  alternates: {
-    canonical: "https://mspaperproducts.com/services",
   },
 }
 
