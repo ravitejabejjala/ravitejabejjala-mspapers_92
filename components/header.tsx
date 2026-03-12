@@ -3,7 +3,7 @@
 import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { Menu, Phone, ChevronDown, ShoppingBag, Package, FolderOpen, Calendar, Coffee, Pill } from "lucide-react"
+import { Menu, Phone, ChevronDown, ShoppingBag, Package, FolderOpen, Calendar, Coffee, Pill, Leaf } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 
@@ -88,6 +88,7 @@ const productCategories = [
     href: "/products/food-beverage-packaging",
     icon: Coffee,
     subcategories: [
+      { name: "Food Grade Packing Pouches", href: "/food-grade-packing" },
       { name: "Paper Cups", href: "/products/paper-cups" },
       { name: "Paper Food Boxes", href: "/products/paper-food-boxes" },
       { name: "Paper Trays", href: "/products/paper-trays" },
