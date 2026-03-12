@@ -4,7 +4,6 @@ import Link from "next/link"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Phone, MessageCircle, CheckCircle2, Package, Leaf, Droplets, Lock, Award } from "lucide-react"
-import Script from "next/script"
 
 export const metadata: Metadata = {
   title: "Food Grade Packing Pouches | Transparent Window Packaging | MS Paper Products",
@@ -31,6 +30,33 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://mspaperproducts.com/food-grade-packing",
+  },
+  other: {
+    "schema:LocalBusiness": JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      name: "MS Paper Products - Food Grade Packing",
+      image: "https://mspaperproducts.com/categories/food-grade-packing.jpg",
+      description:
+        "Premium food-grade transparent window pouches for dry fruits, grains, spices, and more. FDA compliant packaging.",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Banjara Hills",
+        addressLocality: "Hyderabad",
+        addressRegion: "Telangana",
+        postalCode: "500034",
+        addressCountry: "IN",
+      },
+      telephone: "+918143330028",
+      url: "https://mspaperproducts.com/food-grade-packing",
+      areaServed: ["Hyderabad", "Telangana", "India"],
+      priceRange: "Contact for pricing",
+      offers: {
+        "@type": "AggregateOffer",
+        priceCurrency: "INR",
+        availability: "https://schema.org/InStock",
+      },
+    }),
   },
 }
 
@@ -320,34 +346,6 @@ export default function FoodGradePackingPage() {
         </div>
       </section>
 
-      {/* Schema Markup for Food Grade Packing */}
-      <Script id="schema-food-packing" type="application/ld+json">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "LocalBusiness",
-          name: "MS Paper Products - Food Grade Packing",
-          image: "https://mspaperproducts.com/categories/food-grade-packing.jpg",
-          description:
-            "Premium food-grade transparent window pouches for dry fruits, grains, spices, and more. FDA compliant packaging.",
-          address: {
-            "@type": "PostalAddress",
-            streetAddress: "Banjara Hills",
-            addressLocality: "Hyderabad",
-            addressRegion: "Telangana",
-            postalCode: "500034",
-            addressCountry: "IN",
-          },
-          telephone: "+918143330028",
-          url: "https://mspaperproducts.com/food-grade-packing",
-          areaServed: ["Hyderabad", "Telangana", "India"],
-          priceRange: "Contact for pricing",
-          offers: {
-            "@type": "AggregateOffer",
-            priceCurrency: "INR",
-            availability: "https://schema.org/InStock",
-          },
-        })}
-      </Script>
     </main>
   )
 }
