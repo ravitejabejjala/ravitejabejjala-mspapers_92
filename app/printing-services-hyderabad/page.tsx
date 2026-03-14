@@ -3,8 +3,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Phone, MessageCircle, CheckCircle2, Printer, FileText, BookOpen, Zap, Award, TrendingUp } from "lucide-react"
-import ContactForm from "@/components/contact-form"
+import { Phone, MessageCircle, CheckCircle2, Printer, FileText, BookOpen, Zap, Award, TrendingUp, ArrowRight } from "lucide-react"
 
 export const metadata: Metadata = {
   title: "Corporate Printing Services in Hyderabad | Offset & Digital Printing | MS Paper Products",
@@ -39,112 +38,141 @@ const services = [
     id: "offset-printing",
     title: "Offset Printing Services",
     description: "Ideal for large volume printing such as brochures, flyers, catalogues, and marketing materials.",
+    image: "/printing-services/offset-printing.jpg",
     icon: Printer,
-    link: "#",
+    details: [
+      "High volume capacity with cost-effectiveness",
+      "Superior color quality and precision",
+      "Perfect for brochures, flyers, and catalogues",
+      "Professional finish for corporate materials",
+      "Minimum order: 500 pieces",
+      "Fast turnaround time",
+    ],
+    benefits: [
+      "Best for large quantities",
+      "Excellent color accuracy",
+      "Cost-effective per unit",
+      "Professional quality guaranteed",
+    ],
   },
   {
     id: "digital-printing",
     title: "Digital Printing Services",
     description: "Perfect for short-run prints, customized prints, and quick turnaround requirements.",
+    image: "/printing-services/digital-printing.jpg",
     icon: Zap,
-    link: "#",
+    details: [
+      "No setup time required",
+      "Ideal for short-run and variable data printing",
+      "Personalized and customized prints",
+      "Quick turnaround in 24-48 hours",
+      "Minimum order: 100 pieces",
+      "Full color capability",
+    ],
+    benefits: [
+      "Quick turnaround time",
+      "Perfect for customization",
+      "No minimum order stress",
+      "Cost-effective for small runs",
+    ],
   },
   {
     id: "brochure-printing",
     title: "Brochure Printing",
     description: "Professional brochures used for company profiles, product catalogues, and real estate project marketing.",
+    image: "/printing-services/brochure-printing.jpg",
     icon: FileText,
-    link: "#",
+    details: [
+      "Tri-fold and multi-fold options",
+      "Premium paper quality",
+      "Professional design consultation",
+      "Perfect for real estate and corporate use",
+      "Custom sizes and finishes available",
+      "Competitive bulk pricing",
+    ],
+    benefits: [
+      "Professional appearance",
+      "High-quality finish",
+      "Effective marketing tool",
+      "Competitive pricing",
+    ],
   },
   {
     id: "flyer-printing",
     title: "Flyer Printing",
     description: "Bulk promotional flyers for events, marketing campaigns, and product promotions.",
+    image: "/printing-services/flyer-printing.jpg",
     icon: TrendingUp,
-    link: "#",
+    details: [
+      "Standard and custom sizes",
+      "Vibrant full-color printing",
+      "Eye-catching designs",
+      "Perfect for event promotion",
+      "Bulk discount available",
+      "Minimum order: 500 pieces",
+    ],
+    benefits: [
+      "High impact promotion",
+      "Affordable bulk pricing",
+      "Quick delivery",
+      "Excellent for events",
+    ],
   },
   {
     id: "booklet-printing",
     title: "Booklet & Catalogue Printing",
     description: "High-quality booklets for training materials, product manuals, and corporate catalogues.",
+    image: "/printing-services/booklet-printing.jpg",
     icon: BookOpen,
-    link: "#",
+    details: [
+      "Perfect binding available",
+      "Multiple page options",
+      "Premium paper stock",
+      "Professional quality",
+      "Ideal for manuals and catalogues",
+      "Custom covers and designs",
+    ],
+    benefits: [
+      "Professional presentation",
+      "Durable binding options",
+      "Comprehensive information display",
+      "High perceived value",
+    ],
   },
   {
     id: "custom-printing",
     title: "Custom Printing Solutions",
     description: "Tailored printing services for unique business requirements and specialized materials.",
+    image: "/printing-services/custom-printing.jpg",
     icon: Award,
-    link: "#",
-  },
-]
-
-const industries = [
-  {
-    name: "Real Estate Companies",
-    description: "Marketing brochures, property flyers, and project launch materials.",
-  },
-  {
-    name: "Schools & Educational Institutions",
-    description: "Exam papers, answer sheets, academic booklets, and prospectuses.",
-  },
-  {
-    name: "Pharmaceutical Industry",
-    description: "Medical documentation printing and pharma marketing materials.",
-  },
-  {
-    name: "Corporate Businesses",
-    description: "Corporate brochures, catalogues, and brand communication materials.",
-  },
-]
-
-const processSteps = [
-  { step: "Step 1", title: "Requirement Discussion", description: "We understand your printing needs and specifications" },
-  { step: "Step 2", title: "Artwork Preparation", description: "Professional design and file preparation for printing" },
-  { step: "Step 3", title: "Printing Production", description: "State-of-the-art machines ensure quality output" },
-  { step: "Step 4", title: "Finishing & Quality Check", description: "Professional finishing and quality assurance" },
-  { step: "Step 5", title: "Delivery", description: "Timely delivery of your printed materials" },
-]
-
-const faqItems = [
-  {
-    question: "What printing services does MS Paper Products offer?",
-    answer:
-      "We offer comprehensive printing services including offset printing, digital printing, brochure printing, flyer printing, booklet printing, and custom printing solutions for various industries.",
-  },
-  {
-    question: "Do you provide bulk printing services in Hyderabad?",
-    answer:
-      "Yes, we specialize in bulk printing services with competitive pricing and fast turnaround times. We handle large-scale printing orders for corporate campaigns and marketing activities.",
-  },
-  {
-    question: "What is the difference between offset printing and digital printing?",
-    answer:
-      "Offset printing is ideal for large volume orders as it offers cost-per-unit advantages and superior color quality. Digital printing is perfect for short-run prints and quick turnaround requirements.",
-  },
-  {
-    question: "Can you handle corporate printing requirements?",
-    answer:
-      "Absolutely! We have extensive experience with corporate printing requirements including brochures, catalogues, marketing materials, and business documents with professional finishing.",
-  },
-  {
-    question: "What industries do you serve?",
-    answer:
-      "We serve real estate companies, educational institutions, pharmaceutical industry, and corporate businesses with specialized printing solutions tailored to their needs.",
+    details: [
+      "Specialized material handling",
+      "Custom design consultation",
+      "Unique finishing techniques",
+      "Personalized production",
+      "Dedicated project management",
+      "Quality assurance",
+    ],
+    benefits: [
+      "Tailored to your needs",
+      "Expert consultation",
+      "Unique solutions",
+      "Complete customization",
+    ],
   },
 ]
 
 export default function PrintingServicesPage() {
   return (
     <main>
-      {/* Hero Section */}
-      <section className="relative h-[400px] md:h-[500px] overflow-hidden bg-gradient-to-r from-[#132635] to-[#1a3a4f]">
-        <div className="absolute inset-0 opacity-20">
+      {/* Hero Banner Section */}
+      <section className="relative h-[300px] md:h-[400px] overflow-hidden bg-gradient-to-r from-[#132635] to-[#1a3a4f]">
+        <div className="absolute inset-0">
           <Image
             src="/printing-services-hero.jpg"
-            alt="Professional Printing Services"
+            alt="Professional Printing Services Hero"
             fill
-            className="object-cover"
+            className="object-cover opacity-30"
             priority
           />
         </div>
@@ -155,70 +183,109 @@ export default function PrintingServicesPage() {
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-white text-balance leading-tight">
                 Professional Printing Services in Hyderabad
               </h1>
-              <p className="text-lg md:text-xl text-gray-100 font-medium mb-8">
-                High-quality bulk printing solutions for businesses including corporates, real estate developers, schools, and pharmaceutical companies
+              <p className="text-lg md:text-xl text-gray-100 font-medium">
+                Bulk printing solutions for corporate marketing materials, brochures, flyers, and more
               </p>
-              <div className="flex flex-wrap gap-4">
-                <Link href="#contact">
-                  <Button size="lg" className="bg-[#f19e1f] hover:bg-[#f19e1f]/90 text-[#132635] font-semibold">
-                    Get Printing Quote
-                  </Button>
-                </Link>
-                <Link href="tel:+918143330028">
-                  <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
-                    <Phone className="mr-2 h-5 w-5" />
-                    Contact Experts
-                  </Button>
-                </Link>
-              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Introduction Section */}
-      <section className="py-16 md:py-24 bg-white">
+      {/* CTA Section */}
+      <section className="relative bg-white text-gray-900 py-12 md:py-16 border-b-4 border-[#f19e1f]">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#132635] mb-6">Reliable Corporate Printing Solutions</h2>
-            <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-              MS Paper Products provides end-to-end commercial printing services designed for businesses that require consistent quality and high-volume print production.
-            </p>
-            <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-              From corporate marketing materials to educational documentation and pharmaceutical print materials, we deliver precision printing with professional finishing and timely delivery.
-            </p>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Our printing services support organizations that require large quantities of printed materials without compromising quality.
-            </p>
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div>
+              <h2 className="text-2xl md:text-3xl font-bold mb-4">Why Choose MS Paper Products?</h2>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="h-5 w-5 text-[#f19e1f] mt-0.5 flex-shrink-0" />
+                  <span>Direct manufacturer with in-house production facilities</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="h-5 w-5 text-[#f19e1f] mt-0.5 flex-shrink-0" />
+                  <span>Competitive bulk order pricing and flexible MOQs</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="h-5 w-5 text-[#f19e1f] mt-0.5 flex-shrink-0" />
+                  <span>Fast turnaround time and reliable delivery</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="h-5 w-5 text-[#f19e1f] mt-0.5 flex-shrink-0" />
+                  <span>Professional design consultation available</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="h-5 w-5 text-[#f19e1f] mt-0.5 flex-shrink-0" />
+                  <span>20+ years of experience in commercial printing</span>
+                </li>
+              </ul>
+            </div>
+            <div className="flex flex-col gap-4">
+              <Button asChild size="lg" className="bg-[#f19e1f] text-[#132635] hover:bg-[#f19e1f]/90 font-semibold">
+                <Link href="/contact">
+                  Get Quote Now
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+              </Button>
+              <Button asChild size="lg" variant="outline" className="border-[#132635] text-[#132635] hover:bg-[#132635] hover:text-white font-semibold">
+                <a href="tel:+918143330028">
+                  <Phone className="mr-2 h-5 w-5" />
+                  Call: +91 81433 30028
+                </a>
+              </Button>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Services Overview */}
+      {/* Services Section */}
       <section className="py-16 md:py-24 bg-gray-50">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#132635] mb-4 text-center">Printing Services Overview</h2>
-          <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
-            Comprehensive printing solutions tailored to meet your business requirements
-          </p>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#132635] mb-4">Our Printing Services</h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Comprehensive printing solutions tailored to your business needs with professional quality and competitive pricing
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service) => {
               const IconComponent = service.icon
               return (
-                <Card key={service.id} className="border-0 shadow-md hover:shadow-lg transition-shadow">
+                <Card key={service.id} className="overflow-hidden hover:shadow-lg transition-shadow">
+                  <div className="relative h-48 overflow-hidden bg-gray-200">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      className="object-cover hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
                   <CardContent className="p-6">
-                    <div className="flex items-start gap-4 mb-4">
-                      <div className="p-3 bg-[#f19e1f]/10 rounded-lg">
-                        <IconComponent className="h-6 w-6 text-[#f19e1f]" />
-                      </div>
+                    <div className="flex items-center gap-3 mb-3">
+                      <IconComponent className="h-6 w-6 text-[#f19e1f]" />
+                      <h3 className="text-xl font-bold text-[#132635]">{service.title}</h3>
                     </div>
-                    <h3 className="text-xl font-bold text-[#132635] mb-3">{service.title}</h3>
-                    <p className="text-gray-600 mb-6">{service.description}</p>
-                    <Link href={service.link}>
-                      <Button variant="outline" className="border-[#f19e1f] text-[#f19e1f] hover:bg-[#f19e1f]/10">
-                        Learn More
-                      </Button>
-                    </Link>
+                    <p className="text-gray-600 mb-4">{service.description}</p>
+                    
+                    <div className="space-y-3 mb-6">
+                      <h4 className="font-semibold text-sm text-gray-700">Key Features:</h4>
+                      <ul className="space-y-2">
+                        {service.details.slice(0, 3).map((detail, idx) => (
+                          <li key={idx} className="text-sm text-gray-600 flex items-start gap-2">
+                            <span className="text-[#f19e1f] font-bold">•</span>
+                            {detail}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <Button asChild className="w-full bg-[#f19e1f] text-[#132635] hover:bg-[#f19e1f]/90 font-semibold">
+                      <Link href="/contact?service={service.title}">
+                        Get Quote
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </Link>
+                    </Button>
                   </CardContent>
                 </Card>
               )
@@ -227,102 +294,115 @@ export default function PrintingServicesPage() {
         </div>
       </section>
 
+      {/* Detailed Services Section */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#132635] mb-12 text-center">Complete Service Details</h2>
+
+          {services.map((service, index) => {
+            const IconComponent = service.icon
+            return (
+              <div key={service.id} className={`mb-16 pb-16 border-b ${index === services.length - 1 ? 'border-transparent' : 'border-gray-200'}`}>
+                <div className="grid md:grid-cols-2 gap-8 items-center">
+                  {index % 2 === 0 ? (
+                    <>
+                      <div>
+                        <div className="flex items-center gap-3 mb-4">
+                          <IconComponent className="h-8 w-8 text-[#f19e1f]" />
+                          <h3 className="text-2xl md:text-3xl font-bold text-[#132635]">{service.title}</h3>
+                        </div>
+                        <p className="text-gray-600 mb-6">{service.description}</p>
+                        
+                        <div className="mb-8">
+                          <h4 className="font-bold text-[#132635] mb-4">What's Included:</h4>
+                          <ul className="space-y-3">
+                            {service.details.map((detail, idx) => (
+                              <li key={idx} className="flex items-start gap-3">
+                                <CheckCircle2 className="h-5 w-5 text-[#f19e1f] mt-0.5 flex-shrink-0" />
+                                <span className="text-gray-700">{detail}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+
+                        <Button asChild size="lg" className="bg-[#f19e1f] text-[#132635] hover:bg-[#f19e1f]/90 font-semibold">
+                          <Link href="/contact?service={service.title}">
+                            Request Quote
+                            <ArrowRight className="ml-2 h-5 w-5" />
+                          </Link>
+                        </Button>
+                      </div>
+                      <div className="relative h-96 rounded-lg overflow-hidden shadow-lg">
+                        <Image
+                          src={service.image}
+                          alt={service.title}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="relative h-96 rounded-lg overflow-hidden shadow-lg">
+                        <Image
+                          src={service.image}
+                          alt={service.title}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                      <div>
+                        <div className="flex items-center gap-3 mb-4">
+                          <IconComponent className="h-8 w-8 text-[#f19e1f]" />
+                          <h3 className="text-2xl md:text-3xl font-bold text-[#132635]">{service.title}</h3>
+                        </div>
+                        <p className="text-gray-600 mb-6">{service.description}</p>
+                        
+                        <div className="mb-8">
+                          <h4 className="font-bold text-[#132635] mb-4">What's Included:</h4>
+                          <ul className="space-y-3">
+                            {service.details.map((detail, idx) => (
+                              <li key={idx} className="flex items-start gap-3">
+                                <CheckCircle2 className="h-5 w-5 text-[#f19e1f] mt-0.5 flex-shrink-0" />
+                                <span className="text-gray-700">{detail}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+
+                        <Button asChild size="lg" className="bg-[#f19e1f] text-[#132635] hover:bg-[#f19e1f]/90 font-semibold">
+                          <Link href="/contact?service={service.title}">
+                            Request Quote
+                            <ArrowRight className="ml-2 h-5 w-5" />
+                          </Link>
+                        </Button>
+                      </div>
+                    </>
+                  )}
+                </div>
+              </div>
+            )
+          })}
+        </div>
+      </section>
+
       {/* Industries Section */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#132635] mb-4 text-center">Industries We Serve</h2>
-          <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
-            Specialized printing solutions for diverse business sectors
-          </p>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {industries.map((industry, index) => (
-              <Card key={index} className="border-0 shadow-md">
-                <CardContent className="p-6">
-                  <h3 className="text-lg font-bold text-[#132635] mb-3">{industry.name}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">{industry.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Us */}
       <section className="py-16 md:py-24 bg-gradient-to-r from-[#132635] to-[#1a3a4f] text-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">Why Choose MS Paper Products</h2>
-          <p className="text-gray-200 text-center mb-12 max-w-2xl mx-auto">
-            Industry-leading printing services with proven expertise
-          </p>
-          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Industries We Serve</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { title: "Bulk Printing Capability", desc: "Large-scale printing for corporate campaigns" },
-              { title: "Consistent Print Quality", desc: "Advanced machines with accurate color reproduction" },
-              { title: "Competitive Pricing", desc: "Optimized production reduces cost per unit" },
-              { title: "Fast Turnaround", desc: "Efficient processes ensure timely delivery" },
-              { title: "End-to-End Management", desc: "From artwork to delivery - fully professional" },
-            ].map((feature, index) => (
-              <div key={index} className="flex flex-col gap-3">
-                <div className="flex items-center gap-3">
-                  <CheckCircle2 className="h-6 w-6 text-[#f19e1f] flex-shrink-0" />
-                  <h3 className="font-bold text-lg">{feature.title}</h3>
-                </div>
-                <p className="text-gray-300 text-sm">{feature.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Process Timeline */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#132635] mb-4 text-center">Printing Process</h2>
-          <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
-            Streamlined printing workflow from requirement to delivery
-          </p>
-          <div className="grid md:grid-cols-5 gap-4">
-            {processSteps.map((item, index) => (
-              <div key={index} className="flex flex-col items-center text-center">
-                <div className="w-16 h-16 rounded-full bg-[#f19e1f] text-white flex items-center justify-center font-bold text-lg mb-4">
-                  {index + 1}
-                </div>
-                <h3 className="font-bold text-[#132635] mb-2">{item.title}</h3>
-                <p className="text-gray-600 text-sm">{item.description}</p>
-                {index < processSteps.length - 1 && (
-                  <div className="hidden md:block absolute w-8 h-0.5 bg-[#f19e1f]/30 ml-20 mt-8"></div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Contact/Lead Form Section */}
-      <section id="contact" className="py-16 md:py-24 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-2xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#132635] mb-4 text-center">
-              Need Bulk Printing for Your Business?
-            </h2>
-            <p className="text-gray-600 text-center mb-12">
-              Partner with MS Paper Products for reliable corporate printing services in Hyderabad. We deliver consistent quality, competitive pricing, and fast turnaround for bulk printing orders.
-            </p>
-            <ContactForm />
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#132635] mb-12 text-center">Frequently Asked Questions</h2>
-          <div className="max-w-3xl mx-auto space-y-6">
-            {faqItems.map((item, index) => (
-              <Card key={index} className="border-0 shadow-md">
+              { name: "Real Estate", description: "Project brochures and marketing materials" },
+              { name: "Retail & E-commerce", description: "Product catalogues and promotional materials" },
+              { name: "Pharmaceutical", description: "Compliant packaging and product information" },
+              { name: "Education", description: "Prospectus and institutional materials" },
+              { name: "Hospitality", description: "Menus, brochures, and event materials" },
+              { name: "Corporate", description: "Annual reports and corporate communications" },
+            ].map((industry, idx) => (
+              <Card key={idx} className="bg-white/10 border-white/20 backdrop-blur">
                 <CardContent className="p-6">
-                  <h3 className="text-lg font-bold text-[#132635] mb-3">{item.question}</h3>
-                  <p className="text-gray-700 leading-relaxed">{item.answer}</p>
+                  <h3 className="text-xl font-bold mb-2">{industry.name}</h3>
+                  <p className="text-gray-200">{industry.description}</p>
                 </CardContent>
               </Card>
             ))}
@@ -330,25 +410,26 @@ export default function PrintingServicesPage() {
         </div>
       </section>
 
-      {/* Final CTA Section */}
-      <section className="py-16 md:py-24 bg-gradient-to-r from-[#132635] to-[#1a3a4f] text-white">
+      {/* CTA Section */}
+      <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Start Your Printing Project Today</h2>
-          <p className="text-lg text-gray-200 mb-8 max-w-2xl mx-auto">
-            Contact MS Paper Products for professional printing services designed for businesses that demand quality and reliability.
+          <h2 className="text-3xl md:text-4xl font-bold text-[#132635] mb-6">Ready to Print Your Marketing Materials?</h2>
+          <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+            Get a free quote for your printing project. Our team will provide competitive pricing and expert recommendations.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="#contact">
-              <Button size="lg" className="bg-[#f19e1f] hover:bg-[#f19e1f]/90 text-[#132635] font-semibold">
-                Get Quote
-              </Button>
-            </Link>
-            <Link href="tel:+918143330028">
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
-                <Phone className="mr-2 h-5 w-5" />
-                Call Now: +91 81433 30028
-              </Button>
-            </Link>
+            <Button asChild size="lg" className="bg-[#f19e1f] text-[#132635] hover:bg-[#f19e1f]/90 font-semibold">
+              <Link href="/contact">
+                Get Your Quote
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </Button>
+            <Button asChild size="lg" className="bg-[#132635] text-white hover:bg-[#132635]/90 font-semibold">
+              <a href="https://wa.me/918143330028" target="_blank" rel="noopener noreferrer">
+                <MessageCircle className="mr-2 h-5 w-5" />
+                WhatsApp Us
+              </a>
+            </Button>
           </div>
         </div>
       </section>
