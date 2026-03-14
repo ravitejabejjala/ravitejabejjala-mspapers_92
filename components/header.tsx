@@ -3,7 +3,7 @@
 import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { Menu, Phone, ChevronDown, ShoppingBag, Package, FolderOpen, Calendar, Coffee, Pill, Leaf } from "lucide-react"
+import { Menu, Phone, ChevronDown, ShoppingBag, Package, FolderOpen, Calendar, Coffee, Pill, Leaf, Printer } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 
@@ -115,6 +115,19 @@ const productCategories = [
       { name: "Recyclable Paper Packaging", href: "/products/recyclable-paper-packaging" },
       { name: "Sustainable Paper Products", href: "/products/sustainable-paper-products" },
       { name: "Eco-Friendly Bags & Boxes", href: "/products/eco-friendly-bags-boxes" },
+    ],
+  },
+  {
+    name: "Printing Services",
+    href: "/printing-services-hyderabad",
+    icon: Printer,
+    subcategories: [
+      { name: "Offset Printing", href: "/printing-services-hyderabad#offset-printing" },
+      { name: "Digital Printing", href: "/printing-services-hyderabad#digital-printing" },
+      { name: "Brochure Printing", href: "/printing-services-hyderabad#brochure-printing" },
+      { name: "Flyer Printing", href: "/printing-services-hyderabad#flyer-printing" },
+      { name: "Booklet Printing", href: "/printing-services-hyderabad#booklet-printing" },
+      { name: "Custom Printing", href: "/printing-services-hyderabad#custom-printing" },
     ],
   },
 ]
