@@ -104,7 +104,7 @@ export default function DigitalPrintingPage() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-white text-white hover:bg-white/10"
+                  className="border-white hover:bg-white/10 text-chart-3"
                 >
                   <Phone className="mr-2 h-5 w-5" />
                   Call Us
@@ -224,15 +224,15 @@ export default function DigitalPrintingPage() {
               <tbody className="divide-y">
                 <tr className="hover:bg-gray-50">
                   <td className="px-6 py-4 font-semibold text-[#132635]">Paper Sizes</td>
-                  <td className="px-6 py-4 text-gray-700">A4, A3, A5, and custom sizes</td>
+                  <td className="px-6 py-4 text-gray-700">All Available Sizes</td>
                 </tr>
                 <tr className="hover:bg-gray-50">
                   <td className="px-6 py-4 font-semibold text-[#132635]">Quantity Range</td>
-                  <td className="px-6 py-4 text-gray-700">50 - 5000 pieces</td>
+                  <td className="px-6 py-4 text-gray-700">500 - 5000 pieces</td>
                 </tr>
                 <tr className="hover:bg-gray-50">
                   <td className="px-6 py-4 font-semibold text-[#132635]">Colors</td>
-                  <td className="px-6 py-4 text-gray-700">Full color (CMYK)</td>
+                  <td className="px-6 py-4 text-gray-700">Full Colors (CMYK) </td>
                 </tr>
                 <tr className="hover:bg-gray-50">
                   <td className="px-6 py-4 font-semibold text-[#132635]">Paper Types</td>
@@ -240,11 +240,11 @@ export default function DigitalPrintingPage() {
                 </tr>
                 <tr className="hover:bg-gray-50">
                   <td className="px-6 py-4 font-semibold text-[#132635]">Turnaround</td>
-                  <td className="px-6 py-4 text-gray-700">24-48 hours (rush), 3-5 days (standard)</td>
+                  <td className="px-6 py-4 text-gray-700">24-48 hours (rush), Upto 5 days (standard)</td>
                 </tr>
                 <tr className="hover:bg-gray-50">
                   <td className="px-6 py-4 font-semibold text-[#132635]">Setup Fee</td>
-                  <td className="px-6 py-4 text-gray-700">No setup fees</td>
+                  <td className="px-6 py-4 text-gray-700">On Demand</td>
                 </tr>
               </tbody>
             </table>
@@ -270,7 +270,7 @@ export default function DigitalPrintingPage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-white/10"
+                className="border-white hover:bg-white/10 text-chart-3"
               >
                 <Phone className="mr-2 h-5 w-5" />
                 Call Now
