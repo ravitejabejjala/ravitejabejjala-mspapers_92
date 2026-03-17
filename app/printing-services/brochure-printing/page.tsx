@@ -50,7 +50,7 @@ export default function BrochurePrintingPage() {
                 <Button size="lg" className="bg-[#f19e1f] text-[#132635]">Get Quote</Button>
               </Link>
               <Link href="tel:+918143330028">
-                <Button size="lg" variant="outline" className="border-white text-white">
+                <Button size="lg" variant="outline" className="border-white text-green-950">
                   <Phone className="mr-2 h-5 w-5" />
                   Call
                 </Button>
@@ -98,7 +98,7 @@ export default function BrochurePrintingPage() {
           <h2 className="text-3xl font-bold text-[#132635] mb-8 text-center">Our Brochure Options</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {["Tri-Fold Brochures", "Multi-Page Booklets", "Gate-Fold Brochures"].map((type, idx) => (
-              <div key={idx} className="bg-white p-6 rounded-lg shadow">
+              <div key={idx} className="p-6 rounded-lg shadow bg-accent">
                 <h3 className="text-xl font-bold text-[#132635] mb-4">{type}</h3>
                 <p className="text-gray-700 mb-6">
                   Professional {type.toLowerCase()} printed on premium paper with custom finishing options.
@@ -124,7 +124,7 @@ export default function BrochurePrintingPage() {
               </Button>
             </Link>
             <Link href="https://wa.me/918143330028">
-              <Button size="lg" variant="outline" className="border-white text-white">
+              <Button size="lg" variant="outline" className="border-white text-white bg-chart-2">
                 <MessageCircle className="mr-2" />
                 WhatsApp
               </Button>
