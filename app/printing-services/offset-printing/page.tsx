@@ -117,7 +117,7 @@ export default function OffsetPrintingPage() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-white text-white hover:bg-white/10"
+                  className="border-white hover:bg-white/10 text-chart-3"
                 >
                   <Phone className="mr-2 h-5 w-5" />
                   Call Us
@@ -247,11 +247,11 @@ export default function OffsetPrintingPage() {
               <tbody className="divide-y">
                 <tr className="hover:bg-gray-50">
                   <td className="px-6 py-4 font-semibold text-[#132635]">Paper Sizes</td>
-                  <td className="px-6 py-4 text-gray-700">A4, A3, Folio, SRA, and custom sizes</td>
+                  <td className="px-6 py-4 text-gray-700"> All Custom Sizes</td>
                 </tr>
                 <tr className="hover:bg-gray-50">
                   <td className="px-6 py-4 font-semibold text-[#132635]">Color Options</td>
-                  <td className="px-6 py-4 text-gray-700">4-color (CMYK), Pantone spot colors, special colors</td>
+                  <td className="px-6 py-4 text-gray-700">5-color (CMYK), Pantone spot colors, special colors</td>
                 </tr>
                 <tr className="hover:bg-gray-50">
                   <td className="px-6 py-4 font-semibold text-[#132635]">Paper Types</td>
@@ -263,7 +263,7 @@ export default function OffsetPrintingPage() {
                 </tr>
                 <tr className="hover:bg-gray-50">
                   <td className="px-6 py-4 font-semibold text-[#132635]">Turnaround Time</td>
-                  <td className="px-6 py-4 text-gray-700">5-7 working days (standard), rush orders available</td>
+                  <td className="px-6 py-4 text-gray-700">3 working days (standard), rush orders available</td>
                 </tr>
                 <tr className="hover:bg-gray-50">
                   <td className="px-6 py-4 font-semibold text-[#132635]">Minimum Order</td>
@@ -294,7 +294,7 @@ export default function OffsetPrintingPage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-white/10"
+                className="border-white text-white hover:bg-white/10 bg-chart-2"
               >
                 <MessageCircle className="mr-2 h-5 w-5" />
                 WhatsApp Us
@@ -304,7 +304,7 @@ export default function OffsetPrintingPage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-white/10"
+                className="border-white text-white hover:bg-white/10 bg-secondary-foreground"
               >
                 <Phone className="mr-2 h-5 w-5" />
                 Call: +91 81433 30028
