@@ -122,12 +122,12 @@ const productCategories = [
     href: "/printing-services-hyderabad",
     icon: Printer,
     subcategories: [
-      { name: "Offset Printing", href: "/printing-services-hyderabad#offset-printing" },
-      { name: "Digital Printing", href: "/printing-services-hyderabad#digital-printing" },
-      { name: "Brochure Printing", href: "/printing-services-hyderabad#brochure-printing" },
-      { name: "Flyer Printing", href: "/printing-services-hyderabad#flyer-printing" },
-      { name: "Booklet Printing", href: "/printing-services-hyderabad#booklet-printing" },
-      { name: "Custom Printing", href: "/printing-services-hyderabad#custom-printing" },
+      { name: "Offset Printing", href: "/printing-services/offset-printing" },
+      { name: "Digital Printing", href: "/printing-services/digital-printing" },
+      { name: "Brochure Printing", href: "/printing-services/brochure-printing" },
+      { name: "Flyer Printing", href: "/printing-services/flyer-printing" },
+      { name: "Booklet Printing", href: "/printing-services/booklet-printing" },
+      { name: "Custom Printing", href: "/printing-services/custom-printing" },
     ],
   },
 ]
@@ -159,9 +159,6 @@ export default function Header() {
           </Link>
           <Link href="/about" className="text-sm font-medium text-white transition-colors hover:text-[#f19e1f]">
             About
-          </Link>
-          <Link href="/corporate-branding-kit" className="text-sm font-medium text-white transition-colors hover:text-[#f19e1f]">
-            Corporate Branding Kit
           </Link>
 
           <div
@@ -271,13 +268,6 @@ export default function Header() {
                     className="text-lg font-medium text-white transition-colors hover:text-[#f19e1f]"
                   >
                     About
-                  </Link>
-                  <Link
-                    href="/corporate-branding-kit"
-                    onClick={() => setIsOpen(false)}
-                    className="text-lg font-medium text-white transition-colors hover:text-[#f19e1f]"
-                  >
-                    Corporate Branding Kit
                   </Link>
 
                   <div>

@@ -227,12 +227,12 @@ export default function PrintingServicesPage() {
               </ul>
             </div>
             <div className="flex flex-col gap-4">
-              <Button asChild size="lg" className="bg-[#f19e1f] text-[#132635] hover:bg-[#f19e1f]/90 font-semibold">
-                <Link href="/contact">
-                  Get Quote Now
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
-              </Button>
+                        <Button asChild size="lg" className="bg-[#f19e1f] text-[#132635] hover:bg-[#f19e1f]/90 font-semibold">
+                          <Link href={`/contact?service=${service.title}`}>
+                            Get Quote Now
+                            <ArrowRight className="ml-2 h-5 w-5" />
+                          </Link>
+                        </Button>
               <Button asChild size="lg" variant="outline" className="border-[#132635] text-[#132635] hover:bg-[#132635] hover:text-white font-semibold">
                 <a href="tel:+918143330028">
                   <Phone className="mr-2 h-5 w-5" />
@@ -287,15 +287,15 @@ export default function PrintingServicesPage() {
                     </div>
 
                     <div className="flex flex-col gap-2">
-                      <Button asChild className="w-full bg-[#132635] hover:bg-[#132635]/90 text-white font-semibold">
-                        <Link href={service.href}>
-                          Learn More
-                          <ArrowRight className="ml-2 h-4 w-4" />
-                        </Link>
-                      </Button>
                       <Button asChild className="w-full bg-[#f19e1f] hover:bg-[#f19e1f]/90 text-[#132635] font-semibold">
                         <Link href="/contact">
                           Get Quote
+                        </Link>
+                      </Button>
+                      <Button asChild className="w-full border-2 border-[#132635] text-[#132635] hover:bg-[#132635] hover:text-white font-semibold">
+                        <Link href={service.href}>
+                          Learn More
+                          <ArrowRight className="ml-2 h-4 w-4" />
                         </Link>
                       </Button>
                     </div>
