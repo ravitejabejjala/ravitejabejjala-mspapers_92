@@ -56,7 +56,7 @@ export default function Footer() {
               {[
                 { name: "Home", href: "/" },
                 { name: "About", href: "/about" },
-                { name: "Corporate Branding Kit", href: "/corporate-branding-kit" },
+                { name: "Printing Services", href: "/printing-services-hyderabad" },
                 { name: "Products", href: "/products" },
                 { name: "Services", href: "/services" },
                 { name: "Contact", href: "/contact" },

@@ -40,6 +40,7 @@ const services = [
     description: "Ideal for large volume printing such as brochures, flyers, catalogues, and marketing materials.",
     image: "/printing-services/offset-printing.jpg",
     icon: Printer,
+    href: "/printing-services/offset-printing",
     details: [
       "High volume capacity with cost-effectiveness",
       "Superior color quality and precision",
@@ -61,6 +62,7 @@ const services = [
     description: "Perfect for short-run prints, customized prints, and quick turnaround requirements.",
     image: "/printing-services/digital-printing.jpg",
     icon: Zap,
+    href: "/printing-services/digital-printing",
     details: [
       "No setup time required",
       "Ideal for short-run and variable data printing",
@@ -82,6 +84,7 @@ const services = [
     description: "Professional brochures used for company profiles, product catalogues, and real estate project marketing.",
     image: "/printing-services/brochure-printing.jpg",
     icon: FileText,
+    href: "/printing-services/brochure-printing",
     details: [
       "Tri-fold and multi-fold options",
       "Premium paper quality",
@@ -103,6 +106,7 @@ const services = [
     description: "Bulk promotional flyers for events, marketing campaigns, and product promotions.",
     image: "/printing-services/flyer-printing.jpg",
     icon: TrendingUp,
+    href: "/printing-services/flyer-printing",
     details: [
       "Standard and custom sizes",
       "Vibrant full-color printing",
@@ -124,6 +128,7 @@ const services = [
     description: "High-quality booklets for training materials, product manuals, and corporate catalogues.",
     image: "/printing-services/booklet-printing.jpg",
     icon: BookOpen,
+    href: "/printing-services/booklet-printing",
     details: [
       "Perfect binding available",
       "Multiple page options",
@@ -145,6 +150,7 @@ const services = [
     description: "Tailored printing services for unique business requirements and specialized materials.",
     image: "/printing-services/custom-printing.jpg",
     icon: Award,
+    href: "/printing-services/custom-printing",
     details: [
       "Specialized material handling",
       "Custom design consultation",
@@ -280,12 +286,19 @@ export default function PrintingServicesPage() {
                       </ul>
                     </div>
 
-                    <Button asChild className="w-full bg-[#f19e1f] text-[#132635] hover:bg-[#f19e1f]/90 font-semibold">
-                      <Link href="/contact?service={service.title}">
-                        Get Quote
-                        <ArrowRight className="ml-2 h-4 w-4" />
-                      </Link>
-                    </Button>
+                    <div className="flex flex-col gap-2">
+                      <Button asChild className="w-full bg-[#132635] hover:bg-[#132635]/90 text-white font-semibold">
+                        <Link href={service.href}>
+                          Learn More
+                          <ArrowRight className="ml-2 h-4 w-4" />
+                        </Link>
+                      </Button>
+                      <Button asChild className="w-full bg-[#f19e1f] hover:bg-[#f19e1f]/90 text-[#132635] font-semibold">
+                        <Link href="/contact">
+                          Get Quote
+                        </Link>
+                      </Button>
+                    </div>
                   </CardContent>
                 </Card>
               )
