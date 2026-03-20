@@ -29,9 +29,9 @@ export default function FlyerPrintingPage() {
                 <Button size="lg" className="bg-[#f19e1f] text-[#132635]">Get Quote</Button>
               </Link>
               <Link href="tel:+918143330028">
-                <Button size="lg" variant="outline" className="border-white text-white">
+                <Button size="lg" variant="outline" className="border-white text-chart-3">
                   <Phone className="mr-2 h-5 w-5" />
-                  Call
+                  Call us 
                 </Button>
               </Link>
             </div>
