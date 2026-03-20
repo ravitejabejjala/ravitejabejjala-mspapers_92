@@ -52,7 +52,7 @@ export default function BrochurePrintingPage() {
               <Link href="tel:+918143330028">
                 <Button size="lg" variant="outline" className="border-white text-green-950">
                   <Phone className="mr-2 h-5 w-5" />
-                  Call
+                  Call us 
                 </Button>
               </Link>
             </div>
