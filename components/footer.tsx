@@ -56,6 +56,7 @@ export default function Footer() {
               {[
                 { name: "Home", href: "/" },
                 { name: "About", href: "/about" },
+                { name: "Packaging Solutions", href: "/packaging-solutions" },
                 { name: "Printing Services", href: "/printing-services-hyderabad" },
                 { name: "Products", href: "/products" },
                 { name: "Services", href: "/services" },
@@ -78,11 +79,11 @@ export default function Footer() {
             <h3 className="mb-4 text-lg font-semibold text-[#f19e1f]">Popular Products</h3>
             <ul className="space-y-2">
               {[
-                { name: "Kraft Paper Bags", slug: "kraft-paper-bags" },
-                { name: "Gift Boxes", slug: "gift-boxes" },
-                { name: "File Folders", slug: "files-folders" },
-                { name: "Corporate Diaries", slug: "corporate-diaries" },
-                { name: "Medicine Boxes", slug: "medicine-boxes" },
+                { name: "Courier Covers", slug: "courier-covers" },
+                { name: "Shipping Labels", slug: "shipping-labels" },
+                { name: "Barcode Labels", slug: "barcode-labels" },
+                { name: "Thermal Labels", slug: "thermal-labels" },
+                { name: "Custom Printed Packaging", slug: "custom-packaging" },
               ].map((item) => (
                 <li key={item.slug}>
                   <Link

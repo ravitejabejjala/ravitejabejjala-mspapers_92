@@ -10,6 +10,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 const navigation = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
+  { name: "Packaging Solutions", href: "/packaging-solutions" },
   { name: "Printing Services", href: "/printing-services-hyderabad" },
   { name: "Services", href: "/services" },
   { name: "Sustainability", href: "/sustainability" },
