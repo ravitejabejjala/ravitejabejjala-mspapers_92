@@ -1,5 +1,3 @@
-'use client'
-
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -375,7 +373,7 @@ export default function PackagingSolutions() {
                           className='w-full bg-[#F5B400] text-[#0A2342] hover:bg-[#F5B400]/90 font-bold group-hover:shadow-lg'
                           asChild
                         >
-                          <Link href='/contact?service={product.name}'>
+                          <Link href={`/contact?service=${product.name}`}>
                             Get Quote
                             <ArrowRight className='ml-2 h-4 w-4' />
                           </Link>
