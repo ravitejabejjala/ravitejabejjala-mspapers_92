@@ -61,6 +61,13 @@ const featuredProducts = [
     features: ["Wall & Desk Options", "Custom Designs", "Premium Paper", "Corporate Branding"],
     href: "/products/wall-calendars",
   },
+  {
+    name: "Ecommerce Covers & Shipping Labels",
+    description: "Waterproof courier covers and thermal barcode labels for high-volume e-commerce shipping.",
+    image: "/categories/ecommerce-covers.png",
+    features: ["Waterproof Design", "Custom Printing", "Bulk Orders", "Fast Delivery"],
+    href: "/products/ecommerce-shipping-solutions",
+  },
 ]
 
 const iconMap: { [key: string]: React.ReactNode } = {

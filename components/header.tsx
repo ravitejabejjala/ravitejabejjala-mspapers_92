@@ -109,6 +109,15 @@ const productCategories = [
     ],
   },
   {
+    name: "Ecommerce & Shipping",
+    href: "/products/ecommerce-shipping-solutions",
+    icon: ShoppingBag,
+    subcategories: [
+      { name: "Courier Covers", href: "/products/ecommerce-shipping-solutions#ecommerce-covers" },
+      { name: "Barcode Label Rolls", href: "/products/ecommerce-shipping-solutions#barcode-label-rolls" },
+    ],
+  },
+  {
     name: "Eco-Friendly Solutions",
     href: "/products/eco-friendly-solutions",
     icon: ShoppingBag,
