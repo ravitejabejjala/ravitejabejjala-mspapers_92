@@ -17,26 +17,63 @@ import {
 } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Ecommerce Covers & Shipping Barcode Labels | MS Paper Products",
+  title: "Ecommerce Covers & Thermal Barcode Label Rolls | MS Paper Products Hyderabad",
   description:
-    "Premium waterproof ecommerce courier covers and thermal barcode label rolls for online retailers. High-volume printing with fast turnaround. MS Paper Products Hyderabad.",
+    "Premium waterproof ecommerce courier covers (10x14, 12x16 inches) & thermal barcode label rolls (4x6, 3x5) for bulk shipping. Fast delivery, custom printing. Direct manufacturer.",
   keywords: [
-    "ecommerce covers",
-    "shipping covers",
-    "courier covers",
-    "barcode labels",
-    "shipping labels",
-    "thermal labels",
+    "ecommerce courier covers",
+    "waterproof shipping bags",
+    "thermal barcode labels",
+    "shipping label rolls",
+    "4x6 thermal labels",
+    "ecommerce packaging India",
+    "bulk courier covers Hyderabad",
     "barcode label rolls",
-    "ecommerce packaging",
-    "shipping solutions Hyderabad",
-    "bulk courier covers",
+    "thermal printer labels",
+    "shipping solutions",
   ],
+  alternates: {
+    canonical: "https://mspaperproducts.com/products/ecommerce-shipping-solutions",
+  },
   openGraph: {
-    title: "Ecommerce Covers & Shipping Barcode Labels | MS Paper Products",
-    description:
-      "Premium waterproof ecommerce courier covers and thermal barcode label rolls for high-volume online retailers.",
+    title: "Premium Ecommerce Covers & Barcode Labels | MS Paper Products",
+    description: "Waterproof courier covers and thermal barcode label rolls for high-volume e-commerce shipping.",
     type: "website",
+    url: "https://mspaperproducts.com/products/ecommerce-shipping-solutions",
+    images: [
+      {
+        url: "/categories/ecommerce-covers.png",
+        width: 1200,
+        height: 630,
+        alt: "Ecommerce Courier Covers",
+      },
+    ],
+  },
+  other: {
+    "application/ld+json": JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": ["LocalBusiness", "Store"],
+      name: "MS Paper Products - Ecommerce Shipping Solutions",
+      description: "Premium ecommerce courier covers and thermal barcode label rolls supplier",
+      url: "https://mspaperproducts.com/products/ecommerce-shipping-solutions",
+      telephone: "+918143330028",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Banjara Hills",
+        addressLocality: "Hyderabad",
+        addressRegion: "Telangana",
+        postalCode: "500034",
+        addressCountry: "IN",
+      },
+      areaServed: ["IN"],
+      priceRange: "₹0.80-₹5.00",
+      offers: {
+        "@type": "AggregateOffer",
+        priceCurrency: "INR",
+        availability: "https://schema.org/InStock",
+        offerCount: "2",
+      },
+    }),
   },
 }
 
@@ -312,7 +349,7 @@ export default function EcommercePage() {
                         asChild
                         className="flex-1 bg-[#F5B400] text-[#0A2342] hover:bg-[#F5B400]/90 font-bold"
                       >
-                        <Link href="/contact?service={product.name}">
+                        <Link href={`/contact?service=${product.name}`}>
                           Get Quote
                           <ArrowRight className="ml-2 h-4 w-4" />
                         </Link>
