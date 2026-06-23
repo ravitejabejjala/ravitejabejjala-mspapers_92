@@ -330,58 +330,52 @@ export default function PackagingSolutions() {
             {products.map((product, idx) => {
               const IconComponent = product.icon
               return (
-                <Link
-                  href={`/packaging-solutions/${product.id}`}
-                  key={idx}
-                  className='group cursor-pointer'
-                >
-                  <Card className='h-full hover:shadow-xl transition-all duration-300 border-0'>
-                    <CardContent className='p-0'>
-                      <div className='relative h-64 bg-gray-200 overflow-hidden'>
-                        <Image
-                          src={product.image}
-                          alt={product.name}
-                          fill
-                          className='object-cover group-hover:scale-105 transition-transform duration-300'
-                        />
-                      </div>
-                      <div className='p-6'>
-                        <div className='flex items-center gap-3 mb-3'>
-                          <div className='p-2 bg-[#F5B400]/20 rounded-lg'>
-                            <IconComponent className='h-6 w-6 text-[#F5B400]' />
-                          </div>
-                          <h3 className='text-2xl font-bold text-[#0A2342] group-hover:text-[#F5B400] transition-colors'>
-                            {product.name}
-                          </h3>
+                <Card key={idx} className='h-full hover:shadow-xl transition-all duration-300 border-0 group cursor-pointer'>
+                  <CardContent className='p-0'>
+                    <div className='relative h-64 bg-gray-200 overflow-hidden'>
+                      <Image
+                        src={product.image}
+                        alt={product.name}
+                        fill
+                        className='object-cover group-hover:scale-105 transition-transform duration-300'
+                      />
+                    </div>
+                    <div className='p-6'>
+                      <div className='flex items-center gap-3 mb-3'>
+                        <div className='p-2 bg-[#F5B400]/20 rounded-lg'>
+                          <IconComponent className='h-6 w-6 text-[#F5B400]' />
                         </div>
-
-                        <p className='text-gray-600 mb-4'>{product.description}</p>
-
-                        <div className='space-y-3 mb-6'>
-                          <h4 className='font-semibold text-[#0A2342]'>Key Features:</h4>
-                          <ul className='space-y-2'>
-                            {product.features.map((feature, i) => (
-                              <li key={i} className='flex items-center gap-2 text-sm text-gray-700'>
-                                <CheckCircle2 className='h-4 w-4 text-[#F5B400] flex-shrink-0' />
-                                {feature}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-
-                        <Button
-                          className='w-full bg-[#F5B400] text-[#0A2342] hover:bg-[#F5B400]/90 font-bold group-hover:shadow-lg'
-                          asChild
-                        >
-                          <Link href={`/contact?service=${product.name}`}>
-                            Get Quote
-                            <ArrowRight className='ml-2 h-4 w-4' />
-                          </Link>
-                        </Button>
+                        <h3 className='text-2xl font-bold text-[#0A2342] group-hover:text-[#F5B400] transition-colors'>
+                          {product.name}
+                        </h3>
                       </div>
-                    </CardContent>
-                  </Card>
-                </Link>
+
+                      <p className='text-gray-600 mb-4'>{product.description}</p>
+
+                      <div className='space-y-3 mb-6'>
+                        <h4 className='font-semibold text-[#0A2342]'>Key Features:</h4>
+                        <ul className='space-y-2'>
+                          {product.features.map((feature, i) => (
+                            <li key={i} className='flex items-center gap-2 text-sm text-gray-700'>
+                              <CheckCircle2 className='h-4 w-4 text-[#F5B400] flex-shrink-0' />
+                              {feature}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      <Button
+                        asChild
+                        className='w-full bg-[#F5B400] text-[#0A2342] hover:bg-[#F5B400]/90 font-bold group-hover:shadow-lg'
+                      >
+                        <Link href={`/contact?service=${product.name}`}>
+                          Get Quote
+                          <ArrowRight className='ml-2 h-4 w-4' />
+                        </Link>
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
               )
             })}
           </div>
