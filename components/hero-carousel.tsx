@@ -53,6 +53,15 @@ const heroSlides = [
     image: "/hero/hero-gold-silver-foiling.jpg",
     cta: { text: "Our Services", href: "/services" },
   },
+  {
+    id: 6,
+    title: "E-commerce",
+    subtitle: "Shipping Solutions",
+    description:
+      "Waterproof courier covers and thermal barcode label rolls for high-volume ecommerce shipping. Bulk orders, custom printing, and fast delivery with competitive pricing.",
+    image: "/banners/ecommerce-covers-hero-banner.png",
+    cta: { text: "Explore Ecommerce Solutions", href: "/products/ecommerce-shipping-solutions" },
+  },
 ]
 
 export default function HeroCarousel() {

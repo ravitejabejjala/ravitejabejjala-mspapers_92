@@ -354,16 +354,18 @@ export default function EcommercePage() {
                           <ArrowRight className="ml-2 h-4 w-4" />
                         </Link>
                       </Button>
-                      <Button
-                        asChild
-                        variant="outline"
-                        className="flex-1 border-[#0A2342] text-[#0A2342] hover:bg-[#0A2342] hover:text-white"
+                      <Link
+                        href={`https://wa.me/918143330028?text=I%20am%20interested%20in%20${product.name}`}
+                        target="_blank"
                       >
-                        <a href={`https://wa.me/918143330028?text=I%20am%20interested%20in%20${product.name}`}>
+                        <Button
+                          variant="outline"
+                          className="w-full border-[#0A2342] text-[#0A2342] hover:bg-[#0A2342] hover:text-white"
+                        >
                           <MessageCircle className="mr-2 h-4 w-4" />
                           WhatsApp
-                        </a>
-                      </Button>
+                        </Button>
+                      </Link>
                     </div>
                   </div>
                 </div>
