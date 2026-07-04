@@ -11,6 +11,7 @@ const navigation = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
   { name: "Packaging Solutions", href: "/packaging-solutions" },
+  { name: "E-Commerce Packaging", href: "/ecommerce-packaging-solutions" },
   { name: "Printing Services", href: "/printing-services-hyderabad" },
   { name: "Services", href: "/services" },
   { name: "Sustainability", href: "/sustainability" },
