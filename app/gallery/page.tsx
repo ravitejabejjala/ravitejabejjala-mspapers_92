@@ -1,7 +1,9 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import Image from 'next/image'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Card, CardContent } from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
 
 export const metadata: Metadata = {
   title: 'MS Gallery | Product Showcase | MS Paper Products',
@@ -137,9 +139,9 @@ export default function GalleryPage() {
         <div className='container mx-auto px-4 text-center'>
           <h2 className='mb-4 text-3xl font-bold'>Ready to Order?</h2>
           <p className='mb-8 text-gray-200'>Contact us for pricing, samples, and bulk orders of any product shown in our gallery</p>
-          <button className='rounded-lg bg-[#f19e1f] px-8 py-3 font-bold text-[#132635] hover:bg-[#f19e1f]/90 transition-colors'>
-            <a href='/contact'>Get in Touch</a>
-          </button>
+          <Button asChild className='bg-[#f19e1f] text-[#132635] hover:bg-[#f19e1f]/90 px-8 py-3 font-bold'>
+            <Link href='/contact'>Get in Touch</Link>
+          </Button>
         </div>
       </section>
     </main>
