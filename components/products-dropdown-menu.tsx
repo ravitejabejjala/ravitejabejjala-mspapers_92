@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { ShoppingBag, Package, Calendar, Coffee, Leaf, Printer, ChevronDown } from 'lucide-react'
+import { ShoppingBag, Package, Calendar, Coffee, Leaf, Printer, ChevronDown, Truck, Barcode } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
@@ -124,7 +124,54 @@ export function ProductsDropdownMenu() {
 
         <DropdownMenuSeparator />
 
-        {/* Section 3: Services */}
+        {/* Section 3: E-Commerce Solutions */}
+        <DropdownMenuLabel className="text-[#132635] font-semibold">E-Commerce</DropdownMenuLabel>
+
+        <DropdownMenuSub>
+          <DropdownMenuSubTrigger className="text-[#132635]">
+            <Truck className="h-4 w-4 text-[#f19e1f]" />
+            <span>Ecommerce Covers</span>
+          </DropdownMenuSubTrigger>
+          <DropdownMenuSubContent className="bg-white">
+            <DropdownMenuItem asChild>
+              <Link href="/products/ecommerce-courier-covers">Ecommerce Courier Covers</Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <Link href="/products/paper-courier-covers">Paper Courier Covers</Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <Link href="/products/waterproof-shipping-bags">Waterproof Shipping Bags</Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <Link href="/products/branded-courier-covers">Branded Courier Covers</Link>
+            </DropdownMenuItem>
+          </DropdownMenuSubContent>
+        </DropdownMenuSub>
+
+        <DropdownMenuSub>
+          <DropdownMenuSubTrigger className="text-[#132635]">
+            <Barcode className="h-4 w-4 text-[#f19e1f]" />
+            <span>Thermal Paper Rolls</span>
+          </DropdownMenuSubTrigger>
+          <DropdownMenuSubContent className="bg-white">
+            <DropdownMenuItem asChild>
+              <Link href="/products/thermal-label-rolls">Thermal Label Rolls</Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <Link href="/products/4x6-thermal-labels">4x6 Thermal Labels</Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <Link href="/products/barcode-label-rolls">Barcode Label Rolls</Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <Link href="/products/waterproof-thermal-labels">Waterproof Thermal Labels</Link>
+            </DropdownMenuItem>
+          </DropdownMenuSubContent>
+        </DropdownMenuSub>
+
+        <DropdownMenuSeparator />
+
+        {/* Section 4: Services */}
         <DropdownMenuLabel className="text-[#132635] font-semibold">Services</DropdownMenuLabel>
 
         <DropdownMenuSub>
