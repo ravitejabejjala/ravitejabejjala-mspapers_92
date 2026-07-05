@@ -3,9 +3,10 @@
 import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { Menu, Phone, ChevronDown, ShoppingBag, Package, FolderOpen, Calendar, Coffee, Pill, Leaf, Printer } from "lucide-react"
+import { Menu, Phone, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { ProductsDropdownMenu } from "@/components/products-dropdown-menu"
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -172,56 +173,7 @@ export default function Header() {
             About
           </Link>
 
-          <div
-            className="relative"
-            onMouseEnter={() => setIsProductsOpen(true)}
-            onMouseLeave={() => setIsProductsOpen(false)}
-          >
-            <button className="flex items-center gap-1 text-sm font-medium text-white transition-colors hover:text-[#f19e1f]">
-              Products
-              <ChevronDown className={`h-4 w-4 transition-transform ${isProductsOpen ? "rotate-180" : ""}`} />
-            </button>
-
-            {isProductsOpen && (
-              <div className="absolute left-0 top-full pt-2">
-                <div className="w-[1000px] rounded-lg border border-[#f19e1f]/20 bg-[#132635] p-4 shadow-xl max-h-[600px] overflow-y-auto">
-                  <div className="grid grid-cols-4 gap-4">
-                    {productCategories.map((category) => (
-                      <div key={category.name} className="space-y-2">
-                        <Link
-                          href={category.href}
-                          className="flex items-center gap-2 text-sm font-semibold text-[#f19e1f] hover:underline"
-                        >
-                          <category.icon className="h-4 w-4" />
-                          {category.name}
-                        </Link>
-                        <ul className="space-y-1">
-                          {category.subcategories.map((sub) => (
-                            <li key={sub.name}>
-                              <Link
-                                href={sub.href}
-                                className="block text-xs text-gray-300 transition-colors hover:text-[#f19e1f] hover:pl-1"
-                              >
-                                {sub.name}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="mt-4 border-t border-[#f19e1f]/20 pt-4">
-                    <Link
-                      href="/products"
-                      className="inline-flex items-center text-sm font-medium text-[#f19e1f] hover:underline"
-                    >
-                      View All Products →
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
+          <ProductsDropdownMenu />
 
           <Link href="/services" className="text-sm font-medium text-white transition-colors hover:text-[#f19e1f]">
             Services
