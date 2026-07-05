@@ -58,6 +58,7 @@ export default function Footer() {
                 { name: "About", href: "/about" },
                 { name: "Packaging Solutions", href: "/packaging-solutions" },
                 { name: "Printing Services", href: "/printing-services-hyderabad" },
+                { name: "MS Gallery", href: "/gallery" },
                 { name: "Products", href: "/products" },
                 { name: "Services", href: "/services" },
                 { name: "Contact", href: "/contact" },

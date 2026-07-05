@@ -13,8 +13,8 @@ const navigation = [
   { name: "Packaging Solutions", href: "/packaging-solutions" },
   { name: "E-Commerce Packaging", href: "/ecommerce-packaging-solutions" },
   { name: "Printing Services", href: "/printing-services-hyderabad" },
+  { name: "MS Gallery", href: "/gallery" },
   { name: "Services", href: "/services" },
-  { name: "Sustainability", href: "/sustainability" },
   { name: "Blog", href: "/blog" },
   { name: "Contact", href: "/contact" },
 ]
