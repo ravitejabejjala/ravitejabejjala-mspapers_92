@@ -226,12 +226,6 @@ export default function Header() {
           <Link href="/services" className="text-sm font-medium text-white transition-colors hover:text-[#f19e1f]">
             Services
           </Link>
-          <Link
-            href="/sustainability"
-            className="text-sm font-medium text-white transition-colors hover:text-[#f19e1f]"
-          >
-            Sustainability
-          </Link>
           <Link href="/contact" className="text-sm font-medium text-white transition-colors hover:text-[#f19e1f]">
             Contact
           </Link>
@@ -335,13 +329,6 @@ export default function Header() {
                     className="text-lg font-medium text-white transition-colors hover:text-[#f19e1f]"
                   >
                     Services
-                  </Link>
-                  <Link
-                    href="/sustainability"
-                    onClick={() => setIsOpen(false)}
-                    className="text-lg font-medium text-white transition-colors hover:text-[#f19e1f]"
-                  >
-                    Sustainability
                   </Link>
                   <Link
                     href="/contact"
