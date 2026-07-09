@@ -33,25 +33,25 @@ const productCategories = [
   {
     name: "Offset Printing",
     description: "High-quality offset printing for brochures, flyers, booklets and bulk production runs",
-    image: "/categories/offset-printing.jpg",
+    image: "/printing-services/offset-printing.jpg",
     href: "/printing-services-hyderabad#offset-printing",
   },
   {
     name: "Digital Printing",
     description: "Fast digital printing for personalized campaigns and small to medium volumes",
-    image: "/categories/digital-printing.jpg",
+    image: "/printing-services/digital-printing.jpg",
     href: "/printing-services-hyderabad#digital-printing",
   },
   {
     name: "Brochure Printing",
     description: "Professional brochure printing with stunning colors and finishes for marketing impact",
-    image: "/categories/brochure-printing.jpg",
+    image: "/printing-services/brochure-printing.jpg",
     href: "/printing-services-hyderabad#brochure-printing",
   },
   {
     name: "Flyer Printing",
     description: "Eye-catching flyer printing for effective advertising and promotional campaigns",
-    image: "/categories/flyer-printing.jpg",
+    image: "/printing-services/flyer-printing.jpg",
     href: "/printing-services-hyderabad#flyer-printing",
   },
 ]
