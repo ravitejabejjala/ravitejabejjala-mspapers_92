@@ -31,28 +31,28 @@ const features = [
 
 const productCategories = [
   {
-    name: "Paper Bags",
-    description: "Premium quality paper bags for retail, gifting, and packaging needs",
-    image: "/categories/all-paper-bags.jpg",
-    href: "/products/paper-bags",
+    name: "Offset Printing",
+    description: "High-quality offset printing for brochures, flyers, booklets and bulk production runs",
+    image: "/categories/offset-printing.jpg",
+    href: "/printing-services-hyderabad#offset-printing",
   },
   {
-    name: "Boxes & Cartons",
-    description: "Durable carton boxes for secure packaging and shipping solutions",
-    image: "/categories/carton-boxes.jpg",
-    href: "/products/boxes-cartons",
+    name: "Digital Printing",
+    description: "Fast digital printing for personalized campaigns and small to medium volumes",
+    image: "/categories/digital-printing.jpg",
+    href: "/printing-services-hyderabad#digital-printing",
   },
   {
-    name: "Files & Folders",
-    description: "Professional document organizers for corporate and office use",
-    image: "/categories/files-folders.jpg",
-    href: "/products/files-folders",
+    name: "Brochure Printing",
+    description: "Professional brochure printing with stunning colors and finishes for marketing impact",
+    image: "/categories/brochure-printing.jpg",
+    href: "/printing-services-hyderabad#brochure-printing",
   },
   {
-    name: "Gold & Silver Foiling",
-    description: "Luxurious metallic finishing for premium branding and packaging",
-    image: "/services/gold-silver-foiling.jpg",
-    href: "/services",
+    name: "Flyer Printing",
+    description: "Eye-catching flyer printing for effective advertising and promotional campaigns",
+    image: "/categories/flyer-printing.jpg",
+    href: "/printing-services-hyderabad#flyer-printing",
   },
 ]
 
@@ -93,9 +93,9 @@ export default function Home() {
       <section className="bg-gray-50 py-16 md:py-24">
         <div className="container mx-auto px-4">
           <div className="mb-12 text-center">
-            <h2 className="mb-4 text-3xl font-bold text-[#132635] md:text-4xl">Our Product Range</h2>
+            <h2 className="mb-4 text-3xl font-bold text-[#132635] md:text-4xl">Our Printing Services</h2>
             <p className="mx-auto max-w-2xl text-gray-600">
-              From luxury retail bags to eco-friendly packaging, we offer a wide range of paper bag solutions.
+              Professional printing solutions tailored to your needs. From offset to digital printing, we deliver quality results on time within budget.
             </p>
           </div>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -119,9 +119,9 @@ export default function Home() {
             ))}
           </div>
           <div className="mt-10 text-center">
-            <Link href="/products">
+            <Link href="/printing-services-hyderabad">
               <Button size="lg" className="bg-[#132635] hover:bg-[#132635]/90">
-                View All Products
+                View All Printing Services
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
