@@ -11,11 +11,11 @@ export default function Footer() {
           <div className="space-y-4">
             <Link href="/">
               <Image
-                src="/ms-logo-horizontal.png"
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/MS%20Paper%20products-03-t3JyzC6DPjBJTPm3YiAeFT8JD65dkC.png"
                 alt="MS Paper Products"
-                width={150}
-                height={42}
-                className="h-12 w-auto"
+                width={200}
+                height={200}
+                className="h-20 w-auto"
               />
             </Link>
             <p className="text-sm text-gray-300">

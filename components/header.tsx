@@ -155,7 +155,7 @@ export default function Header() {
         {/* Logo */}
         <Link href="/" className="flex items-center">
           <Image
-            src="/ms-logo-horizontal.png"
+            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/MS%20Paper%20Logo-02-Q7lDvifcn1Boaeg9oeNFn68boZrmKV.png"
             alt="MS Paper Products"
             width={200}
             height={56}

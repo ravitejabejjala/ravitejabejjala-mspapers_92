@@ -119,6 +119,16 @@ export default function HeroCarousel() {
                   />
                 </div>
                 <div className="container relative mx-auto flex min-h-[500px] md:min-h-[600px] lg:min-h-[700px] items-center px-4">
+                  {/* MS Paper Logo Watermark */}
+                  <div className="absolute top-6 right-6 opacity-10 md:opacity-15">
+                    <Image
+                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/MS_paper_bagAsset%201xxxhdpi-6e31NpdejWxHti4LdkssBrqAxqeg5N.png"
+                      alt="MS Paper"
+                      width={120}
+                      height={120}
+                      className="w-24 h-24 md:w-32 md:h-32"
+                    />
+                  </div>
                   <div className="max-w-2xl">
                     <h1 className="mb-2 text-4xl font-bold text-white md:text-5xl lg:text-6xl">{slide.title}</h1>
                     <h2 className="mb-6 text-4xl font-bold text-[#f19e1f] md:text-5xl lg:text-6xl">{slide.subtitle}</h2>
