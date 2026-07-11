@@ -3,10 +3,11 @@
 import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { Menu, Phone, ChevronDown, ShoppingBag, Package, FolderOpen, Calendar, Coffee, Pill, Printer } from "lucide-react"
+import { Menu, Phone, ChevronDown, ShoppingBag, Package, FolderOpen, Calendar, Coffee, Pill, Printer, Search } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { ProductsDropdownMenu } from "@/components/products-dropdown-menu"
+import TopInfoBar from "@/components/top-info-bar"
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -152,42 +153,72 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-[#132635] shadow-sm">
       <div className="container mx-auto flex h-16 items-center justify-between px-4 md:h-20">
-        {/* Logo */}
-        <Link href="/" className="flex items-center">
-          <Image
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/MS%20Paper%20Logo-02-Q7lDvifcn1Boaeg9oeNFn68boZrmKV.png"
-            alt="MS Paper Products"
-            width={200}
-            height={56}
-            className="h-10 w-auto sm:h-12 md:h-14"
-            priority
-          />
-        </Link>
+        {/* Logo and Main Content */}
+        <div className="flex items-center gap-6 flex-1">
+          <Link href="/" className="flex-shrink-0">
+            <Image
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/MS%20Paper%20Logo-02-Q7lDvifcn1Boaeg9oeNFn68boZrmKV.png"
+              alt="MS Paper Products"
+              width={200}
+              height={56}
+              className="h-10 w-auto"
+              priority
+            />
+          </Link>
+
+          {/* Search Bar - Hidden on mobile */}
+          <div className="hidden md:flex flex-1 max-w-sm items-center gap-2 bg-gray-100 rounded-full px-4 py-2">
+            <input
+              type="text"
+              placeholder="Search for products, printing services..."
+              className="flex-1 bg-transparent text-sm text-gray-700 placeholder-gray-500 outline-none"
+            />
+            <Search className="h-4 w-4 text-gray-400" />
+          </div>
+        </div>
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex lg:items-center lg:gap-6">
-          <Link href="/" className="text-sm font-medium text-white transition-colors hover:text-[#f19e1f]">
+          <Link href="/" className="text-sm font-medium text-[#132635] transition-colors hover:text-[#f19e1f]">
             Home
-          </Link>
-          <Link href="/about" className="text-sm font-medium text-white transition-colors hover:text-[#f19e1f]">
-            About
           </Link>
 
           <ProductsDropdownMenu />
 
-          <Link href="/services" className="text-sm font-medium text-white transition-colors hover:text-[#f19e1f]">
-            Services
+          <Link href="/printing-services-hyderabad" className="text-sm font-medium text-[#132635] transition-colors hover:text-[#f19e1f]">
+            Printing Services
           </Link>
-          <Link href="/resources" className="text-sm font-medium text-white transition-colors hover:text-[#f19e1f]">
+          <Link href="/packaging-solutions" className="text-sm font-medium text-[#132635] transition-colors hover:text-[#f19e1f]">
+            Packaging Solutions
+          </Link>
+          <Link href="/industries/food-beverage" className="text-sm font-medium text-[#132635] transition-colors hover:text-[#f19e1f]">
+            Industries
+          </Link>
+          <Link href="/resources" className="text-sm font-medium text-[#132635] transition-colors hover:text-[#f19e1f]">
             Resources
           </Link>
-          <Link href="/blog" className="text-sm font-medium text-white transition-colors hover:text-[#f19e1f]">
-            Blog
+          <Link href="/about" className="text-sm font-medium text-[#132635] transition-colors hover:text-[#f19e1f]">
+            About Us
           </Link>
-          <Link href="/contact" className="text-sm font-medium text-white transition-colors hover:text-[#f19e1f]">
-            Contact
+          <Link href="/contact" className="text-sm font-medium text-[#132635] transition-colors hover:text-[#f19e1f]">
+            Contact Us
           </Link>
         </nav>
+
+        {/* CTA Buttons */}
+        <div className="hidden lg:flex lg:items-center lg:gap-3">
+          <a href="tel:+918143330028">
+            <Button variant="outline" className="border-[#132635] text-[#132635] hover:bg-[#132635] hover:text-white">
+              <Phone className="h-4 w-4 mr-2" />
+              Call Now
+            </Button>
+          </a>
+          <Link href="/contact">
+            <Button className="bg-[#f19e1f] text-white hover:bg-[#f19e1f]/90">
+              Get Quote
+            </Button>
+          </Link>
+        </div>
 
         {/* CTA Button & Mobile Menu */}
         <div className="flex items-center gap-4">
@@ -282,32 +313,46 @@ export default function Header() {
                   </div>
 
                   <Link
-                    href="/services"
+                    href="/printing-services-hyderabad"
                     onClick={() => setIsOpen(false)}
-                    className="text-lg font-medium text-white transition-colors hover:text-[#f19e1f]"
+                    className="text-lg font-medium text-[#132635] transition-colors hover:text-[#f19e1f]"
                   >
-                    Services
+                    Printing Services
+                  </Link>
+                  <Link
+                    href="/packaging-solutions"
+                    onClick={() => setIsOpen(false)}
+                    className="text-lg font-medium text-[#132635] transition-colors hover:text-[#f19e1f]"
+                  >
+                    Packaging Solutions
+                  </Link>
+                  <Link
+                    href="/industries/food-beverage"
+                    onClick={() => setIsOpen(false)}
+                    className="text-lg font-medium text-[#132635] transition-colors hover:text-[#f19e1f]"
+                  >
+                    Industries
                   </Link>
                   <Link
                     href="/resources"
                     onClick={() => setIsOpen(false)}
-                    className="text-lg font-medium text-white transition-colors hover:text-[#f19e1f]"
+                    className="text-lg font-medium text-[#132635] transition-colors hover:text-[#f19e1f]"
                   >
                     Resources
                   </Link>
                   <Link
-                    href="/blog"
+                    href="/about"
                     onClick={() => setIsOpen(false)}
-                    className="text-lg font-medium text-white transition-colors hover:text-[#f19e1f]"
+                    className="text-lg font-medium text-[#132635] transition-colors hover:text-[#f19e1f]"
                   >
-                    Blog
+                    About Us
                   </Link>
                   <Link
                     href="/contact"
                     onClick={() => setIsOpen(false)}
-                    className="text-lg font-medium text-white transition-colors hover:text-[#f19e1f]"
+                    className="text-lg font-medium text-[#132635] transition-colors hover:text-[#f19e1f]"
                   >
-                    Contact
+                    Contact Us
                   </Link>
                 </nav>
                 <a href="tel:+918143330028">
@@ -318,9 +363,9 @@ export default function Header() {
                 </a>
               </div>
             </SheetContent>
-          </Sheet>
-        </div>
+        </Sheet>
       </div>
     </header>
+    </>
   )
 }
