@@ -178,6 +178,12 @@ export default function Header() {
           <Link href="/services" className="text-sm font-medium text-white transition-colors hover:text-[#f19e1f]">
             Services
           </Link>
+          <Link href="/resources" className="text-sm font-medium text-white transition-colors hover:text-[#f19e1f]">
+            Resources
+          </Link>
+          <Link href="/blog" className="text-sm font-medium text-white transition-colors hover:text-[#f19e1f]">
+            Blog
+          </Link>
           <Link href="/contact" className="text-sm font-medium text-white transition-colors hover:text-[#f19e1f]">
             Contact
           </Link>
@@ -281,6 +287,20 @@ export default function Header() {
                     className="text-lg font-medium text-white transition-colors hover:text-[#f19e1f]"
                   >
                     Services
+                  </Link>
+                  <Link
+                    href="/resources"
+                    onClick={() => setIsOpen(false)}
+                    className="text-lg font-medium text-white transition-colors hover:text-[#f19e1f]"
+                  >
+                    Resources
+                  </Link>
+                  <Link
+                    href="/blog"
+                    onClick={() => setIsOpen(false)}
+                    className="text-lg font-medium text-white transition-colors hover:text-[#f19e1f]"
+                  >
+                    Blog
                   </Link>
                   <Link
                     href="/contact"
