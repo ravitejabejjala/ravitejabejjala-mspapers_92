@@ -151,8 +151,10 @@ export default function Header() {
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-[#132635] shadow-sm">
-      <div className="container mx-auto flex h-16 items-center justify-between px-4 md:h-20">
+    <>
+      <TopInfoBar />
+      <header className="sticky top-0 z-50 w-full border-b bg-white shadow-sm">
+        <div className="container mx-auto flex h-16 items-center justify-between px-4 md:h-20">
         {/* Logo and Main Content */}
         <div className="flex items-center gap-6 flex-1">
           <Link href="/" className="flex-shrink-0">
@@ -247,13 +249,6 @@ export default function Header() {
                   >
                     Home
                   </Link>
-                  <Link
-                    href="/about"
-                    onClick={() => setIsOpen(false)}
-                    className="text-lg font-medium text-[#132635] transition-colors hover:text-[#f19e1f]"
-                  >
-                    About
-                  </Link>
 
                   <div>
                     <button
@@ -283,7 +278,7 @@ export default function Header() {
                                   <Link
                                     href={sub.href}
                                     onClick={() => setIsOpen(false)}
-                                    className="block text-xs text-gray-300 transition-colors hover:text-[#f19e1f]"
+                                    className="block text-xs text-[#132635] transition-colors hover:text-[#f19e1f]"
                                   >
                                     {sub.name}
                                   </Link>
@@ -354,9 +349,9 @@ export default function Header() {
                 </a>
               </div>
             </SheetContent>
-        </Sheet>
-      </div>
-    </header>
+          </Sheet>
+        </div>
+      </header>
     </>
   )
 }
