@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer className="bg-[#132635] text-white">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-5">
           {/* Company Info */}
           <div className="space-y-4">
             <Link href="/">
@@ -23,44 +23,44 @@ export default function Footer() {
             </p>
             <div className="flex gap-4">
               <a
-                href="https://facebook.com"
+                href="https://facebook.com/mspaperproducts"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-300 transition-colors hover:text-[#f19e1f]"
+                aria-label="Facebook"
               >
                 <Facebook className="h-5 w-5" />
               </a>
               <a
-                href="https://instagram.com"
+                href="https://instagram.com/mspaperproducts"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-300 transition-colors hover:text-[#f19e1f]"
+                aria-label="Instagram"
               >
                 <Instagram className="h-5 w-5" />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://linkedin.com/company/mspaperproducts"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-300 transition-colors hover:text-[#f19e1f]"
+                aria-label="LinkedIn"
               >
                 <Linkedin className="h-5 w-5" />
               </a>
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Company */}
           <div>
-            <h3 className="mb-4 text-lg font-semibold text-[#f19e1f]">Quick Links</h3>
+            <h3 className="mb-4 text-lg font-semibold text-[#f19e1f]">Company</h3>
             <ul className="space-y-2">
               {[
                 { name: "Home", href: "/" },
                 { name: "About", href: "/about" },
-                { name: "Packaging Solutions", href: "/packaging-solutions" },
-                { name: "Printing Services", href: "/printing-services-hyderabad" },
-                { name: "MS Gallery", href: "/gallery" },
-                { name: "Products", href: "/products" },
-                { name: "Services", href: "/services" },
+                { name: "Blog", href: "/blog" },
+                { name: "Gallery", href: "/gallery" },
                 { name: "Contact", href: "/contact" },
               ].map((item) => (
                 <li key={item.href}>
@@ -77,22 +77,40 @@ export default function Footer() {
 
           {/* Products */}
           <div>
-            <h3 className="mb-4 text-lg font-semibold text-[#f19e1f]">Popular Products</h3>
+            <h3 className="mb-4 text-lg font-semibold text-[#f19e1f]">Products</h3>
             <ul className="space-y-2">
               {[
-                { name: "Courier Covers", slug: "courier-covers" },
-                { name: "Shipping Labels", slug: "shipping-labels" },
-                { name: "Barcode Labels", slug: "barcode-labels" },
-                { name: "Thermal Labels", slug: "thermal-labels" },
-                { name: "Custom Printed Packaging", slug: "custom-packaging" },
+                { name: "Paper Bags", href: "/products/paper-bags" },
+                { name: "Courier Covers", href: "/products/courier-covers" },
+                { name: "Thermal Labels", href: "/products/thermal-labels" },
+                { name: "Custom Packaging", href: "/products/custom-packaging" },
+                { name: "View All", href: "/products" },
               ].map((item) => (
-                <li key={item.slug}>
+                <li key={item.href}>
                   <Link
-                    href={`/products/${item.slug}`}
+                    href={item.href}
                     className="text-sm text-gray-300 transition-colors hover:text-[#f19e1f]"
                   >
                     {item.name}
                   </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Industries */}
+          <div>
+            <h3 className="mb-4 text-lg font-semibold text-[#f19e1f]">Industries</h3>
+            <ul className="space-y-2">
+              {[
+                { name: "Food & Beverage" },
+                { name: "Pharmaceuticals" },
+                { name: "E-Commerce" },
+                { name: "Retail & Fashion" },
+                { name: "FMCG" },
+              ].map((item) => (
+                <li key={item.name}>
+                  <span className="text-sm text-gray-300">{item.name}</span>
                 </li>
               ))}
             </ul>
