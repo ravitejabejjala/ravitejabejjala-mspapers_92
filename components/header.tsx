@@ -220,24 +220,15 @@ export default function Header() {
           </Link>
         </div>
 
-        {/* CTA Button & Mobile Menu */}
-        <div className="flex items-center gap-4">
-          <a href="tel:+918143330028" className="hidden md:flex">
-            <Button className="bg-[#f19e1f] text-[#132635] hover:bg-[#f19e1f]/90">
-              <Phone className="mr-2 h-4 w-4" />
-              +91 81433 30028
+        {/* Mobile Menu */}
+        <Sheet open={isOpen} onOpenChange={setIsOpen}>
+          <SheetTrigger asChild className="lg:hidden">
+            <Button variant="ghost" size="icon" className="text-[#132635]">
+              <Menu className="h-6 w-6" />
+              <span className="sr-only">Toggle menu</span>
             </Button>
-          </a>
-
-          {/* Mobile Menu */}
-          <Sheet open={isOpen} onOpenChange={setIsOpen}>
-            <SheetTrigger asChild className="lg:hidden">
-              <Button variant="ghost" size="icon" className="text-white">
-                <Menu className="h-6 w-6" />
-                <span className="sr-only">Toggle menu</span>
-              </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] bg-[#132635] overflow-y-auto">
+            <SheetContent side="right" className="w-[300px] bg-white overflow-y-auto">
               <div className="flex flex-col gap-6 pt-6">
                 <Link href="/" onClick={() => setIsOpen(false)}>
                   <Image
@@ -252,14 +243,14 @@ export default function Header() {
                   <Link
                     href="/"
                     onClick={() => setIsOpen(false)}
-                    className="text-lg font-medium text-white transition-colors hover:text-[#f19e1f]"
+                    className="text-lg font-medium text-[#132635] transition-colors hover:text-[#f19e1f]"
                   >
                     Home
                   </Link>
                   <Link
                     href="/about"
                     onClick={() => setIsOpen(false)}
-                    className="text-lg font-medium text-white transition-colors hover:text-[#f19e1f]"
+                    className="text-lg font-medium text-[#132635] transition-colors hover:text-[#f19e1f]"
                   >
                     About
                   </Link>
@@ -267,7 +258,7 @@ export default function Header() {
                   <div>
                     <button
                       onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
-                      className="flex w-full items-center justify-between text-lg font-medium text-white transition-colors hover:text-[#f19e1f]"
+                      className="flex w-full items-center justify-between text-lg font-medium text-[#132635] transition-colors hover:text-[#f19e1f]"
                     >
                       Products
                       <ChevronDown
