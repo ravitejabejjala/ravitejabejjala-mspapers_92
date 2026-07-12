@@ -22,9 +22,9 @@ export function ProductsDropdownMenu() {
       <DropdownMenuTrigger asChild>
         <Button 
           variant="ghost" 
-          className="text-sm font-medium text-white hover:text-[#f19e1f] gap-1 px-0"
+          className="text-sm font-medium text-[#132635] hover:text-[#f19e1f] gap-1 px-0"
         >
-          Products & Services
+          Products
           <ChevronDown className="h-4 w-4" />
         </Button>
       </DropdownMenuTrigger>
