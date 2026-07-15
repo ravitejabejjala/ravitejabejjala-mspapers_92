@@ -3,8 +3,8 @@ import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin, Youtube } from "luc
 
 export default function TopInfoBar() {
   return (
-    <div className="hidden lg:block bg-[#132635] text-white text-xs py-2">
-      <div className="container mx-auto px-4 flex justify-between items-center">
+    <div className="hidden bg-primary py-2 text-xs text-primary-foreground lg:block">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4">
         {/* Left side - Contact info */}
         <div className="flex gap-6">
           <a href="tel:+918143330028" className="flex items-center gap-2 hover:text-[#f19e1f] transition-colors">

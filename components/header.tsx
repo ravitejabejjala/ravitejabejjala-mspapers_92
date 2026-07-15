@@ -1,355 +1,108 @@
 "use client"
 
 import { useState } from "react"
-import Link from "next/link"
 import Image from "next/image"
-import { Menu, Phone, ChevronDown, ShoppingBag, Package, FolderOpen, Calendar, Coffee, Pill, Printer, Search } from "lucide-react"
+import Link from "next/link"
+import { ChevronDown, Menu, Phone, Search } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { ProductsDropdownMenu } from "@/components/products-dropdown-menu"
 import TopInfoBar from "@/components/top-info-bar"
 
-const navigation = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "Packaging Solutions", href: "/packaging-solutions" },
-  { name: "E-Commerce Packaging", href: "/ecommerce-packaging-solutions" },
-  { name: "Printing Services", href: "/printing-services-hyderabad" },
-  { name: "MS Gallery", href: "/gallery" },
-  { name: "Services", href: "/services" },
-  { name: "Blog", href: "/blog" },
-  { name: "Contact", href: "/contact" },
+const navItems = [
+  { label: "Printing Services", href: "/printing-services-hyderabad" },
+  { label: "Packaging Solutions", href: "/packaging-solutions" },
+  { label: "Industries", href: "/industries/food-beverage" },
+  { label: "Resources", href: "/resources" },
+  { label: "About Us", href: "/about" },
+  { label: "Contact Us", href: "/contact" },
 ]
 
-const productCategories = [
-  {
-    name: "Paper Bags",
-    href: "/products/paper-bags",
-    icon: ShoppingBag,
-    subcategories: [
-      { name: "Kraft Paper Bags", href: "/products/kraft-paper-bags" },
-      { name: "Printed Paper Bags", href: "/products/printed-paper-bags" },
-      { name: "Custom Paper Bags", href: "/products/custom-paper-bags" },
-      { name: "Eco-Friendly Paper Bags", href: "/products/eco-friendly-paper-bags" },
-      { name: "Retail Carry Bags", href: "/products/retail-carry-bags" },
-      { name: "Corporate Paper Bags", href: "/products/corporate-paper-bags" },
-      { name: "Theme & Festive Bags", href: "/products/theme-gift-bags" },
-      { name: "Wine & Bottle Bags", href: "/products/wine-bottle-bags" },
-    ],
-  },
-  {
-    name: "Gift Packaging",
-    href: "/products/gift-packaging",
-    icon: ShoppingBag,
-    subcategories: [
-      { name: "Paper Gift Bags", href: "/products/paper-gift-bags" },
-      { name: "Christmas & New Year Bags", href: "/products/christmas-new-year-gift-bags" },
-      { name: "Custom Printed Gift Bags", href: "/products/custom-printed-gift-bags" },
-    ],
-  },
-  {
-    name: "Boxes & Cartons",
-    href: "/products/boxes-cartons",
-    icon: Package,
-    subcategories: [
-      { name: "Paper Boxes", href: "/products/paper-boxes" },
-      { name: "Gift Boxes", href: "/products/gift-boxes" },
-      { name: "Carton Boxes", href: "/products/carton-boxes" },
-      { name: "Corrugated Carton Boxes", href: "/products/corrugated-carton-boxes" },
-      { name: "Pharmaceutical Boxes", href: "/products/pharmaceutical-packaging-boxes" },
-      { name: "Industrial Packing Boxes", href: "/products/industrial-packing-boxes" },
-    ],
-  },
-  {
-    name: "Files & Folders",
-    href: "/products/files-folders",
-    icon: FolderOpen,
-    subcategories: [
-      { name: "Hospital/Medical Folders", href: "/products/hospital-medical-file-folders" },
-      { name: "Office File Folders", href: "/products/office-file-folders" },
-      { name: "Corporate File Folders", href: "/products/corporate-file-folders" },
-      { name: "Document & Report Folders", href: "/products/document-report-folders" },
-      { name: "School/College Folders", href: "/products/school-college-file-folders" },
-      { name: "Custom Branded Folders", href: "/products/custom-branded-file-folders" },
-    ],
-  },
-  {
-    name: "Calendars & Diaries",
-    href: "/products/calendars-diaries",
-    icon: Calendar,
-    subcategories: [
-      { name: "Table Calendars", href: "/products/table-calendars" },
-      { name: "Wall Calendars", href: "/products/wall-calendars" },
-      { name: "Corporate Calendars", href: "/products/corporate-calendars" },
-      { name: "Custom Printed Calendars", href: "/products/custom-printed-calendars" },
-      { name: "Diaries & Planners", href: "/products/diaries-planners" },
-      { name: "Corporate Diaries", href: "/products/corporate-diaries" },
-      { name: "Promotional Diaries", href: "/products/promotional-diaries" },
-    ],
-  },
-  {
-    name: "Food & Beverage",
-    href: "/products/food-beverage-packaging",
-    icon: Coffee,
-    subcategories: [
-      { name: "Food Grade Packing Pouches", href: "/food-grade-packing" },
-      { name: "Paper Cups", href: "/products/paper-cups" },
-      { name: "Paper Food Boxes", href: "/products/paper-food-boxes" },
-      { name: "Paper Trays", href: "/products/paper-trays" },
-      { name: "Paper Bowls & Tubs", href: "/products/paper-bowls" },
-      { name: "Paper Buckets", href: "/products/paper-buckets" },
-      { name: "Cup Holders & Accessories", href: "/products/cup-holders-accessories" },
-    ],
-  },
-  {
-    name: "Pharma & Medical",
-    href: "/products/pharma-medical-packaging",
-    icon: Pill,
-    subcategories: [
-      { name: "Medicine Boxes", href: "/products/medicine-boxes" },
-      { name: "Pharmaceutical Cartons", href: "/products/pharmaceutical-cartons" },
-      { name: "Printed Medical Packaging", href: "/products/printed-medical-packaging" },
-    ],
-  },
-  {
-    name: "Ecommerce & Shipping",
-    href: "/products/ecommerce-shipping-solutions",
-    icon: ShoppingBag,
-    subcategories: [
-      { name: "Courier Covers", href: "/products/ecommerce-shipping-solutions#ecommerce-covers" },
-      { name: "Barcode Label Rolls", href: "/products/ecommerce-shipping-solutions#barcode-label-rolls" },
-    ],
-  },
-  {
-    name: "Eco-Friendly Solutions",
-    href: "/products/eco-friendly-solutions",
-    icon: ShoppingBag,
-    subcategories: [
-      { name: "Recyclable Paper Packaging", href: "/products/recyclable-paper-packaging" },
-      { name: "Sustainable Paper Products", href: "/products/sustainable-paper-products" },
-      { name: "Eco-Friendly Bags & Boxes", href: "/products/eco-friendly-bags-boxes" },
-    ],
-  },
-  {
-    name: "Printing Services",
-    href: "/printing-services-hyderabad",
-    icon: Printer,
-    subcategories: [
-      { name: "Offset Printing", href: "/printing-services/offset-printing" },
-      { name: "Digital Printing", href: "/printing-services/digital-printing" },
-      { name: "Brochure Printing", href: "/printing-services/brochure-printing" },
-      { name: "Flyer Printing", href: "/printing-services/flyer-printing" },
-      { name: "Booklet Printing", href: "/printing-services/booklet-printing" },
-      { name: "Custom Printing", href: "/printing-services/custom-printing" },
-    ],
-  },
+const mobileProducts = [
+  { label: "Paper Bags", href: "/products/paper-bags" },
+  { label: "Boxes & Cartons", href: "/products/boxes-cartons" },
+  { label: "Courier Covers", href: "/products/ecommerce-courier-covers" },
+  { label: "Thermal Paper Rolls", href: "/products/thermal-label-rolls" },
+  { label: "Food Packaging", href: "/products/food-packaging" },
+  { label: "All Products", href: "/products" },
 ]
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
-  const [isProductsOpen, setIsProductsOpen] = useState(false)
-  const [mobileProductsOpen, setMobileProductsOpen] = useState(false)
+  const [productsOpen, setProductsOpen] = useState(false)
 
   return (
     <>
       <TopInfoBar />
-      <header className="sticky top-0 z-50 w-full border-b bg-white shadow-sm">
-        <div className="container mx-auto flex h-16 items-center justify-between px-4 md:h-20">
-        {/* Logo and Main Content */}
-        <div className="flex items-center gap-6 flex-1">
-          <Link href="/" className="flex-shrink-0">
-            <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/MS%20Paper%20Logo-02-Q7lDvifcn1Boaeg9oeNFn68boZrmKV.png"
-              alt="MS Paper Products"
-              width={200}
-              height={56}
-              className="h-10 w-auto"
-              priority
-            />
-          </Link>
+      <header className="sticky top-0 z-50 border-b border-border bg-background shadow-sm">
+        <div className="border-b border-border">
+          <div className="mx-auto flex min-h-20 max-w-7xl items-center gap-4 px-4 py-3 lg:gap-8">
+            <Link href="/" className="shrink-0" aria-label="MS Paper Products home">
+              <Image
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/MS%20Paper%20Logo-02-Q7lDvifcn1Boaeg9oeNFn68boZrmKV.png"
+                alt="MS Paper Products"
+                width={290}
+                height={70}
+                className="h-14 w-auto object-contain sm:h-16"
+                priority
+              />
+            </Link>
 
-          {/* Search Bar - Hidden on mobile */}
-          <div className="hidden md:flex flex-1 max-w-sm items-center gap-2 bg-gray-100 rounded-full px-4 py-2">
-            <input
-              type="text"
-              placeholder="Search for products, printing services..."
-              className="flex-1 bg-transparent text-sm text-gray-700 placeholder-gray-500 outline-none"
-            />
-            <Search className="h-4 w-4 text-gray-400" />
+            <form action="/products" className="mx-auto hidden w-full max-w-md items-center rounded-md border border-border bg-muted/40 px-4 md:flex">
+              <label htmlFor="site-search" className="sr-only">Search products and services</label>
+              <input
+                id="site-search"
+                name="q"
+                type="search"
+                placeholder="Search products, printing services..."
+                className="h-11 min-w-0 flex-1 bg-transparent text-sm text-foreground outline-none placeholder:text-muted-foreground"
+              />
+              <Search className="size-4 text-muted-foreground" aria-hidden="true" />
+            </form>
+
+            <div className="ml-auto hidden shrink-0 items-center gap-3 lg:flex">
+              <Button asChild variant="outline" className="h-11 border-primary px-6 text-primary hover:bg-primary hover:text-primary-foreground">
+                <a href="tel:+918143330028"><Phone className="size-4" />Call Now</a>
+              </Button>
+              <Button asChild className="h-11 bg-accent px-7 font-semibold text-accent-foreground hover:bg-accent/90">
+                <Link href="/contact">Get Quote</Link>
+              </Button>
+            </div>
+
+            <Sheet open={isOpen} onOpenChange={setIsOpen}>
+              <SheetTrigger asChild className="lg:hidden">
+                <Button variant="ghost" size="icon" aria-label="Open navigation menu"><Menu className="size-6" /></Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-[320px] overflow-y-auto bg-background p-6">
+                <Link href="/" onClick={() => setIsOpen(false)}>
+                  <Image src="/ms-logo-horizontal.png" alt="MS Paper Products" width={180} height={50} className="h-12 w-auto" />
+                </Link>
+                <nav className="mt-8 flex flex-col gap-1" aria-label="Mobile navigation">
+                  <Link href="/" onClick={() => setIsOpen(false)} className="rounded-md px-3 py-3 font-semibold text-primary hover:bg-muted">Home</Link>
+                  <button onClick={() => setProductsOpen(!productsOpen)} className="flex items-center justify-between rounded-md px-3 py-3 text-left font-semibold text-primary hover:bg-muted" aria-expanded={productsOpen}>
+                    Products <ChevronDown className={`size-4 transition-transform ${productsOpen ? "rotate-180" : ""}`} />
+                  </button>
+                  {productsOpen && <div className="flex flex-col border-l border-accent pl-3">{mobileProducts.map((item) => <Link key={item.href} href={item.href} onClick={() => setIsOpen(false)} className="px-3 py-2 text-sm text-muted-foreground hover:text-accent">{item.label}</Link>)}</div>}
+                  {navItems.map((item) => <Link key={item.href} href={item.href} onClick={() => setIsOpen(false)} className="rounded-md px-3 py-3 font-semibold text-primary hover:bg-muted">{item.label}</Link>)}
+                </nav>
+                <div className="mt-6 flex gap-3">
+                  <Button asChild variant="outline" className="flex-1"><a href="tel:+918143330028">Call</a></Button>
+                  <Button asChild className="flex-1 bg-accent text-accent-foreground"><Link href="/contact" onClick={() => setIsOpen(false)}>Quote</Link></Button>
+                </div>
+              </SheetContent>
+            </Sheet>
           </div>
         </div>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden lg:flex lg:items-center lg:gap-6">
-          <Link href="/" className="text-sm font-medium text-[#132635] transition-colors hover:text-[#f19e1f]">
-            Home
-          </Link>
-
-          <ProductsDropdownMenu />
-
-          <Link href="/printing-services-hyderabad" className="text-sm font-medium text-[#132635] transition-colors hover:text-[#f19e1f]">
-            Printing Services
-          </Link>
-          <Link href="/packaging-solutions" className="text-sm font-medium text-[#132635] transition-colors hover:text-[#f19e1f]">
-            Packaging Solutions
-          </Link>
-          <Link href="/industries/food-beverage" className="text-sm font-medium text-[#132635] transition-colors hover:text-[#f19e1f]">
-            Industries
-          </Link>
-          <Link href="/resources" className="text-sm font-medium text-[#132635] transition-colors hover:text-[#f19e1f]">
-            Resources
-          </Link>
-          <Link href="/about" className="text-sm font-medium text-[#132635] transition-colors hover:text-[#f19e1f]">
-            About Us
-          </Link>
-          <Link href="/contact" className="text-sm font-medium text-[#132635] transition-colors hover:text-[#f19e1f]">
-            Contact Us
-          </Link>
-        </nav>
-
-        {/* CTA Buttons */}
-        <div className="hidden lg:flex lg:items-center lg:gap-3">
-          <a href="tel:+918143330028">
-            <Button variant="outline" className="border-[#132635] text-[#132635] hover:bg-[#132635] hover:text-white">
-              <Phone className="h-4 w-4 mr-2" />
-              Call Now
-            </Button>
-          </a>
-          <Link href="/contact">
-            <Button className="bg-[#f19e1f] text-white hover:bg-[#f19e1f]/90">
-              Get Quote
-            </Button>
-          </Link>
-        </div>
-
-        {/* Mobile Menu */}
-        <Sheet open={isOpen} onOpenChange={setIsOpen}>
-          <SheetTrigger asChild className="lg:hidden">
-            <Button variant="ghost" size="icon" className="text-[#132635]">
-              <Menu className="h-6 w-6" />
-              <span className="sr-only">Toggle menu</span>
-            </Button>
-            </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] bg-white overflow-y-auto">
-              <div className="flex flex-col gap-6 pt-6">
-                <Link href="/" onClick={() => setIsOpen(false)}>
-                  <Image
-                    src="/ms-logo-horizontal.png"
-                    alt="MS Paper Products"
-                    width={150}
-                    height={42}
-                    className="h-10 w-auto"
-                  />
-                </Link>
-                <nav className="flex flex-col gap-4">
-                  <Link
-                    href="/"
-                    onClick={() => setIsOpen(false)}
-                    className="text-lg font-medium text-[#132635] transition-colors hover:text-[#f19e1f]"
-                  >
-                    Home
-                  </Link>
-
-                  <div>
-                    <button
-                      onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
-                      className="flex w-full items-center justify-between text-lg font-medium text-[#132635] transition-colors hover:text-[#f19e1f]"
-                    >
-                      Products
-                      <ChevronDown
-                        className={`h-5 w-5 transition-transform ${mobileProductsOpen ? "rotate-180" : ""}`}
-                      />
-                    </button>
-                    {mobileProductsOpen && (
-                      <div className="mt-2 space-y-3 pl-4">
-                        {productCategories.map((category) => (
-                          <div key={category.name} className="space-y-1">
-                            <Link
-                              href={category.href}
-                              onClick={() => setIsOpen(false)}
-                              className="flex items-center gap-2 text-sm font-semibold text-[#f19e1f]"
-                            >
-                              <category.icon className="h-4 w-4" />
-                              {category.name}
-                            </Link>
-                            <ul className="space-y-1 pl-6">
-                              {category.subcategories.map((sub) => (
-                                <li key={sub.name}>
-                                  <Link
-                                    href={sub.href}
-                                    onClick={() => setIsOpen(false)}
-                                    className="block text-xs text-[#132635] transition-colors hover:text-[#f19e1f]"
-                                  >
-                                    {sub.name}
-                                  </Link>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        ))}
-                        <Link
-                          href="/products"
-                          onClick={() => setIsOpen(false)}
-                          className="block text-sm font-medium text-[#f19e1f] hover:underline"
-                        >
-                          View All Products →
-                        </Link>
-                      </div>
-                    )}
-                  </div>
-
-                  <Link
-                    href="/printing-services-hyderabad"
-                    onClick={() => setIsOpen(false)}
-                    className="text-lg font-medium text-[#132635] transition-colors hover:text-[#f19e1f]"
-                  >
-                    Printing Services
-                  </Link>
-                  <Link
-                    href="/packaging-solutions"
-                    onClick={() => setIsOpen(false)}
-                    className="text-lg font-medium text-[#132635] transition-colors hover:text-[#f19e1f]"
-                  >
-                    Packaging Solutions
-                  </Link>
-                  <Link
-                    href="/industries/food-beverage"
-                    onClick={() => setIsOpen(false)}
-                    className="text-lg font-medium text-[#132635] transition-colors hover:text-[#f19e1f]"
-                  >
-                    Industries
-                  </Link>
-                  <Link
-                    href="/resources"
-                    onClick={() => setIsOpen(false)}
-                    className="text-lg font-medium text-[#132635] transition-colors hover:text-[#f19e1f]"
-                  >
-                    Resources
-                  </Link>
-                  <Link
-                    href="/about"
-                    onClick={() => setIsOpen(false)}
-                    className="text-lg font-medium text-[#132635] transition-colors hover:text-[#f19e1f]"
-                  >
-                    About Us
-                  </Link>
-                  <Link
-                    href="/contact"
-                    onClick={() => setIsOpen(false)}
-                    className="text-lg font-medium text-[#132635] transition-colors hover:text-[#f19e1f]"
-                  >
-                    Contact Us
-                  </Link>
-                </nav>
-                <a href="tel:+918143330028">
-                  <Button className="w-full bg-[#f19e1f] text-[#132635] hover:bg-[#f19e1f]/90">
-                    <Phone className="mr-2 h-4 w-4" />
-                    +91 81433 30028
-                  </Button>
-                </a>
-              </div>
-            </SheetContent>
-          </Sheet>
+        <div className="hidden lg:block">
+          <div className="mx-auto flex h-12 max-w-7xl items-center justify-between px-4">
+            <nav className="flex h-full items-center gap-8" aria-label="Main navigation">
+              <Link href="/" className="flex h-full items-center border-b-2 border-accent text-sm font-semibold text-accent">Home</Link>
+              <ProductsDropdownMenu />
+              {navItems.map((item) => <Link key={item.href} href={item.href} className="text-sm font-semibold text-primary transition-colors hover:text-accent">{item.label}</Link>)}
+            </nav>
+            <a href="https://wa.me/918143330028" target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-primary hover:text-accent">WhatsApp Us</a>
+          </div>
         </div>
       </header>
     </>
