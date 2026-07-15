@@ -64,7 +64,7 @@ export default function HeroCarousel() {
                 </div>
                 <div className="relative min-h-72 w-full overflow-hidden lg:min-h-[430px] lg:w-[57%]">
                   <div className="absolute inset-y-0 left-0 z-10 hidden w-16 -skew-x-12 -translate-x-8 border-r-4 border-accent bg-primary lg:block" />
-                  <Image src={slide.image} alt={`${slide.title} ${slide.subtitle}`} fill className="object-cover" priority={slide.id === 1} sizes="(max-width: 1024px) 100vw, 57vw" />
+                  <Image src={slide.image} alt={`${slide.title} ${slide.subtitle}`} fill className="object-cover" priority={slide.id === 1} loading={slide.id === 1 ? "eager" : "lazy"} fetchPriority={slide.id === 1 ? "high" : "auto"} sizes="(max-width: 1024px) 100vw, 57vw" />
                   <div className="absolute inset-0 bg-primary/10" />
                 </div>
               </div>

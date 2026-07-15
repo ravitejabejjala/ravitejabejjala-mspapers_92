@@ -41,11 +41,19 @@ export default function CompareTray() {
   }
 
   return (
-    <aside className="fixed inset-x-4 bottom-20 z-50 mx-auto max-w-3xl rounded-xl border border-accent bg-primary p-4 text-primary-foreground shadow-2xl md:bottom-5">
-      <div className="flex flex-wrap items-center gap-3">
-        <div className="mr-auto"><p className="font-bold">Compare products</p><p className="text-xs text-primary-foreground/70">Select up to three products</p></div>
-        {items.map((item) => <span key={item.id} className="flex items-center gap-2 rounded-md bg-primary-foreground/10 px-3 py-2 text-sm">{item.name}<button onClick={() => remove(item.id)} aria-label={`Remove ${item.name}`}><X className="size-4" /></button></span>)}
-        <Button asChild className="bg-accent text-accent-foreground"><Link href="/contact">Ask about selection</Link></Button>
+    <aside className="fixed inset-x-4 bottom-20 z-50 mx-auto max-w-4xl rounded-xl border border-accent bg-primary p-4 text-primary-foreground shadow-2xl md:bottom-5" aria-label="Product comparison">
+      <div className="flex items-center justify-between gap-4">
+        <div><p className="font-bold">Compare products</p><p className="text-xs text-primary-foreground/70">Review up to three selections side by side</p></div>
+        <Button asChild size="sm" className="bg-accent text-accent-foreground"><Link href="/contact">Ask about selection</Link></Button>
+      </div>
+      <div className="mt-3 grid gap-2 sm:grid-cols-3">
+        {items.map((item) => (
+          <div key={item.id} className="rounded-lg bg-primary-foreground/10 p-3">
+            <div className="flex items-start justify-between gap-2"><Link href={item.href} className="font-semibold hover:text-accent">{item.name}</Link><button type="button" onClick={() => remove(item.id)} aria-label={`Remove ${item.name}`}><X className="size-4" /></button></div>
+            {item.minOrder && <p className="mt-2 text-xs text-primary-foreground/70">Minimum order: {item.minOrder}</p>}
+            <ul className="mt-2 flex flex-col gap-1 text-xs">{item.features.slice(0, 3).map((feature) => <li key={feature}>• {feature}</li>)}</ul>
+          </div>
+        ))}
       </div>
     </aside>
   )

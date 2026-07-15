@@ -150,7 +150,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
                 <Button asChild size="lg" className="bg-[#f19e1f] text-white hover:bg-[#f19e1f]/90">
                   <a href="tel:+918143330028">
                     <Phone className="mr-2 h-5 w-5" />
-                    Get Bulk Pricing
+                    Request Bulk Quote
                   </a>
                 </Button>
                 <Button asChild size="lg" className="bg-[#25D366] text-white hover:bg-[#25D366]/90">

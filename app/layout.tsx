@@ -125,11 +125,15 @@ const jsonLd = {
         },
       ],
       priceRange: "$$",
-      areaServed: {
-        "@type": "State",
-        name: "Telangana",
-      },
-      sameAs: ["https://wa.me/918143330028"],
+      paymentAccepted: "Bank transfer, UPI, and approved business payment methods",
+      currenciesAccepted: "INR",
+      areaServed: [
+        { "@type": "City", name: "Hyderabad" },
+        { "@type": "State", name: "Telangana" },
+        { "@type": "Country", name: "India" },
+      ],
+      knowsAbout: ["Paper bags", "Packaging boxes", "Courier covers", "Thermal labels", "Offset printing", "Digital printing", "Custom packaging"],
+      sameAs: ["https://wa.me/918143330028", "https://www.linkedin.com/company/mspaperproducts", "https://www.facebook.com/mspaperproducts", "https://www.instagram.com/mspaperproducts"],
     },
     {
       "@type": "Organization",
@@ -152,6 +156,11 @@ const jsonLd = {
       name: "MS Paper Products",
       publisher: {
         "@id": "https://mspaperproducts.com/#organization",
+      },
+      potentialAction: {
+        "@type": "SearchAction",
+        target: "https://mspaperproducts.com/products?q={search_term_string}",
+        "query-input": "required name=search_term_string",
       },
     },
   ],
@@ -233,7 +242,7 @@ export default function RootLayout({
       </head>
       <body className={`font-sans antialiased`}>
         <Header />
-        <main>{children}</main>
+        {children}
         <Footer />
         <FloatingCTA />
         <MobileStickyBar />

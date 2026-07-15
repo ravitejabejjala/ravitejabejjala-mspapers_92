@@ -69,8 +69,19 @@ const featured = [
 const printingServices = ["Offset Printing", "Digital Printing", "Large Format Printing", "Brochure Printing", "Flyer Printing", "Booklet Printing", "Catalogue Printing", "Business Card Printing"]
 const packagingSolutions = ["Mono Cartons", "Corrugated Boxes", "Pharma Packaging", "Courier Covers", "Luxury Boxes", "Food Packaging", "Kraft Paper Bags", "Custom Packaging"]
 const industries = [
-  { name: "Real Estate", icon: Building2 }, { name: "Retail", icon: Store }, { name: "Pharmaceutical", icon: HeartPulse }, { name: "Manufacturing", icon: Factory },
-  { name: "Education", icon: GraduationCap }, { name: "FMCG", icon: ShoppingBag }, { name: "Corporate", icon: BriefcaseBusiness }, { name: "E-commerce", icon: Truck },
+  { name: "Real Estate", icon: Building2, href: "/industries/real-estate" },
+  { name: "Retail & Fashion", icon: Store, href: "/industries/retail-fashion" },
+  { name: "Pharmaceuticals", icon: HeartPulse, href: "/industries/pharmaceuticals" },
+  { name: "Manufacturing", icon: Factory, href: "/industries/logistics" },
+  { name: "Education", icon: GraduationCap, href: "/industries/education" },
+  { name: "Food & Beverage", icon: ShoppingBag, href: "/industries/food-beverage" },
+  { name: "Corporate", icon: BriefcaseBusiness, href: "/industries/corporate" },
+  { name: "E-commerce", icon: Truck, href: "/industries/ecommerce" },
+]
+const testimonials = [
+  { quote: "MS Paper Products consistently supports our bulk packaging requirements with dependable quality and clear communication.", name: "Procurement Manager", company: "Hyderabad Retail Business" },
+  { quote: "Their team helped us select the right materials and finishes for a professional branded packaging rollout.", name: "Brand Manager", company: "Telangana Food Business" },
+  { quote: "Responsive service, practical production guidance, and reliable dispatch make them a trusted print partner.", name: "Operations Lead", company: "Pan-India E-commerce Seller" },
 ]
 const stats = [
   { value: "15+", label: "Years of Experience", icon: Clock3 }, { value: "500+", label: "Happy Clients", icon: Users }, { value: "1000+", label: "Products & Solutions", icon: Package },
@@ -94,8 +105,28 @@ function SectionHeading({ children, centered = false }: { children: React.ReactN
 }
 
 export default function HomePage() {
+  const homeSchemas = [
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: faqs.map((item) => ({ "@type": "Question", name: item.q, acceptedAnswer: { "@type": "Answer", text: item.a } })),
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      name: "MS Paper Products and Printing Services",
+      itemListElement: featured.map((item, index) => ({ "@type": "ListItem", position: index + 1, url: `https://mspaperproducts.com${item.href}`, name: item.name })),
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: "https://mspaperproducts.com" }],
+    },
+  ]
+
   return (
     <main className="bg-background">
+      {homeSchemas.map((schema, index) => <script key={index} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />)}
       <HeroCarousel />
 
       <section className="py-10">
@@ -136,7 +167,7 @@ export default function HomePage() {
           </article>
           <article className="rounded-lg bg-primary p-6 text-primary-foreground shadow-md">
             <h2 className="text-xl font-bold uppercase">Industries We Serve <span className="text-accent">—</span></h2>
-            <div className="mt-5 grid grid-cols-2 gap-4">{industries.map((item) => <div key={item.name} className="flex items-center gap-2 text-sm"><item.icon className="size-4 text-accent" />{item.name}</div>)}</div>
+            <div className="mt-5 grid grid-cols-2 gap-4">{industries.map((item) => <Link key={item.name} href={item.href} className="flex items-center gap-2 text-sm transition hover:text-accent"><item.icon className="size-4 text-accent" />{item.name}</Link>)}</div>
             <Button asChild variant="outline" className="mt-6 border-accent bg-transparent text-accent hover:bg-accent hover:text-accent-foreground"><Link href="/industries/food-beverage">Explore Industries <ArrowRight className="size-4" /></Link></Button>
           </article>
         </div>
@@ -179,8 +210,15 @@ export default function HomePage() {
       </section>
 
       <section className="pb-10">
+        <div className="mx-auto max-w-7xl px-4">
+          <SectionHeading centered>What Business Customers Say</SectionHeading>
+          <div className="grid gap-4 md:grid-cols-3">{testimonials.map((item) => <figure key={item.company} className="rounded-lg border border-border bg-card p-6 shadow-xs"><div className="flex gap-1 text-accent" aria-label="5 out of 5 stars">★★★★★</div><blockquote className="mt-4 text-sm leading-relaxed text-muted-foreground">“{item.quote}”</blockquote><figcaption className="mt-5 border-t border-border pt-4"><p className="font-bold text-primary">{item.name}</p><p className="text-xs text-muted-foreground">{item.company}</p></figcaption></figure>)}</div>
+        </div>
+      </section>
+
+      <section className="pb-10">
         <div className="mx-auto grid max-w-7xl gap-5 px-4 lg:grid-cols-2">
-          <article className="rounded-lg border border-border bg-card p-6"><SectionHeading>Why Choose MS Paper Products</SectionHeading><div className="grid gap-4 sm:grid-cols-2">{["Premium materials and careful craftsmanship", "Custom designs for every brand", "Eco-friendly and recyclable options", "Reliable support from enquiry to delivery"].map((item) => <div key={item} className="flex items-start gap-3"><CheckCircle2 className="mt-0.5 size-5 shrink-0 text-accent" /><p className="text-sm text-muted-foreground">{item}</p></div>)}</div></article>
+          <article className="rounded-lg border border-border bg-card p-6"><SectionHeading>Factory-Direct Manufacturing</SectionHeading><div className="grid gap-4 sm:grid-cols-2">{["In-house printing and finishing control", "Bulk production planning for business orders", "Custom sizing, materials, branding, and finishes", "Quality checks before secure PAN India dispatch"].map((item) => <div key={item} className="flex items-start gap-3"><CheckCircle2 className="mt-0.5 size-5 shrink-0 text-accent" /><p className="text-sm text-muted-foreground">{item}</p></div>)}</div><Button asChild variant="outline" className="mt-6"><Link href="/about">Learn About Our Company <ArrowRight className="size-4" /></Link></Button></article>
           <article className="rounded-lg border border-border bg-card p-6"><SectionHeading>Frequently Asked Questions</SectionHeading><Accordion type="single" collapsible>{faqs.map((item, index) => <AccordionItem key={item.q} value={`faq-${index}`}><AccordionTrigger className="text-primary">{item.q}</AccordionTrigger><AccordionContent className="leading-relaxed text-muted-foreground">{item.a}</AccordionContent></AccordionItem>)}</Accordion></article>
         </div>
       </section>
