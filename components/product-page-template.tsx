@@ -2,9 +2,12 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
+import { ArrowRight, Award, CheckCircle2, MessageCircle, PackageCheck, Truck } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { Card, CardContent } from '@/components/ui/card'
-import { ArrowRight, CheckCircle, Truck, Award, Zap } from 'lucide-react'
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb'
+import RecentlyViewedProducts, { TrackViewedProduct } from '@/components/recently-viewed-products'
+import { searchEntries } from '@/lib/catalog-navigation'
 
 interface ProductPageTemplateProps {
   title: string
@@ -18,169 +21,68 @@ interface ProductPageTemplateProps {
   callToAction?: string
 }
 
-export default function ProductPageTemplate({
-  title,
-  subtitle,
-  description,
-  image,
-  features,
-  applications,
-  specifications,
-  pricing,
-  callToAction = 'Request a Quote',
-}: ProductPageTemplateProps) {
+export default function ProductPageTemplate({ title, subtitle, description, image, features, applications, specifications, callToAction = 'Request a Quote' }: ProductPageTemplateProps) {
+  const slug = title.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
+  const href = `/products/${slug}`
+  const related = searchEntries.filter((entry) => entry.type === 'Category' && entry.name !== title && entry.image).slice(0, 4)
+  const faqs = [
+    ['Can these products be customized?', 'Yes. Size, material, printing, handles and finishes can be tailored to your requirements.'],
+    ['What information is needed for a quote?', 'Share the required size, quantity, material, printing details and preferred delivery timeline.'],
+    ['Do you support bulk business orders?', 'Yes. We manufacture for wholesale, corporate and recurring business requirements across India.'],
+  ]
+
   return (
-    <main className="min-h-screen">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-[#132635] to-[#1a3a52] py-12 text-white md:py-20">
-        <div className="container mx-auto px-4">
-          <h1 className="mb-4 text-3xl font-bold md:text-5xl">{title}</h1>
-          <p className="text-lg text-gray-300">{subtitle}</p>
-        </div>
-      </section>
+    <main className="min-h-screen bg-background">
+      <TrackViewedProduct item={{ name: title, href, image }} />
+      <div className="mx-auto max-w-7xl px-4 py-4">
+        <Breadcrumb><BreadcrumbList><BreadcrumbItem><BreadcrumbLink asChild><Link href="/">Home</Link></BreadcrumbLink></BreadcrumbItem><BreadcrumbSeparator /><BreadcrumbItem><BreadcrumbLink asChild><Link href="/products">Products</Link></BreadcrumbLink></BreadcrumbItem><BreadcrumbSeparator /><BreadcrumbItem><BreadcrumbPage>{title}</BreadcrumbPage></BreadcrumbItem></BreadcrumbList></Breadcrumb>
+      </div>
 
-      {/* Overview Section */}
-      <section className="py-12 md:py-20">
-        <div className="container mx-auto px-4">
-          <div className="grid gap-8 md:grid-cols-2 lg:gap-12">
-            <div className="relative h-96 overflow-hidden rounded-lg md:h-full">
-              <Image
-                src={image}
-                alt={title}
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
+      <section className="border-y border-border bg-muted/40 py-10 md:py-16">
+        <div className="mx-auto flex max-w-7xl flex-col gap-10 px-4 lg:flex-row">
+          <div className="flex-1">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-border bg-card shadow-sm">
+              <Image src={image} alt={title} fill priority className="object-cover" sizes="(max-width: 1024px) 100vw, 52vw" />
             </div>
-            <div className="flex flex-col justify-center space-y-6">
-              <div>
-                <h2 className="mb-4 text-3xl font-bold text-[#132635]">About {title}</h2>
-                <p className="text-gray-700 leading-relaxed">{description}</p>
-              </div>
-
-              <div>
-                <h3 className="mb-4 font-semibold text-[#132635]">Key Features:</h3>
-                <ul className="space-y-2">
-                  {features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center gap-3 text-gray-700">
-                      <CheckCircle className="h-5 w-5 text-[#f19e1f] flex-shrink-0" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <Link href="/contact">
-                <Button className="bg-[#f19e1f] text-[#132635] hover:bg-[#f19e1f]/90 font-bold">
-                  {callToAction}
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>
+            <p className="mt-3 text-center text-xs text-muted-foreground">Product appearance can be customized to your brand and specifications.</p>
+          </div>
+          <div className="flex flex-1 flex-col justify-center">
+            <p className="mb-3 text-sm font-bold uppercase tracking-wider text-accent">Made for business orders</p>
+            <h1 className="text-balance text-4xl font-bold text-primary md:text-5xl">{title}</h1>
+            <p className="mt-3 text-xl font-medium text-foreground">{subtitle}</p>
+            <p className="mt-5 max-w-xl leading-relaxed text-muted-foreground">{description}</p>
+            <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+              {features.slice(0, 6).map((feature) => <li key={feature} className="flex gap-2 text-sm"><CheckCircle2 className="mt-0.5 size-4 shrink-0 text-accent" />{feature}</li>)}
+            </ul>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Button asChild size="lg" className="bg-accent font-bold text-accent-foreground hover:bg-accent/90"><Link href="/contact">{callToAction}<ArrowRight className="size-4" /></Link></Button>
+              <Button asChild size="lg" variant="outline"><a href={`https://wa.me/918143330028?text=${encodeURIComponent(`Hi, I need details about ${title}.`)}`} target="_blank" rel="noopener noreferrer"><MessageCircle className="size-4" />Quick inquiry</a></Button>
             </div>
+            <p className="mt-4 text-sm text-muted-foreground">Contact our team for a requirement-based business quote.</p>
           </div>
         </div>
       </section>
 
-      {/* Applications Section */}
-      <section className="bg-gray-50 py-12 md:py-20">
-        <div className="container mx-auto px-4">
-          <h2 className="mb-12 text-center text-3xl font-bold text-[#132635]">Applications & Uses</h2>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {applications.map((app, idx) => (
-              <Card key={idx} className="border-l-4 border-l-[#f19e1f]">
-                <CardContent className="p-6">
-                  <p className="text-gray-700">{app}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+      <section className="mx-auto max-w-7xl px-4 py-14">
+        <div className="grid gap-6 md:grid-cols-3">
+          {[[Award, 'Quality assured', 'Careful material selection and production checks.'], [PackageCheck, 'Custom production', 'Sizes, branding and finishes tailored to your brief.'], [Truck, 'Reliable delivery', 'Clear timelines and dispatch support across India.']].map(([Icon, heading, copy]) => {
+            const FeatureIcon = Icon as typeof Award
+            return <div key={heading as string} className="rounded-xl border border-border bg-card p-6"><FeatureIcon className="size-8 text-accent" /><h2 className="mt-4 font-bold text-primary">{heading as string}</h2><p className="mt-2 text-sm text-muted-foreground">{copy as string}</p></div>
+          })}
         </div>
       </section>
 
-      {/* Specifications Section */}
-      <section className="py-12 md:py-20">
-        <div className="container mx-auto px-4">
-          <h2 className="mb-12 text-center text-3xl font-bold text-[#132635]">Specifications</h2>
-          <div className="overflow-x-auto">
-            <table className="w-full">
-              <tbody>
-                {specifications.map((spec, idx) => (
-                  <tr key={idx} className={idx % 2 === 0 ? 'bg-gray-50' : ''}>
-                    <td className="border border-gray-200 px-6 py-4 font-semibold text-[#132635]">{spec.label}</td>
-                    <td className="border border-gray-200 px-6 py-4 text-gray-700">{spec.value}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+      <section className="border-y border-border bg-muted/40 py-14">
+        <div className="mx-auto grid max-w-7xl gap-10 px-4 lg:grid-cols-2">
+          <div><h2 className="text-3xl font-bold text-primary">Applications & uses</h2><div className="mt-6 grid gap-3 sm:grid-cols-2">{applications.map((application) => <div key={application} className="rounded-lg border border-border bg-background p-4 text-sm">{application}</div>)}</div></div>
+          <div><h2 className="text-3xl font-bold text-primary">Specifications</h2><div className="mt-6 overflow-hidden rounded-lg border border-border bg-background">{specifications.map((spec, index) => <div key={spec.label} className={`flex flex-col gap-1 p-4 sm:flex-row sm:justify-between ${index ? 'border-t border-border' : ''}`}><span className="font-semibold text-primary">{spec.label}</span><span className="text-sm text-muted-foreground sm:text-right">{spec.value}</span></div>)}</div></div>
         </div>
       </section>
 
-      {/* Pricing Section */}
-      {pricing && (
-        <section className="bg-[#132635] py-12 text-white md:py-20">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="mb-8 text-3xl font-bold">Pricing</h2>
-            <div className="mx-auto max-w-md">
-              <Card className="bg-white text-[#132635]">
-                <CardContent className="p-8">
-                  <p className="mb-2 text-sm text-gray-600">Starting from</p>
-                  <p className="mb-1 text-4xl font-bold text-[#f19e1f]">₹{pricing.min}</p>
-                  <p className="mb-6 text-sm text-gray-600">to ₹{pricing.max} per {pricing.unit}</p>
-                  <p className="text-sm text-gray-600">Bulk order discounts available</p>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
-      )}
+      <section className="mx-auto max-w-4xl px-4 py-14"><h2 className="text-center text-3xl font-bold text-primary">Frequently asked questions</h2><Accordion type="single" collapsible className="mt-6">{faqs.map(([question, answer]) => <AccordionItem key={question} value={question}><AccordionTrigger>{question}</AccordionTrigger><AccordionContent>{answer}</AccordionContent></AccordionItem>)}</Accordion></section>
 
-      {/* Benefits Section */}
-      <section className="py-12 md:py-20">
-        <div className="container mx-auto px-4">
-          <h2 className="mb-12 text-center text-3xl font-bold text-[#132635]">Why Choose Our {title}?</h2>
-          <div className="grid gap-6 md:grid-cols-3">
-            <div className="text-center">
-              <Award className="mx-auto mb-4 h-12 w-12 text-[#f19e1f]" />
-              <h3 className="mb-2 font-semibold text-[#132635]">Premium Quality</h3>
-              <p className="text-gray-600">High-quality materials and superior craftsmanship</p>
-            </div>
-            <div className="text-center">
-              <Truck className="mx-auto mb-4 h-12 w-12 text-[#f19e1f]" />
-              <h3 className="mb-2 font-semibold text-[#132635]">Fast Delivery</h3>
-              <p className="text-gray-600">Quick turnaround without compromising quality</p>
-            </div>
-            <div className="text-center">
-              <Zap className="mx-auto mb-4 h-12 w-12 text-[#f19e1f]" />
-              <h3 className="mb-2 font-semibold text-[#132635]">Custom Solutions</h3>
-              <p className="text-gray-600">Tailored designs matching your specific needs</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Final CTA */}
-      <section className="bg-gradient-to-r from-[#132635] to-[#1a3a52] py-12 text-white md:py-20">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="mb-4 text-3xl font-bold md:text-4xl">Ready to Order?</h2>
-          <p className="mb-8 text-gray-300">
-            Get in touch with our team to discuss your requirements and receive a competitive quote.
-          </p>
-          <div className="flex flex-col justify-center gap-4 sm:flex-row">
-            <Link href="/contact">
-              <Button className="bg-[#f19e1f] text-[#132635] hover:bg-[#f19e1f]/90 font-bold">
-                {callToAction}
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-            </Link>
-            <a href="tel:+918143330028">
-              <Button variant="outline" className="border-white text-white hover:bg-white/10">
-                Call: +91 81433 30028
-              </Button>
-            </a>
-          </div>
-        </div>
-      </section>
+      <section className="border-t border-border py-14"><div className="mx-auto max-w-7xl px-4"><div className="mb-6 flex items-end justify-between"><div><p className="text-sm font-bold uppercase tracking-wider text-accent">You may also need</p><h2 className="text-3xl font-bold text-primary">Related categories</h2></div><Link href="/products" className="text-sm font-semibold text-primary hover:text-accent">View all</Link></div><div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">{related.map((item) => <Link key={item.href} href={item.href} className="group overflow-hidden rounded-xl border border-border bg-card shadow-sm hover:border-accent"><div className="relative aspect-[4/3] bg-muted"><Image src={item.image!} alt={item.name} fill className="object-cover transition-transform group-hover:scale-105" /></div><div className="p-4 font-bold text-primary group-hover:text-accent">{item.name}</div></Link>)}</div></div></section>
+      <RecentlyViewedProducts />
     </main>
   )
 }

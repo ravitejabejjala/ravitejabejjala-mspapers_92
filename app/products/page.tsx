@@ -18,6 +18,7 @@ import {
 import { mainCategories } from "@/lib/products-data"
 import Script from "next/script"
 import TrustBadges from "@/components/trust-badges"
+import ProductDiscovery from "@/components/product-discovery"
 
 export const metadata = {
   title: "Products | MS Paper Products - Premium Paper Bags, Boxes, Folders & More",
@@ -320,6 +321,8 @@ export default function ProductsPage() {
             </div>
           </div>
         </section>
+
+        <ProductDiscovery />
 
         {/* CTA Section - Enhanced */}
         <section className="py-16 md:py-24">

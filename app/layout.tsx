@@ -8,6 +8,7 @@ import MobileStickyBar from "@/components/mobile-sticky-bar"
 import "./globals.css"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
+import CompareTray from "@/components/product-compare"
 
 const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
@@ -236,6 +237,7 @@ export default function RootLayout({
         <Footer />
         <FloatingCTA />
         <MobileStickyBar />
+        <CompareTray />
         <Analytics />
       </body>
     </html>

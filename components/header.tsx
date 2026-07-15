@@ -3,10 +3,11 @@
 import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { ChevronDown, Menu, Phone, Search } from "lucide-react"
+import { ChevronDown, Menu, Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { ProductsDropdownMenu } from "@/components/products-dropdown-menu"
+import CatalogMegaMenu from "@/components/catalog-mega-menu"
+import SiteSearch from "@/components/site-search"
 import TopInfoBar from "@/components/top-info-bar"
 
 const navItems = [
@@ -48,17 +49,9 @@ export default function Header() {
               />
             </Link>
 
-            <form action="/products" className="mx-auto hidden w-full max-w-md items-center rounded-md border border-border bg-muted/40 px-4 md:flex">
-              <label htmlFor="site-search" className="sr-only">Search products and services</label>
-              <input
-                id="site-search"
-                name="q"
-                type="search"
-                placeholder="Search products, printing services..."
-                className="h-11 min-w-0 flex-1 bg-transparent text-sm text-foreground outline-none placeholder:text-muted-foreground"
-              />
-              <Search className="size-4 text-muted-foreground" aria-hidden="true" />
-            </form>
+            <div className="mx-auto hidden w-full max-w-md md:block">
+              <SiteSearch />
+            </div>
 
             <div className="ml-auto hidden shrink-0 items-center gap-3 lg:flex">
               <Button asChild variant="outline" className="h-11 border-primary px-6 text-primary hover:bg-primary hover:text-primary-foreground">
@@ -77,7 +70,8 @@ export default function Header() {
                 <Link href="/" onClick={() => setIsOpen(false)}>
                   <Image src="/ms-logo-horizontal.png" alt="MS Paper Products" width={180} height={50} className="h-12 w-auto" />
                 </Link>
-                <nav className="mt-8 flex flex-col gap-1" aria-label="Mobile navigation">
+                <div className="mt-6"><SiteSearch /></div>
+                <nav className="mt-4 flex flex-col gap-1" aria-label="Mobile navigation">
                   <Link href="/" onClick={() => setIsOpen(false)} className="rounded-md px-3 py-3 font-semibold text-primary hover:bg-muted">Home</Link>
                   <button onClick={() => setProductsOpen(!productsOpen)} className="flex items-center justify-between rounded-md px-3 py-3 text-left font-semibold text-primary hover:bg-muted" aria-expanded={productsOpen}>
                     Products <ChevronDown className={`size-4 transition-transform ${productsOpen ? "rotate-180" : ""}`} />
@@ -98,7 +92,7 @@ export default function Header() {
           <div className="mx-auto flex h-12 max-w-7xl items-center justify-between px-4">
             <nav className="flex h-full items-center gap-8" aria-label="Main navigation">
               <Link href="/" className="flex h-full items-center border-b-2 border-accent text-sm font-semibold text-accent">Home</Link>
-              <ProductsDropdownMenu />
+              <CatalogMegaMenu />
               {navItems.map((item) => <Link key={item.href} href={item.href} className="text-sm font-semibold text-primary transition-colors hover:text-accent">{item.label}</Link>)}
             </nav>
             <a href="https://wa.me/918143330028" target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-primary hover:text-accent">WhatsApp Us</a>

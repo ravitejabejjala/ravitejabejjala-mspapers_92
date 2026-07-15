@@ -9,6 +9,8 @@ import type { Metadata } from "next"
 import Script from "next/script"
 import ProductInquiryButton from "@/components/product-inquiry-button"
 import TrustBadges from "@/components/trust-badges"
+import { CompareButton } from "@/components/product-compare"
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb"
 
 interface CategoryPageProps {
   params: Promise<{ category: string }>
@@ -115,6 +117,9 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         </Script>
 
         <main className="min-h-screen">
+          <div className="mx-auto max-w-7xl px-4 py-4">
+            <Breadcrumb><BreadcrumbList><BreadcrumbItem><BreadcrumbLink asChild><Link href="/">Home</Link></BreadcrumbLink></BreadcrumbItem><BreadcrumbSeparator /><BreadcrumbItem><BreadcrumbLink asChild><Link href="/products">Products</Link></BreadcrumbLink></BreadcrumbItem><BreadcrumbSeparator /><BreadcrumbItem><BreadcrumbPage>{mainCategory.name}</BreadcrumbPage></BreadcrumbItem></BreadcrumbList></Breadcrumb>
+          </div>
           {/* Hero Section */}
           <section className="relative bg-[#132635] py-20 text-white md:py-28 overflow-hidden">
             {mainCategory.image && (
@@ -272,6 +277,9 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
       </Script>
 
       <main className="min-h-screen">
+        <div className="mx-auto max-w-7xl px-4 py-4">
+          <Breadcrumb><BreadcrumbList><BreadcrumbItem><BreadcrumbLink asChild><Link href="/">Home</Link></BreadcrumbLink></BreadcrumbItem><BreadcrumbSeparator /><BreadcrumbItem><BreadcrumbLink asChild><Link href="/products">Products</Link></BreadcrumbLink></BreadcrumbItem>{parentCategory && <><BreadcrumbSeparator /><BreadcrumbItem><BreadcrumbLink asChild><Link href={`/products/${parentCategory.slug}`}>{parentCategory.name}</Link></BreadcrumbLink></BreadcrumbItem></>}<BreadcrumbSeparator /><BreadcrumbItem><BreadcrumbPage>{category.name}</BreadcrumbPage></BreadcrumbItem></BreadcrumbList></Breadcrumb>
+        </div>
         {/* Hero Section */}
         <section className="relative bg-[#132635] py-20 text-white md:py-28 overflow-hidden">
           {parentCategory && (
@@ -312,7 +320,8 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
               {category.products.map((product) => (
                 <Card
                   key={product.id}
-                  className="group overflow-hidden border-none shadow-lg transition-all hover:-translate-y-2 hover:shadow-2xl"
+                  id={product.id}
+                  className="group scroll-mt-44 overflow-hidden border border-border shadow-sm transition-all hover:-translate-y-1 hover:border-accent hover:shadow-xl"
                 >
                   <div className="relative h-56 overflow-hidden bg-gray-100">
                     <Image
@@ -350,7 +359,10 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
                       </div>
                     )}
 
-                    <ProductInquiryButton productName={product.name} categoryName={category.name} />
+                    <div className="flex flex-col gap-2">
+                      <ProductInquiryButton productName={product.name} categoryName={category.name} />
+                      <CompareButton item={{ id: product.id, name: product.name, href: `/products/${category.slug}#${product.id}`, features: product.features, minOrder: product.minOrder }} />
+                    </div>
                   </CardContent>
                 </Card>
               ))}
