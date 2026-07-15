@@ -9,6 +9,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import CatalogMegaMenu from "@/components/catalog-mega-menu"
 import SiteSearch from "@/components/site-search"
 import TopInfoBar from "@/components/top-info-bar"
+import { business } from "@/lib/business-info"
 
 const navItems = [
   { label: "Printing Services", href: "/printing-services-hyderabad" },
@@ -40,7 +41,7 @@ export default function Header() {
           <div className="mx-auto flex min-h-20 max-w-7xl items-center gap-4 px-4 py-3 lg:gap-8">
             <Link href="/" className="shrink-0" aria-label="MS Paper Products home">
               <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/MS%20Paper%20Logo-02-Q7lDvifcn1Boaeg9oeNFn68boZrmKV.png"
+                src={business.logoHorizontal}
                 alt="MS Paper Products"
                 width={290}
                 height={70}
@@ -55,7 +56,7 @@ export default function Header() {
 
             <div className="ml-auto hidden shrink-0 items-center gap-3 lg:flex">
               <Button asChild variant="outline" className="h-11 border-primary px-6 text-primary hover:bg-primary hover:text-primary-foreground">
-                <a href="tel:+918143330028"><Phone className="size-4" />Call Now</a>
+                <a href={business.phoneHref}><Phone className="size-4" />Call Now</a>
               </Button>
               <Button asChild className="h-11 bg-accent px-7 font-semibold text-accent-foreground hover:bg-accent/90">
                 <Link href="/contact">Get Quote</Link>
@@ -68,7 +69,7 @@ export default function Header() {
               </SheetTrigger>
               <SheetContent side="right" className="w-[320px] overflow-y-auto bg-background p-6">
                 <Link href="/" onClick={() => setIsOpen(false)}>
-                  <Image src="/ms-logo-horizontal.png" alt="MS Paper Products" width={180} height={50} className="h-12 w-auto" />
+                  <Image src={business.logoHorizontal} alt="MS Paper Products" width={818} height={183} className="h-12 w-auto object-contain" />
                 </Link>
                 <div className="mt-6"><SiteSearch /></div>
                 <nav className="mt-4 flex flex-col gap-1" aria-label="Mobile navigation">
@@ -80,7 +81,7 @@ export default function Header() {
                   {navItems.map((item) => <Link key={item.href} href={item.href} onClick={() => setIsOpen(false)} className="rounded-md px-3 py-3 font-semibold text-primary hover:bg-muted">{item.label}</Link>)}
                 </nav>
                 <div className="mt-6 flex gap-3">
-                  <Button asChild variant="outline" className="flex-1"><a href="tel:+918143330028">Call</a></Button>
+                  <Button asChild variant="outline" className="flex-1"><a href={business.phoneHref}>Call</a></Button>
                   <Button asChild className="flex-1 bg-accent text-accent-foreground"><Link href="/contact" onClick={() => setIsOpen(false)}>Quote</Link></Button>
                 </div>
               </SheetContent>
@@ -95,7 +96,7 @@ export default function Header() {
               <CatalogMegaMenu />
               {navItems.map((item) => <Link key={item.href} href={item.href} className="text-sm font-semibold text-primary transition-colors hover:text-accent">{item.label}</Link>)}
             </nav>
-            <a href="https://wa.me/918143330028" target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-primary hover:text-accent">WhatsApp Us</a>
+            <a href={business.whatsappUrl} target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-primary hover:text-accent">WhatsApp Us</a>
           </div>
         </div>
       </header>

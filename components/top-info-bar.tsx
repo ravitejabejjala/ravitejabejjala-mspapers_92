@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin, Youtube } from "lucide-react"
+import { business, socialLinks } from "@/lib/business-info"
 
 export default function TopInfoBar() {
   return (
@@ -7,13 +8,13 @@ export default function TopInfoBar() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4">
         {/* Left side - Contact info */}
         <div className="flex gap-6">
-          <a href="tel:+918143330028" className="flex items-center gap-2 hover:text-[#f19e1f] transition-colors">
-            <Phone className="h-3.5 w-3.5 text-[#f19e1f]" />
-            <span>+91 97012 23345</span>
+          <a href={business.phoneHref} className="flex items-center gap-2 transition-colors hover:text-accent">
+            <Phone className="h-3.5 w-3.5 text-accent" />
+            <span>{business.phoneDisplay}</span>
           </a>
-          <a href="mailto:sales@mspaperproducts.com" className="flex items-center gap-2 hover:text-[#f19e1f] transition-colors">
-            <Mail className="h-3.5 w-3.5 text-[#f19e1f]" />
-            <span>sales@mspaperproducts.com</span>
+          <a href={`mailto:${business.email}`} className="flex items-center gap-2 transition-colors hover:text-accent">
+            <Mail className="h-3.5 w-3.5 text-accent" />
+            <span>{business.email}</span>
           </a>
           <div className="flex items-center gap-2">
             <MapPin className="h-3.5 w-3.5 text-[#f19e1f]" />
@@ -23,7 +24,7 @@ export default function TopInfoBar() {
 
         {/* Right side - Social media */}
         <div className="flex gap-3">
-          <a href="https://linkedin.com/company/mspaperproducts" target="_blank" rel="noopener noreferrer" className="hover:text-[#f19e1f] transition-colors">
+          <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-[#f19e1f] transition-colors">
             <Linkedin className="h-3.5 w-3.5" />
           </a>
           <a href="https://facebook.com/mspaperproducts" target="_blank" rel="noopener noreferrer" className="hover:text-[#f19e1f] transition-colors">
@@ -35,7 +36,7 @@ export default function TopInfoBar() {
           <a href="https://youtube.com/mspaperproducts" target="_blank" rel="noopener noreferrer" className="hover:text-[#f19e1f] transition-colors">
             <Youtube className="h-3.5 w-3.5" />
           </a>
-          <a href="https://wa.me/918143330028" target="_blank" rel="noopener noreferrer" className="text-[#f19e1f] hover:text-[#f19e1f]/80 transition-colors">
+          <a href={business.whatsappUrl} target="_blank" rel="noopener noreferrer" className="text-[#f19e1f] hover:text-[#f19e1f]/80 transition-colors">
             WhatsApp Us
           </a>
         </div>

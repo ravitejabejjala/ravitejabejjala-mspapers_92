@@ -9,6 +9,7 @@ import "./globals.css"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import CompareTray from "@/components/product-compare"
+import { business, socialLinks } from "@/lib/business-info"
 
 const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
@@ -58,7 +59,7 @@ export const metadata: Metadata = {
       "Leading manufacturer of premium paper bags, food packaging, medicine boxes & eco-friendly packaging solutions in Hyderabad. 15+ years experience. Call +91 81433 30028",
     images: [
       {
-        url: "/og-image.jpg",
+        url: business.socialImage,
         width: 1200,
         height: 630,
         alt: "MS Paper Products - Premium Paper Packaging Manufacturer",
@@ -70,12 +71,12 @@ export const metadata: Metadata = {
     title: "MS Paper Products | Premium Paper Bag Manufacturer",
     description:
       "Leading manufacturer of premium paper bags & eco-friendly packaging solutions in Hyderabad. Call +91 81433 30028",
-    images: ["/og-image.jpg"],
+    images: [business.socialImage],
   },
   icons: {
-    icon: "/favicon.png",
-    shortcut: "/favicon.png",
-    apple: "/apple-icon.png",
+    icon: business.logoSquare,
+    shortcut: business.logoSquare,
+    apple: business.logoSquare,
   },
   verification: {
     google: "google-site-verification-code",
@@ -97,12 +98,12 @@ const jsonLd = {
       "@type": "LocalBusiness",
       "@id": "https://mspaperproducts.com/#business",
       name: "MS Paper Products",
-      image: "https://mspaperproducts.com/ms-logo-horizontal.png",
+      image: `https://mspaperproducts.com${business.logoSquare}`,
       description:
         "Leading manufacturer of premium paper bags, food packaging, medicine boxes, carton boxes & eco-friendly packaging solutions in Hyderabad, Telangana.",
       url: "https://mspaperproducts.com",
       telephone: "+91-81433-30028",
-      email: "info@mspaperproducts.com",
+      email: business.email,
       address: {
         "@type": "PostalAddress",
         streetAddress: "7-1-307/14/G/119, DNM Colony, Tulasi Nagar, Balkampet",
@@ -140,7 +141,7 @@ const jsonLd = {
       "@id": "https://mspaperproducts.com/#organization",
       name: "MS Paper Products",
       url: "https://mspaperproducts.com",
-      logo: "https://mspaperproducts.com/ms-logo-horizontal.png",
+      logo: `https://mspaperproducts.com${business.logoSquare}`,
       contactPoint: {
         "@type": "ContactPoint",
         telephone: "+91-81433-30028",

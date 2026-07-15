@@ -1,33 +1,26 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Clock, Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react"
+import { business, socialLinks } from "@/lib/business-info"
 
 const groups = [
-  { title: "Products", links: [{ name: "Paper Bags", href: "/products/paper-bags" }, { name: "Boxes & Cartons", href: "/products/boxes-cartons" }, { name: "Courier Covers", href: "/products/ecommerce-courier-covers" }, { name: "Thermal Labels", href: "/products/thermal-label-rolls" }, { name: "View All Products", href: "/products" }] },
-  { title: "Printing Services", links: [{ name: "Offset Printing", href: "/printing-services/offset-printing" }, { name: "Digital Printing", href: "/printing-services/digital-printing" }, { name: "Brochure Printing", href: "/printing-services/brochure-printing" }, { name: "Flyer Printing", href: "/printing-services/flyer-printing" }, { name: "View All Services", href: "/printing-services-hyderabad" }] },
-  { title: "Industries", links: [{ name: "Food & Beverage", href: "/industries/food-beverage" }, { name: "Pharmaceuticals", href: "/industries/pharmaceuticals" }, { name: "E-Commerce", href: "/industries/ecommerce" }, { name: "Retail & Fashion", href: "/industries/retail-fashion" }, { name: "Corporate", href: "/industries/corporate" }] },
-  { title: "Resources", links: [{ name: "Blog", href: "/blog" }, { name: "Gallery", href: "/gallery" }, { name: "Packaging Guide", href: "/resources" }, { name: "About Us", href: "/about" }, { name: "Contact", href: "/contact" }] },
-]
+  { title: "Products", links: [["Paper Bags", "/products/paper-bags"], ["Boxes & Cartons", "/products/boxes-cartons"], ["Courier Covers", "/products/ecommerce-courier-covers"], ["Thermal Labels", "/products/thermal-label-rolls"], ["All Products", "/products"]] },
+  { title: "Services", links: [["Offset Printing", "/printing-services/offset-printing"], ["Digital Printing", "/printing-services/digital-printing"], ["Brochure Printing", "/printing-services/brochure-printing"], ["Label Printing", "/printing-services/label-printing"], ["All Services", "/printing-services-hyderabad"]] },
+  { title: "Industries", links: [["Pharmaceutical", "/solutions/pharmaceutical-packaging"], ["Food Packaging", "/solutions/food-packaging-manufacturer"], ["Corporate", "/solutions/corporate-printing-services"], ["E-commerce", "/solutions/courier-packaging"], ["Education", "/solutions/educational-printing"]] },
+  { title: "Resources", links: [["Packaging Guides", "/resources"], ["Business Blog", "/blog"], ["Print Finishes", "/blog/print-finishes-guide"], ["Bulk Order Checklist", "/blog/bulk-printing-checklist"], ["Gallery", "/gallery"]] },
+  { title: "Company", links: [["About Us", "/about"], ["Contact", "/contact"], ["Packaging Solutions", "/packaging-solutions"], ["Privacy Policy", "/privacy"], ["Terms", "/terms"]] },
+] as const
 
 export default function Footer() {
-  return (
-    <footer className="bg-primary text-primary-foreground">
-      <div className="mx-auto max-w-7xl px-4 py-9">
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-[1.2fr_repeat(4,.75fr)_1.35fr]">
-          <div>
-            <Link href="/" aria-label="MS Paper Products home"><Image src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/MS%20Paper%20products-03-t3JyzC6DPjBJTPm3YiAeFT8JD65dkC.png" alt="MS Paper Products" width={180} height={180} className="h-24 w-auto" /></Link>
-            <p className="mt-3 max-w-xs text-xs leading-relaxed text-primary-foreground/65">Premium paper products, printing, and packaging solutions crafted for growing brands.</p>
-            <div className="mt-4 flex gap-3">
-              <a href="https://linkedin.com/company/mspaperproducts" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-primary-foreground/70 hover:text-accent"><Linkedin className="size-4" /></a>
-              <a href="https://facebook.com/mspaperproducts" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-primary-foreground/70 hover:text-accent"><Facebook className="size-4" /></a>
-              <a href="https://instagram.com/mspaperproducts" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-primary-foreground/70 hover:text-accent"><Instagram className="size-4" /></a>
-            </div>
-          </div>
-          {groups.map((group) => <div key={group.title}><h2 className="text-xs font-bold uppercase text-primary-foreground">{group.title}</h2><ul className="mt-3 flex flex-col gap-1.5">{group.links.map((item) => <li key={item.href}><Link href={item.href} className="text-xs text-primary-foreground/65 hover:text-accent">{item.name}</Link></li>)}</ul></div>)}
-          <div><h2 className="text-xs font-bold uppercase">Contact Us</h2><ul className="mt-3 flex flex-col gap-3 text-xs text-primary-foreground/65"><li><a href="https://www.google.com/maps/search/?api=1&query=17.447536,78.430192" target="_blank" rel="noopener noreferrer" className="flex gap-2 hover:text-accent"><MapPin className="mt-0.5 size-4 shrink-0 text-accent" /><span>7-1-307/14/G/95, DNM Colony, BK Guda, Balkampet, Hyderabad 500018<br /><strong className="mt-1 inline-block text-accent">View on Google Maps</strong></span></a></li><li><a href="tel:+918143330028" className="flex gap-2 hover:text-accent"><Phone className="size-4 text-accent" />+91 81433 30028</a></li><li><a href="mailto:info@mspaperproducts.com" className="flex gap-2 hover:text-accent"><Mail className="size-4 text-accent" />info@mspaperproducts.com</a></li><li className="flex gap-2"><Clock className="size-4 text-accent" />Mon–Sat: 9 AM–6 PM</li><li><Link href="/contact" className="inline-flex rounded-md bg-accent px-3 py-2 font-bold text-accent-foreground">Request a Business Quote</Link></li></ul></div>
-        </div>
-        <div className="mt-8 flex flex-col justify-between gap-3 border-t border-primary-foreground/15 pt-5 text-xs text-primary-foreground/55 sm:flex-row"><p>© {new Date().getFullYear()} MS Paper Products. All rights reserved.</p><div className="flex gap-5"><Link href="/privacy" className="hover:text-accent">Privacy Policy</Link><Link href="/terms" className="hover:text-accent">Terms & Conditions</Link></div></div>
+  return <footer className="bg-primary text-primary-foreground">
+    <div className="mx-auto max-w-7xl px-4 py-12">
+      <div className="grid gap-9 sm:grid-cols-2 lg:grid-cols-[1.25fr_repeat(5,.72fr)]">
+        <div><Link href="/" aria-label="MS Paper Products home"><Image src={business.logoSquare} alt="MS Paper Products" width={835} height={834} className="h-28 w-auto object-contain" /></Link><p className="mt-4 max-w-xs text-sm leading-relaxed text-primary-foreground/65">Factory-direct paper products, commercial printing, and custom packaging solutions for business requirements in Hyderabad and across India.</p><div className="mt-5 flex gap-4"><a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><Linkedin className="size-5" /></a><a href={socialLinks.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook"><Facebook className="size-5" /></a><a href={socialLinks.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram"><Instagram className="size-5" /></a></div></div>
+        {groups.map((group) => <div key={group.title}><h2 className="text-sm font-bold uppercase tracking-wide">{group.title}</h2><ul className="mt-4 flex flex-col gap-2.5">{group.links.map(([name, href]) => <li key={href}><Link href={href} className="text-xs text-primary-foreground/65 transition hover:text-accent">{name}</Link></li>)}</ul></div>)}
       </div>
-    </footer>
-  )
+      <div className="mt-10 grid gap-6 rounded-xl border border-primary-foreground/15 p-6 md:grid-cols-[1.4fr_1fr_1fr_auto]"><a href={business.mapUrl} target="_blank" rel="noopener noreferrer" className="flex gap-3 text-sm text-primary-foreground/70 hover:text-accent"><MapPin className="size-5 shrink-0 text-accent" /><span>{business.address}<strong className="mt-1 block text-accent">View on Google Maps</strong></span></a><div className="flex flex-col gap-2 text-sm"><a href={business.phoneHref} className="flex gap-2 hover:text-accent"><Phone className="size-4 text-accent" />{business.phoneDisplay}</a><a href={`mailto:${business.email}`} className="flex gap-2 hover:text-accent"><Mail className="size-4 text-accent" />{business.email}</a></div><p className="flex gap-2 text-sm text-primary-foreground/70"><Clock className="size-4 shrink-0 text-accent" />{business.hoursLabel}</p><Link href="/contact" className="inline-flex h-10 items-center justify-center rounded-md bg-accent px-5 text-sm font-bold text-accent-foreground">Request a Quote</Link></div>
+      <p className="mt-6 text-xs text-primary-foreground/55">Service areas: {business.serviceAreas.join(" · ")}</p>
+      <div className="mt-6 border-t border-primary-foreground/15 pt-5 text-xs text-primary-foreground/55">© {new Date().getFullYear()} MS Paper Products. All rights reserved.</div>
+    </div>
+  </footer>
 }

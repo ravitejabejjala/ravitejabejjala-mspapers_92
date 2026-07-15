@@ -37,9 +37,9 @@ export const metadata: Metadata = {
     description: "Quality paper bags, courier covers, thermal labels and eco-friendly packaging manufactured in Hyderabad.",
     type: "website",
     url: "https://mspaperproducts.com",
-    images: [{ url: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/MS%20Paper%20products-03-t3JyzC6DPjBJTPm3YiAeFT8JD65dkC.png", width: 1200, height: 630, alt: "MS Paper Products" }],
+    images: [{ url: "/brand/ms-paper-products-social.png", width: 751, height: 751, alt: "MS Paper Products" }],
   },
-  twitter: { card: "summary_large_image", title: "MS Paper Products | Premium Packaging Solutions", description: "Quality paper bags and packaging manufacturer in Hyderabad", images: ["https://hebbkx1anhila5yf.public.blob.vercel-storage.com/MS%20Paper%20products-03-t3JyzC6DPjBJTPm3YiAeFT8JD65dkC.png"] },
+  twitter: { card: "summary_large_image", title: "MS Paper Products | Premium Packaging Solutions", description: "Quality paper bags and packaging manufacturer in Hyderabad", images: ["/brand/ms-paper-products-social.png"] },
 }
 
 const categories = [
@@ -87,7 +87,7 @@ const stats = [
   { value: "15+", label: "Years of Experience", icon: Clock3 }, { value: "500+", label: "Happy Clients", icon: Users }, { value: "1000+", label: "Products & Solutions", icon: Package },
   { value: "Advanced", label: "Machinery", icon: Factory }, { value: "Quality", label: "Assurance", icon: Award }, { value: "PAN India", label: "Delivery", icon: Truck },
 ]
-const process = ["Requirement", "Quotation", "Design & Approval", "Production", "Quality Check", "Delivery"]
+const process = ["Requirement & Artwork", "Lithrone Offset Printing", "Foiling & UV Printing", "Lamination", "Punching & Die Cutting", "Packaging", "Quality Inspection", "Dispatch"]
 const resources = [
   { title: "Offset vs Digital Printing: Which One Is Right for You?", image: "/printing-services/offset-printing.jpg", href: "/blog/offset-vs-digital-printing" },
   { title: "How to Choose the Right Packaging for Your Product", image: "/categories/carton-boxes-category.jpg", href: "/blog/choosing-right-packaging" },
