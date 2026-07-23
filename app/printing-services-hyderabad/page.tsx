@@ -338,12 +338,12 @@ export default function PrintingServicesPage() {
                           </ul>
                         </div>
 
-                        <Button asChild size="lg" className="bg-[#f19e1f] text-[#132635] hover:bg-[#f19e1f]/90 font-semibold">
-                          <Link href="/contact?service={service.title}">
-                            Request Quote
-                            <ArrowRight className="ml-2 h-5 w-5" />
-                          </Link>
-                        </Button>
+          <Button asChild size="lg" className="bg-[#f19e1f] text-[#132635] hover:bg-[#f19e1f]/90 font-semibold">
+            <Link href={`/contact?service=${encodeURIComponent(service.title)}`}>
+              Request Quote
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Link>
+          </Button>
                       </div>
                       <div className="relative h-96 rounded-lg overflow-hidden shadow-lg">
                         <Image
@@ -383,12 +383,12 @@ export default function PrintingServicesPage() {
                           </ul>
                         </div>
 
-                        <Button asChild size="lg" className="bg-[#f19e1f] text-[#132635] hover:bg-[#f19e1f]/90 font-semibold">
-                          <Link href="/contact?service={service.title}">
-                            Request Quote
-                            <ArrowRight className="ml-2 h-5 w-5" />
-                          </Link>
-                        </Button>
+          <Button asChild size="lg" className="bg-[#f19e1f] text-[#132635] hover:bg-[#f19e1f]/90 font-semibold">
+            <Link href={`/contact?service=${encodeURIComponent(service.title)}`}>
+              Request Quote
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Link>
+          </Button>
                       </div>
                     </>
                   )}
