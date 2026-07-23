@@ -92,9 +92,9 @@ export default function Header() {
         <div className="hidden lg:block">
           <div className="mx-auto flex h-12 max-w-7xl items-center justify-between px-4">
             <nav className="flex h-full items-center gap-8" aria-label="Main navigation">
-              <Link href="/" className="flex h-full items-center border-b-2 border-accent text-sm font-semibold text-accent">Home</Link>
+              <Link href="/" className="flex h-full items-center border-b-2 border-accent px-3 rounded-md bg-accent/10 text-sm font-semibold text-accent">Home</Link>
               <CatalogMegaMenu />
-              {navItems.map((item) => <Link key={item.href} href={item.href} className="text-sm font-semibold text-primary transition-colors hover:text-accent">{item.label}</Link>)}
+              {navItems.map((item) => <Link key={item.href} href={item.href} className="rounded-md px-3 py-2 text-sm font-semibold text-primary transition-all hover:bg-accent/15 hover:text-accent">{item.label}</Link>)}
             </nav>
             <a href={business.whatsappUrl} target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-primary hover:text-accent">WhatsApp Us</a>
           </div>
