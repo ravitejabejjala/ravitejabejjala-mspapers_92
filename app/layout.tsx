@@ -102,20 +102,15 @@ const jsonLd = {
       description:
         "Leading manufacturer of premium paper bags, food packaging, medicine boxes, carton boxes & eco-friendly packaging solutions in Hyderabad, Telangana.",
       url: "https://mspaperproducts.com",
-      telephone: "+91-81433-30028",
+      telephone: business.phoneDisplay,
       email: business.email,
       address: {
         "@type": "PostalAddress",
-        streetAddress: "7-1-307/14/G/119, DNM Colony, Tulasi Nagar, Balkampet",
-        addressLocality: "Hyderabad",
-        addressRegion: "Telangana",
-        postalCode: "500018",
-        addressCountry: "IN",
-      },
-      geo: {
-        "@type": "GeoCoordinates",
-        latitude: 17.447536,
-        longitude: 78.430192,
+        streetAddress: business.streetAddress,
+        addressLocality: business.locality,
+        addressRegion: business.region,
+        postalCode: business.postalCode,
+        addressCountry: business.country,
       },
       openingHoursSpecification: [
         {
@@ -134,7 +129,7 @@ const jsonLd = {
         { "@type": "Country", name: "India" },
       ],
       knowsAbout: ["Paper bags", "Packaging boxes", "Courier covers", "Thermal labels", "Offset printing", "Digital printing", "Custom packaging"],
-      sameAs: ["https://wa.me/918143330028", "https://www.linkedin.com/company/mspaperproducts", "https://www.facebook.com/mspaperproducts", "https://www.instagram.com/mspaperproducts"],
+      sameAs: [business.whatsappUrl, socialLinks.linkedin, socialLinks.facebook, socialLinks.instagram],
     },
     {
       "@type": "Organization",
@@ -144,7 +139,7 @@ const jsonLd = {
       logo: `https://mspaperproducts.com${business.logoSquare}`,
       contactPoint: {
         "@type": "ContactPoint",
-        telephone: "+91-81433-30028",
+        telephone: business.phoneDisplay,
         contactType: "sales",
         areaServed: "IN",
         availableLanguage: ["English", "Hindi", "Telugu"],

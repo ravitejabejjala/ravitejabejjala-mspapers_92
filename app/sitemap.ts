@@ -1,4 +1,6 @@
 import type { MetadataRoute } from 'next'
+import { industrySolutions } from '@/lib/industry-solutions'
+import { resourceGuides } from '@/lib/resource-guides'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://mspaperproducts.com'
@@ -41,14 +43,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'corporate',
     'logistics',
     'hospitality',
+    'manufacturing',
   ]
 
-  const blogPosts = [
-    'choosing-right-packaging',
-    'sustainable-packaging-trends',
-    'importance-of-branding',
-    'offset-vs-digital-printing',
-  ]
+  const blogPosts = resourceGuides.map(({ slug }) => slug)
 
   return [
     // Main pages
@@ -137,7 +135,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     })),
 
-    // Blog posts
+    // New industry solution landing pages
+    ...industrySolutions.map(({ slug }) => ({
+      url: `${baseUrl}/solutions/${slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    })),
+
+    // Resource guides
     ...blogPosts.map((slug) => ({
       url: `${baseUrl}/blog/${slug}`,
       lastModified: new Date(),
