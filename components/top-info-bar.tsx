@@ -27,13 +27,13 @@ export default function TopInfoBar() {
           <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-[#f19e1f] transition-colors">
             <Linkedin className="h-3.5 w-3.5" />
           </a>
-          <a href="https://facebook.com/mspaperproducts" target="_blank" rel="noopener noreferrer" className="hover:text-[#f19e1f] transition-colors">
+          <a href={socialLinks.facebook} target="_blank" rel="noopener noreferrer" className="hover:text-[#f19e1f] transition-colors">
             <Facebook className="h-3.5 w-3.5" />
           </a>
-          <a href="https://instagram.com/mspaperproducts" target="_blank" rel="noopener noreferrer" className="hover:text-[#f19e1f] transition-colors">
+          <a href={socialLinks.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-[#f19e1f] transition-colors">
             <Instagram className="h-3.5 w-3.5" />
           </a>
-          <a href="https://youtube.com/mspaperproducts" target="_blank" rel="noopener noreferrer" className="hover:text-[#f19e1f] transition-colors">
+          <a href={socialLinks.youtube} target="_blank" rel="noopener noreferrer" className="hover:text-[#f19e1f] transition-colors">
             <Youtube className="h-3.5 w-3.5" />
           </a>
           <a href={business.whatsappUrl} target="_blank" rel="noopener noreferrer" className="text-[#f19e1f] hover:text-[#f19e1f]/80 transition-colors">

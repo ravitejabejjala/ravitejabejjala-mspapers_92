@@ -4,7 +4,7 @@ export const business = {
   phoneDisplay: "+91 81433 30028",
   phoneHref: "tel:+918143330028",
   phoneE164: "+918143330028",
-  email: "sales@mspaperproducts.com",
+  email: "info@mspaperproducts.com",
   address: "7-1-307/14/G/119, DNM Colony, Tulasi Nagar, Balkampet, Hyderabad, Telangana 500018, India",
   streetAddress: "7-1-307/14/G/119, DNM Colony, Tulasi Nagar, Balkampet",
   city: "Hyderabad",
@@ -23,8 +23,8 @@ export const business = {
 } as const
 
 export const socialLinks = {
-  linkedin: "https://linkedin.com/company/mspaperproducts",
-  facebook: "https://facebook.com/mspaperproducts",
+  linkedin: "https://www.linkedin.com/in/ms-paper-products",
+  facebook: "https://www.facebook.com/profile.php?id=61584301521980",
   instagram: "https://instagram.com/mspaperproducts",
-  youtube: "https://youtube.com/mspaperproducts",
+  youtube: "https://www.youtube.com/@MSPaperProducts",
 } as const

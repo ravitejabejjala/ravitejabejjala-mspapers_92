@@ -12,12 +12,12 @@ import TopInfoBar from "@/components/top-info-bar"
 import { business } from "@/lib/business-info"
 
 const navItems = [
-  { label: "Printing Services", href: "/printing-services-hyderabad" },
-  { label: "Packaging Solutions", href: "/packaging-solutions" },
-  { label: "Industries", href: "/industries/food-beverage" },
+  { label: "Printing", href: "/printing" },
+  { label: "Packaging", href: "/packaging" },
+  { label: "Industries", href: "/industries" },
   { label: "Resources", href: "/resources" },
-  { label: "About Us", href: "/about" },
-  { label: "Contact Us", href: "/contact" },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
 ]
 
 const mobileProducts = [
