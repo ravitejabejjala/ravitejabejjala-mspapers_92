@@ -10,9 +10,9 @@ import CatalogMegaMenu from "@/components/catalog-mega-menu"
 import SiteSearch from "@/components/site-search"
 import TopInfoBar from "@/components/top-info-bar"
 import { business } from "@/lib/business-info"
+import { PrintingDropdown, PrintingAccordion } from "@/components/printing-submenu"
 
 const navItems = [
-  { label: "Printing", href: "/printing" },
   { label: "Packaging", href: "/packaging" },
   { label: "Industries", href: "/industries" },
   { label: "Resources", href: "/resources" },
@@ -78,6 +78,7 @@ export default function Header() {
                     Products <ChevronDown className={`size-4 transition-transform ${productsOpen ? "rotate-180" : ""}`} />
                   </button>
                   {productsOpen && <div className="flex flex-col border-l border-accent pl-3">{mobileProducts.map((item) => <Link key={item.href} href={item.href} onClick={() => setIsOpen(false)} className="px-3 py-2 text-sm text-muted-foreground hover:text-accent">{item.label}</Link>)}</div>}
+                  <PrintingAccordion onNavigate={() => setIsOpen(false)} />
                   {navItems.map((item) => <Link key={item.href} href={item.href} onClick={() => setIsOpen(false)} className="rounded-md px-3 py-3 font-semibold text-primary hover:bg-muted">{item.label}</Link>)}
                 </nav>
                 <div className="mt-6 flex gap-3">
@@ -94,6 +95,7 @@ export default function Header() {
             <nav className="flex h-full items-center gap-8" aria-label="Main navigation">
               <Link href="/" className="flex h-full items-center border-b-2 border-accent px-3 rounded-md bg-accent/10 text-sm font-semibold text-accent">Home</Link>
               <CatalogMegaMenu />
+              <PrintingDropdown />
               {navItems.map((item) => <Link key={item.href} href={item.href} className="rounded-md px-3 py-2 text-sm font-semibold text-primary transition-all hover:bg-accent/15 hover:text-accent">{item.label}</Link>)}
             </nav>
             <a href={business.whatsappUrl} target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-primary hover:text-accent">WhatsApp Us</a>
