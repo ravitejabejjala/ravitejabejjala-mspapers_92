@@ -8,6 +8,8 @@ import MobileStickyBar from "@/components/mobile-sticky-bar"
 import "./globals.css"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
+import CompareTray from "@/components/product-compare"
+import { business, socialLinks } from "@/lib/business-info"
 
 const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
@@ -57,7 +59,7 @@ export const metadata: Metadata = {
       "Leading manufacturer of premium paper bags, food packaging, medicine boxes & eco-friendly packaging solutions in Hyderabad. 15+ years experience. Call +91 81433 30028",
     images: [
       {
-        url: "/og-image.jpg",
+        url: business.socialImage,
         width: 1200,
         height: 630,
         alt: "MS Paper Products - Premium Paper Packaging Manufacturer",
@@ -69,12 +71,12 @@ export const metadata: Metadata = {
     title: "MS Paper Products | Premium Paper Bag Manufacturer",
     description:
       "Leading manufacturer of premium paper bags & eco-friendly packaging solutions in Hyderabad. Call +91 81433 30028",
-    images: ["/og-image.jpg"],
+    images: [business.socialImage],
   },
   icons: {
-    icon: "/favicon.png",
-    shortcut: "/favicon.png",
-    apple: "/apple-icon.png",
+    icon: business.logoSquare,
+    shortcut: business.logoSquare,
+    apple: business.logoSquare,
   },
   verification: {
     google: "google-site-verification-code",
@@ -96,24 +98,19 @@ const jsonLd = {
       "@type": "LocalBusiness",
       "@id": "https://mspaperproducts.com/#business",
       name: "MS Paper Products",
-      image: "https://mspaperproducts.com/ms-logo-horizontal.png",
+      image: `https://mspaperproducts.com${business.logoSquare}`,
       description:
         "Leading manufacturer of premium paper bags, food packaging, medicine boxes, carton boxes & eco-friendly packaging solutions in Hyderabad, Telangana.",
       url: "https://mspaperproducts.com",
-      telephone: "+91-81433-30028",
-      email: "info@mspaperproducts.com",
+      telephone: business.phoneDisplay,
+      email: business.email,
       address: {
         "@type": "PostalAddress",
-        streetAddress: "7-1-307/14/G/119, DNM Colony, Tulasi Nagar, Balkampet",
-        addressLocality: "Hyderabad",
-        addressRegion: "Telangana",
-        postalCode: "500018",
-        addressCountry: "IN",
-      },
-      geo: {
-        "@type": "GeoCoordinates",
-        latitude: 17.447536,
-        longitude: 78.430192,
+        streetAddress: business.streetAddress,
+        addressLocality: business.locality,
+        addressRegion: business.region,
+        postalCode: business.postalCode,
+        addressCountry: business.country,
       },
       openingHoursSpecification: [
         {
@@ -124,21 +121,25 @@ const jsonLd = {
         },
       ],
       priceRange: "$$",
-      areaServed: {
-        "@type": "State",
-        name: "Telangana",
-      },
-      sameAs: ["https://wa.me/918143330028"],
+      paymentAccepted: "Bank transfer, UPI, and approved business payment methods",
+      currenciesAccepted: "INR",
+      areaServed: [
+        { "@type": "City", name: "Hyderabad" },
+        { "@type": "State", name: "Telangana" },
+        { "@type": "Country", name: "India" },
+      ],
+      knowsAbout: ["Paper bags", "Packaging boxes", "Courier covers", "Thermal labels", "Offset printing", "Digital printing", "Custom packaging"],
+      sameAs: [business.whatsappUrl, socialLinks.linkedin, socialLinks.facebook, socialLinks.instagram],
     },
     {
       "@type": "Organization",
       "@id": "https://mspaperproducts.com/#organization",
       name: "MS Paper Products",
       url: "https://mspaperproducts.com",
-      logo: "https://mspaperproducts.com/ms-logo-horizontal.png",
+      logo: `https://mspaperproducts.com${business.logoSquare}`,
       contactPoint: {
         "@type": "ContactPoint",
-        telephone: "+91-81433-30028",
+        telephone: business.phoneDisplay,
         contactType: "sales",
         areaServed: "IN",
         availableLanguage: ["English", "Hindi", "Telugu"],
@@ -152,6 +153,11 @@ const jsonLd = {
       publisher: {
         "@id": "https://mspaperproducts.com/#organization",
       },
+      potentialAction: {
+        "@type": "SearchAction",
+        target: "https://mspaperproducts.com/products?q={search_term_string}",
+        "query-input": "required name=search_term_string",
+      },
     },
   ],
 }
@@ -162,7 +168,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="bg-background">
       <head>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
@@ -232,10 +238,11 @@ export default function RootLayout({
       </head>
       <body className={`font-sans antialiased`}>
         <Header />
-        <main>{children}</main>
+        {children}
         <Footer />
         <FloatingCTA />
         <MobileStickyBar />
+        <CompareTray />
         <Analytics />
       </body>
     </html>

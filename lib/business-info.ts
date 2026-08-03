@@ -1,0 +1,30 @@
+export const business = {
+  name: "MS Paper Products",
+  legalName: "MS Paper Products",
+  phoneDisplay: "+91 81433 30028",
+  phoneHref: "tel:+918143330028",
+  phoneE164: "+918143330028",
+  email: "info@mspaperproducts.com",
+  address: "7-1-307/14/G/119, DNM Colony, Tulasi Nagar, Balkampet, Hyderabad, Telangana 500018, India",
+  streetAddress: "7-1-307/14/G/119, DNM Colony, Tulasi Nagar, Balkampet",
+  city: "Hyderabad",
+  region: "Telangana",
+  postalCode: "500018",
+  country: "IN",
+  hoursLabel: "Monday–Saturday: 9:00 AM–6:00 PM",
+  coordinates: { latitude: 17.447536, longitude: 78.430192 },
+  mapUrl: "https://www.google.com/maps/search/?api=1&query=17.447536,78.430192",
+  whatsappUrl: "https://wa.me/918143330028",
+  logoHorizontal: "/brand/ms-paper-products-horizontal.png",
+  logoSquare: "/brand/ms-paper-products-square.png",
+  socialImage: "/brand/ms-paper-products-social.png",
+  serviceAreas: ["Hyderabad", "Balanagar", "Jeedimetla", "Kukatpally", "Sanath Nagar", "Moosapet", "Erragadda", "Begumpet", "Miyapur", "Patancheru", "Medchal", "Shamshabad", "Telangana", "PAN India"],
+  categories: ["Packaging Company", "Commercial Printer", "Paper Bag Manufacturer", "Packaging Manufacturer"],
+} as const
+
+export const socialLinks = {
+  linkedin: "https://www.linkedin.com/in/ms-paper-products",
+  facebook: "https://www.facebook.com/profile.php?id=61584301521980",
+  instagram: "https://instagram.com/mspaperproducts",
+  youtube: "https://www.youtube.com/@MSPaperProducts",
+} as const

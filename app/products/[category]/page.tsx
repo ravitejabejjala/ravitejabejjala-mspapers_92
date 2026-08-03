@@ -9,6 +9,8 @@ import type { Metadata } from "next"
 import Script from "next/script"
 import ProductInquiryButton from "@/components/product-inquiry-button"
 import TrustBadges from "@/components/trust-badges"
+import { CompareButton } from "@/components/product-compare"
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb"
 
 interface CategoryPageProps {
   params: Promise<{ category: string }>
@@ -30,13 +32,23 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
   const mainCategory = getMainCategoryBySlug(categorySlug)
   if (mainCategory) {
     return {
-      title: `${mainCategory.name} | MS Paper Products Hyderabad`,
-      description: `Explore our ${mainCategory.name.toLowerCase()} collection. ${mainCategory.description}. Premium quality products from MS Paper Products, Hyderabad.`,
-      keywords: `${mainCategory.name.toLowerCase()}, paper products, packaging, Hyderabad`,
+      title: `${mainCategory.name} | Premium Paper Products | MS Paper Products Hyderabad`,
+      description: `Explore our ${mainCategory.name.toLowerCase()} collection. ${mainCategory.description}. Premium quality packaging solutions from MS Paper Products, Hyderabad. Call +91 81433 30028.`,
+      keywords: `${mainCategory.name.toLowerCase()}, paper products, packaging, boxes, bags, Hyderabad, Telangana, wholesale supplier`,
       openGraph: {
         title: `${mainCategory.name} | MS Paper Products`,
         description: mainCategory.description,
         type: "website",
+        url: `https://mspaperproducts.com/products/${categorySlug}`,
+        siteName: "MS Paper Products",
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: `${mainCategory.name} | MS Paper Products`,
+        description: mainCategory.description,
+      },
+      alternates: {
+        canonical: `https://mspaperproducts.com/products/${categorySlug}`,
       },
     }
   }
@@ -52,17 +64,22 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
   return {
     title: category.seoTitle,
     description: category.seoDescription,
-    keywords: category.seoKeywords.join(", "),
+    keywords: category.seoKeywords.join(", ") + ", Hyderabad, Telangana, wholesale, supplier, manufacturer",
     openGraph: {
       title: category.seoTitle,
       description: category.seoDescription,
       type: "website",
       images: [category.image],
+      url: `https://mspaperproducts.com/products/${categorySlug}`,
+      siteName: "MS Paper Products",
     },
     twitter: {
       card: "summary_large_image",
       title: category.seoTitle,
       description: category.seoDescription,
+    },
+    alternates: {
+      canonical: `https://mspaperproducts.com/products/${categorySlug}`,
     },
   }
 }
@@ -100,6 +117,9 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         </Script>
 
         <main className="min-h-screen">
+          <div className="mx-auto max-w-7xl px-4 py-4">
+            <Breadcrumb><BreadcrumbList><BreadcrumbItem><BreadcrumbLink asChild><Link href="/">Home</Link></BreadcrumbLink></BreadcrumbItem><BreadcrumbSeparator /><BreadcrumbItem><BreadcrumbLink asChild><Link href="/products">Products</Link></BreadcrumbLink></BreadcrumbItem><BreadcrumbSeparator /><BreadcrumbItem><BreadcrumbPage>{mainCategory.name}</BreadcrumbPage></BreadcrumbItem></BreadcrumbList></Breadcrumb>
+          </div>
           {/* Hero Section */}
           <section className="relative bg-[#132635] py-20 text-white md:py-28 overflow-hidden">
             {mainCategory.image && (
@@ -130,7 +150,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
                 <Button asChild size="lg" className="bg-[#f19e1f] text-white hover:bg-[#f19e1f]/90">
                   <a href="tel:+918143330028">
                     <Phone className="mr-2 h-5 w-5" />
-                    Get Bulk Pricing
+                    Request Bulk Quote
                   </a>
                 </Button>
                 <Button asChild size="lg" className="bg-[#25D366] text-white hover:bg-[#25D366]/90">
@@ -257,6 +277,9 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
       </Script>
 
       <main className="min-h-screen">
+        <div className="mx-auto max-w-7xl px-4 py-4">
+          <Breadcrumb><BreadcrumbList><BreadcrumbItem><BreadcrumbLink asChild><Link href="/">Home</Link></BreadcrumbLink></BreadcrumbItem><BreadcrumbSeparator /><BreadcrumbItem><BreadcrumbLink asChild><Link href="/products">Products</Link></BreadcrumbLink></BreadcrumbItem>{parentCategory && <><BreadcrumbSeparator /><BreadcrumbItem><BreadcrumbLink asChild><Link href={`/products/${parentCategory.slug}`}>{parentCategory.name}</Link></BreadcrumbLink></BreadcrumbItem></>}<BreadcrumbSeparator /><BreadcrumbItem><BreadcrumbPage>{category.name}</BreadcrumbPage></BreadcrumbItem></BreadcrumbList></Breadcrumb>
+        </div>
         {/* Hero Section */}
         <section className="relative bg-[#132635] py-20 text-white md:py-28 overflow-hidden">
           {parentCategory && (
@@ -287,45 +310,8 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
           </div>
         </section>
 
-        <TrustBadges />
-
-        {/* Category Overview */}
-        <section className="py-16 md:py-24">
-          <div className="container mx-auto px-4">
-            <div className="grid items-center gap-12 md:grid-cols-2">
-              <div className="relative h-[400px] overflow-hidden rounded-2xl shadow-xl">
-                <Image
-                  src={category.image || `/placeholder.svg?height=400&width=600&query=${category.name}`}
-                  alt={category.name}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div>
-                <h2 className="mb-6 text-3xl font-bold text-[#132635]">About {category.name}</h2>
-                <p className="mb-6 text-gray-600 leading-relaxed">{category.longDescription}</p>
-                <div className="flex flex-col gap-4 sm:flex-row">
-                  <Button asChild className="bg-[#f19e1f] text-white hover:bg-[#f19e1f]/90">
-                    <Link href="/contact">Request a Quote</Link>
-                  </Button>
-                  <Button
-                    asChild
-                    variant="outline"
-                    className="border-[#132635] text-[#132635] hover:bg-[#132635] hover:text-white bg-transparent"
-                  >
-                    <a href="tel:+918143330028">
-                      <Phone className="mr-2 h-4 w-4" />
-                      Call Us
-                    </a>
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Products Grid */}
-        <section className="bg-gray-50 py-16 md:py-24">
+        {/* Products Grid - Display Immediately */}
+        <section className="bg-gray-50 py-12 md:py-16">
           <div className="container mx-auto px-4">
             <h2 className="mb-12 text-center text-3xl font-bold text-[#132635] md:text-4xl">
               Our {category.name} Collection
@@ -334,7 +320,8 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
               {category.products.map((product) => (
                 <Card
                   key={product.id}
-                  className="group overflow-hidden border-none shadow-lg transition-all hover:-translate-y-2 hover:shadow-2xl"
+                  id={product.id}
+                  className="group scroll-mt-44 overflow-hidden border border-border shadow-sm transition-all hover:-translate-y-1 hover:border-accent hover:shadow-xl"
                 >
                   <div className="relative h-56 overflow-hidden bg-gray-100">
                     <Image
@@ -372,15 +359,10 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
                       </div>
                     )}
 
-                    {product.minOrder && (
-                      <div className="rounded-lg bg-[#f19e1f]/10 p-3 mb-3">
-                        <p className="text-xs text-[#132635]">
-                          <span className="font-semibold">Min. Order:</span> {product.minOrder}
-                        </p>
-                      </div>
-                    )}
-
-                    <ProductInquiryButton productName={product.name} categoryName={category.name} />
+                    <div className="flex flex-col gap-2">
+                      <ProductInquiryButton productName={product.name} categoryName={category.name} />
+                      <CompareButton item={{ id: product.id, name: product.name, href: `/products/${category.slug}#${product.id}`, features: product.features, minOrder: product.minOrder }} />
+                    </div>
                   </CardContent>
                 </Card>
               ))}
@@ -388,30 +370,10 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
           </div>
         </section>
 
-        {/* Related Categories */}
-        {relatedCategories.length > 0 && (
-          <section className="py-16 md:py-24">
-            <div className="container mx-auto px-4">
-              <h2 className="mb-12 text-center text-3xl font-bold text-[#132635]">
-                Related Categories in {parentCategory?.name}
-              </h2>
-              <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-                {relatedCategories.map((cat) => (
-                  <Link key={cat.slug} href={`/products/${cat.slug}`}>
-                    <Card className="group h-full cursor-pointer border-none shadow-md transition-all hover:-translate-y-1 hover:shadow-lg hover:border-[#f19e1f]">
-                      <CardContent className="flex h-full flex-col items-center justify-center p-4 text-center min-h-[100px]">
-                        <p className="font-medium text-[#132635] group-hover:text-[#f19e1f] text-sm">{cat.name}</p>
-                      </CardContent>
-                    </Card>
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </section>
-        )}
+
 
         {/* Explore Other Main Categories */}
-        <section className="bg-gray-50 py-16 md:py-24">
+        <section className="bg-white py-12 md:py-16">
           <div className="container mx-auto px-4">
             <h2 className="mb-12 text-center text-3xl font-bold text-[#132635]">Explore Other Product Categories</h2>
             <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">

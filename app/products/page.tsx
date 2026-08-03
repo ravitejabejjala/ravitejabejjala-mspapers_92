@@ -18,6 +18,7 @@ import {
 import { mainCategories } from "@/lib/products-data"
 import Script from "next/script"
 import TrustBadges from "@/components/trust-badges"
+import ProductDiscovery from "@/components/product-discovery"
 
 export const metadata = {
   title: "Products | MS Paper Products - Premium Paper Bags, Boxes, Folders & More",
@@ -36,7 +37,7 @@ const featuredProducts = [
   {
     name: "All Paper Bags",
     description: "Complete range of premium paper bags for retail, corporate, and everyday use.",
-    image: "/categories/all-paper-bags.jpg",
+    image: "/categories/kraft-paper-bags.jpg",
     features: ["Multiple Styles", "Custom Printing", "All Sizes Available", "Premium Quality"],
     href: "/products/kraft-paper-bags",
   },
@@ -45,21 +46,28 @@ const featuredProducts = [
     description: "Durable and customizable carton boxes for packaging, shipping, and storage needs.",
     image: "/categories/carton-boxes.jpg",
     features: ["Heavy Duty", "Custom Sizes", "Printable Surface", "Eco-Friendly"],
-    href: "/products/corrugated-cartons",
+    href: "/products/carton-boxes",
   },
   {
     name: "Files & Folders",
     description: "Professional file folders, document organizers, and office stationery solutions.",
-    image: "/categories/files-folders.jpg",
+    image: "/categories/office-file-folders.jpg",
     features: ["Multiple Styles", "Custom Branding", "Durable Material", "Professional Look"],
-    href: "/products/corporate-file-folders",
+    href: "/products/office-file-folders",
   },
   {
     name: "Calendars & Diaries",
     description: "Premium quality calendars and diaries for corporate gifting and personal use.",
-    image: "/categories/calendars-diaries.jpg",
+    image: "/categories/wall-calendars.jpg",
     features: ["Wall & Desk Options", "Custom Designs", "Premium Paper", "Corporate Branding"],
     href: "/products/wall-calendars",
+  },
+  {
+    name: "Ecommerce Covers & Shipping Labels",
+    description: "Waterproof courier covers and thermal barcode labels for high-volume e-commerce shipping.",
+    image: "/categories/ecommerce-covers.png",
+    features: ["Waterproof Design", "Custom Printing", "Bulk Orders", "Fast Delivery"],
+    href: "/products/ecommerce-shipping-solutions",
   },
 ]
 
@@ -313,6 +321,8 @@ export default function ProductsPage() {
             </div>
           </div>
         </section>
+
+        <ProductDiscovery />
 
         {/* CTA Section - Enhanced */}
         <section className="py-16 md:py-24">
