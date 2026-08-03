@@ -78,22 +78,26 @@ export default function AboutPage() {
       <section className="bg-primary py-16 text-primary-foreground md:py-24">
         <div className="mx-auto max-w-7xl px-4">
           <div className="grid items-center gap-12 md:grid-cols-2">
-            <div className="relative h-[380px] overflow-hidden rounded-2xl shadow-xl">
+            <div className="relative h-[480px] overflow-hidden rounded-2xl shadow-xl">
               <Image
-                src="/about/founder-pravalika.png"
-                alt="Pravalika, Founder and Managing Director of MS Paper Products"
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Pravalika%20Pic.png-ED6c5KeawTAwqtOkEVzFeUrKZqJ2NW.jpeg"
+                alt="Pravalika, Founder and Managing Director of MS Paper Products, at the Hyderabad manufacturing facility"
                 fill
-                className="object-cover object-top"
+                className="object-cover object-center"
+                priority
               />
             </div>
             <div>
               <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-accent">Leadership</p>
-              <h2 className="text-3xl font-bold md:text-4xl">Led by Passion, Driven by Purpose</h2>
+              <h2 className="text-3xl font-bold md:text-4xl">Built from Hard Work, One Order at a Time</h2>
               <p className="mt-5 leading-relaxed text-primary-foreground/80">
-                MS Paper Products is proudly founded and managed by <strong className="text-accent">Pravalika</strong>, a dynamic woman entrepreneur with extensive expertise in eco-friendly packaging and commercial printing. Under her visionary leadership, we have grown into a trusted packaging partner for retail, pharmaceuticals, real estate, FMCG, education, and corporate enterprises.
+                MS Paper Products is founded and led by <strong className="text-accent">Pravalika</strong>, a first-generation woman entrepreneur who started with a single machine, a rented workshop, and an unshakeable belief that quality packaging should be accessible to every business — not just the big ones.
               </p>
               <p className="mt-4 leading-relaxed text-primary-foreground/80">
-                Her hands-on approach, commitment to sustainable materials, and obsession with quality control ensure every client receives personalised attention and production excellence — from design to final delivery.
+                She spent years learning every step of the production floor herself — from mixing inks and calibrating offset presses to personally verifying every dispatch. That relentless, hands-on work ethic built the reputation MS Paper Products carries today: a manufacturer that businesses trust because every standard was earned, not inherited.
+              </p>
+              <p className="mt-4 leading-relaxed text-primary-foreground/80">
+                Today, under her direct leadership, we serve retail, pharmaceutical, real estate, FMCG, education, and corporate clients across India — growing entirely through word of mouth and the quality of work delivered.
               </p>
               <div className="mt-8 rounded-xl border border-accent/30 bg-primary-foreground/5 p-5">
                 <Quote className="mb-3 size-6 text-accent" />
