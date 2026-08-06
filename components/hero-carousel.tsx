@@ -8,9 +8,9 @@ import { Button } from "@/components/ui/button"
 import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/components/ui/carousel"
 
 const heroSlides = [
-  { id: 1, title: "Premium", subtitle: "Paper Bags", description: "Elevate your brand with our sustainable, high-quality paper bags. Custom designs, eco-friendly materials, and exceptional craftsmanship for retail, boutique, and corporate needs.", image: "/hero/hero-paper-bags.jpg", cta: { text: "Explore Paper Bags", href: "/products/paper-bags" } },
-  { id: 2, title: "Durable", subtitle: "Boxes & Cartons", description: "Protect and present your products with our premium carton boxes. From corrugated shipping boxes to elegant gift packaging, we deliver strength and style.", image: "/hero/hero-boxes-cartons.jpg", cta: { text: "View Boxes", href: "/products/boxes-cartons" } },
-  { id: 3, title: "Professional", subtitle: "Files & Folders", description: "Organize in style with our premium files and folders. Custom printed presentation folders, document organizers, and corporate stationery for your business needs.", image: "/hero/hero-files-folders.jpg", cta: { text: "Browse Files", href: "/products/files-folders" } },
+  { id: 1, title: "Premium", subtitle: "Paper Bags", description: "Elevate your brand with our sustainable, high-quality paper bags. Custom designs, eco-friendly materials, and exceptional craftsmanship for retail, boutique, and corporate needs.", image: "/visuals/hero-indian-packaging.png", cta: { text: "Explore Paper Bags", href: "/products/paper-bags" } },
+  { id: 2, title: "Durable", subtitle: "Boxes & Cartons", description: "Protect and present your products with our premium carton boxes. From corrugated shipping boxes to elegant gift packaging, we deliver strength and style.", image: "/visuals/service-packaging.png", cta: { text: "View Boxes", href: "/products/boxes-cartons" } },
+  { id: 3, title: "Professional", subtitle: "Files & Folders", description: "Organize in style with our premium files and folders. Custom printed presentation folders, document organizers, and corporate stationery for your business needs.", image: "/visuals/service-printing.png", cta: { text: "Browse Files", href: "/products/files-folders" } },
   { id: 4, title: "Premium", subtitle: "Calendars & Diaries", description: "Make every day count with our beautifully crafted calendars and diaries. Perfect for corporate gifting, brand promotion, and personal organization.", image: "/hero/hero-calendars-diaries.jpg", cta: { text: "Shop Calendars", href: "/products/calendars-diaries" } },
   { id: 5, title: "Luxurious", subtitle: "Gold & Silver Foiling", description: "Add elegance and sophistication to your packaging with our premium gold and silver foiling services. Transform ordinary into extraordinary with metallic finishes.", image: "/hero/hero-gold-silver-foiling.jpg", cta: { text: "Our Services", href: "/services" } },
   { id: 6, title: "E-commerce", subtitle: "Shipping Solutions", description: "Waterproof courier covers and thermal barcode label rolls for high-volume ecommerce shipping. Bulk orders, custom printing, and fast delivery.", image: "/banners/ecommerce-covers-hero-banner.png", cta: { text: "Explore Solutions", href: "/products/ecommerce-shipping-solutions" } },
@@ -49,10 +49,10 @@ export default function HeroCarousel() {
         <CarouselContent className="ml-0">
           {heroSlides.map((slide) => (
             <CarouselItem key={slide.id} className="pl-0">
-              <div className="mx-auto flex min-h-[430px] max-w-7xl flex-col lg:flex-row">
-                <div className="relative z-10 flex w-full flex-col justify-center px-6 py-12 lg:w-[43%] lg:px-4 lg:pr-12">
+              <div className="mx-auto flex min-h-[340px] max-w-7xl flex-col lg:flex-row">
+                <div className="relative z-10 flex w-full flex-col justify-center px-6 py-8 lg:w-[43%] lg:px-4 lg:pr-12">
                   <p className="mb-3 text-sm font-bold uppercase tracking-wide text-accent">Premium printing & packaging solutions</p>
-                  <h1 className="text-balance text-4xl font-bold leading-tight sm:text-5xl">{slide.title} <span className="text-accent">{slide.subtitle}</span></h1>
+                  <h1 className="text-balance text-3xl font-bold leading-[1.05] sm:text-4xl">{slide.title} <span className="text-accent">{slide.subtitle}</span></h1>
                   <p className="mt-4 max-w-xl text-sm leading-relaxed text-primary-foreground/75 sm:text-base">{slide.description}</p>
                   <div className="mt-7 flex flex-wrap gap-x-5 gap-y-3">
                     {trustItems.map((item) => <div key={item.label} className="flex items-center gap-2 text-xs font-medium"><item.icon className="size-5 text-accent" /><span>{item.label}</span></div>)}
@@ -62,7 +62,7 @@ export default function HeroCarousel() {
                     <Button asChild variant="outline" className="border-primary-foreground/50 bg-transparent text-primary-foreground hover:bg-primary-foreground hover:text-primary"><a href="https://wa.me/918143330028" target="_blank" rel="noopener noreferrer">WhatsApp Us</a></Button>
                   </div>
                 </div>
-                <div className="relative min-h-72 w-full overflow-hidden lg:min-h-[430px] lg:w-[57%]">
+                <div className="relative min-h-72 w-full overflow-hidden lg:min-h-[340px] lg:w-[57%]">
                   <div className="absolute inset-y-0 left-0 z-10 hidden w-16 -skew-x-12 -translate-x-8 border-r-4 border-accent bg-primary lg:block" />
                   <Image src={slide.image} alt={`${slide.title} ${slide.subtitle}`} fill className="object-cover" priority={slide.id === 1} loading={slide.id === 1 ? "eager" : "lazy"} fetchPriority={slide.id === 1 ? "high" : "auto"} sizes="(max-width: 1024px) 100vw, 57vw" />
                   <div className="absolute inset-0 bg-primary/10" />
