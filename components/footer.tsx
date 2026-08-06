@@ -5,7 +5,7 @@ import { business, socialLinks } from "@/lib/business-info"
 
 const groups = [
   { title: "Products", links: [["Paper Bags", "/products/paper-bags"], ["Boxes & Cartons", "/products/boxes-cartons"], ["Courier Covers", "/products/ecommerce-courier-covers"], ["Thermal Labels", "/products/thermal-label-rolls"], ["All Products", "/products"]] },
-  { title: "Services", links: [["Offset Printing", "/printing-services/offset-printing"], ["Digital Printing", "/printing-services/digital-printing"], ["Brochure Printing", "/printing-services/brochure-printing"], ["Label Printing", "/printing-services/label-printing"], ["All Services", "/printing-services-hyderabad"]] },
+  { title: "Services", links: [["Offset Printing", "/printing-services/offset-printing"], ["Digital Printing", "/printing-services/digital-printing"], ["Brochure Printing", "/printing-services/brochure-printing"], ["Label Printing", "/printing-services/label-printing"], ["All Services", "/services"]] },
   { title: "Industries", links: [["Pharmaceutical", "/solutions/pharmaceutical-packaging"], ["Food Packaging", "/solutions/food-packaging-manufacturer"], ["Corporate", "/solutions/corporate-printing-services"], ["E-commerce", "/solutions/courier-packaging"], ["Education", "/solutions/educational-printing"]] },
   { title: "Resources", links: [["Packaging Guides", "/resources"], ["Business Blog", "/blog"], ["Print Finishes", "/blog/print-finishes-guide"], ["Bulk Order Checklist", "/blog/bulk-printing-checklist"], ["Gallery", "/gallery"]] },
   { title: "Company", links: [["About Us", "/about"], ["Contact", "/contact"], ["Packaging Solutions", "/packaging-solutions"], ["Privacy Policy", "/privacy"], ["Terms", "/terms"]] },

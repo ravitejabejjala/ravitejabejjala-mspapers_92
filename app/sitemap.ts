@@ -75,12 +75,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/printing-services-hyderabad`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
       url: `${baseUrl}/packaging-solutions`,
       lastModified: new Date(),
       changeFrequency: 'weekly',

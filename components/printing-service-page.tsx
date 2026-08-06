@@ -4,7 +4,7 @@ import { CheckCircle2, Phone, MessageCircle, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { business } from "@/lib/business-info"
-import { printingServices } from "@/components/printing-submenu"
+import { printingServices } from "@/lib/printing-services"
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -154,7 +154,7 @@ export default function PrintingServicePage({ data }: { data: PrintingServiceDat
         <div className="mx-auto max-w-7xl px-4">
           <h2 className="text-center text-2xl font-bold text-primary">Explore Other Printing Services</h2>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {printingServices.filter((s) => !s.href.endsWith(data.slug)).map((item) => (
+            {printingServices.filter((s) => !s.href.endsWith(`/${data.slug}`)).map((item) => (
               <Link key={item.href} href={item.href} className="flex items-start gap-3 rounded-xl border border-border bg-background p-5 transition-all hover:-translate-y-1 hover:border-accent/50 hover:shadow-md">
                 <item.icon className="mt-0.5 size-5 shrink-0 text-accent" aria-hidden="true" />
                 <div>

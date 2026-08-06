@@ -1,23 +1,6 @@
 'use client'
 
-import type { Metadata } from 'next'
 import { Card, CardContent } from '@/components/ui/card'
-
-export const metadata: Metadata = {
-  title: 'Complete Guide to Packaging Solutions | Courier Covers, Labels & Thermal Rolls | MS Paper Products',
-  description:
-    'Comprehensive guide to packaging solutions including courier covers, shipping labels, barcode labels and thermal labels. Learn about bulk ordering, customization and industry best practices.',
-  keywords: [
-    'packaging solutions guide',
-    'courier covers manufacturer',
-    'shipping labels supplier',
-    'barcode labels',
-    'thermal labels',
-    'packaging materials',
-    'e-commerce packaging',
-    'logistics labels',
-  ],
-}
 
 export default function PackagingSOEGuide() {
   return (

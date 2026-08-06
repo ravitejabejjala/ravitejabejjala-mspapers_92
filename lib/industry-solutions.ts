@@ -26,6 +26,7 @@ const entries = [
   ["luxury-packaging", "Luxury Packaging Manufacturer", "Premium branded packaging with refined materials and specialist finishing options.", ["Rigid-style cartons", "Foiled boxes", "Premium paper bags", "Gift packaging"]],
   ["mono-carton-manufacturer", "Mono Carton Manufacturer", "Custom printed folding cartons for pharmaceutical, cosmetic, food, retail, and industrial products.", ["Product cartons", "Pharma cartons", "Cosmetic boxes", "Retail sleeves"]],
   ["courier-packaging", "Courier Packaging Solutions", "Secure branded shipping materials for e-commerce, logistics, and direct-to-customer businesses.", ["Courier covers", "Shipping labels", "Corrugated boxes", "Document pouches"]],
+  ["manufacturing-industrial", "Manufacturing Packaging Solutions", "Printed cartons, labels, manuals, and industrial packaging for manufacturers and production teams.", ["Industrial cartons", "Product labels", "Instruction manuals", "Dispatch packaging"]],
   ["labels-and-stickers", "Labels and Stickers Manufacturer", "Custom labels for products, barcodes, dispatch, inventory, and brand presentation.", ["Thermal labels", "Barcode labels", "Product stickers", "Shipping labels"]],
   ["paper-cups-manufacturer", "Paper Cups Manufacturer", "Custom printed paper cups and coordinated food-service packaging for business requirements.", ["Printed paper cups", "Cup sleeves", "Food bags", "Takeaway cartons"]],
 ] as const

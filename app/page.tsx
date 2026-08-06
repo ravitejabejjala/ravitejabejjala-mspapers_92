@@ -47,7 +47,7 @@ const categories = [
   { name: "Packaging Boxes", image: "/categories/carton-boxes.jpg", href: "/products/boxes-cartons" },
   { name: "Brochures", image: "/printing-services/brochure-printing.jpg", href: "/printing-services/brochure-printing" },
   { name: "Flyers", image: "/printing-services/flyer-printing.jpg", href: "/printing-services/flyer-printing" },
-  { name: "Booklets", image: "/printing-services/booklet-printing.jpg", href: "/printing-services-hyderabad" },
+  { name: "Booklets", image: "/printing-services/booklet-printing.jpg", href: "/printing-services/booklet-printing" },
   { name: "Labels & Stickers", image: "/products/barcode-labels.jpg", href: "/products/thermal-label-rolls" },
   { name: "Courier Covers", image: "/products/courier-covers-hero.jpg", href: "/products/ecommerce-courier-covers" },
   { name: "Calendars & Diaries", image: "/categories/calendars-diaries.jpg", href: "/products/calendars-diaries" },
@@ -62,7 +62,7 @@ const featured = [
   { name: "Kraft Paper Bags", description: "Eco-friendly and durable paper bags.", image: "/categories/kraft-paper-bags.jpg", href: "/products/paper-bags" },
   { name: "Corrugated Boxes", description: "Strong and secure packaging for every need.", image: "/categories/corrugated-boxes.jpg", href: "/products/boxes-cartons" },
   { name: "Barcode Labels", description: "High-quality labels for all industries.", image: "/products/barcode-labels.jpg", href: "/products/thermal-label-rolls" },
-  { name: "Booklets & Catalogues", description: "Perfect for product and company profiles.", image: "/printing-services/booklet-printing.jpg", href: "/printing-services-hyderabad" },
+  { name: "Booklets & Catalogues", description: "Perfect for product and company profiles.", image: "/printing-services/booklet-printing.jpg", href: "/printing-services/booklet-printing" },
   { name: "Custom Packaging", description: "Professional designs that leave a mark.", image: "/categories/custom-paper-bags.jpg", href: "/products/custom-packaging" },
 ]
 
@@ -159,7 +159,7 @@ export default function HomePage() {
           <article className="rounded-lg bg-primary p-6 text-primary-foreground shadow-md">
             <h2 className="text-xl font-bold uppercase">Our Printing Services <span className="text-accent">—</span></h2>
             <div className="mt-5 grid grid-cols-2 gap-4">{printingServices.map((name) => <div key={name} className="flex items-center gap-2 text-sm"><Printer className="size-4 text-accent" />{name}</div>)}</div>
-            <Button asChild variant="outline" className="mt-6 border-accent bg-transparent text-accent hover:bg-accent hover:text-accent-foreground"><Link href="/printing-services-hyderabad">Explore All Services <ArrowRight className="size-4" /></Link></Button>
+            <Button asChild variant="outline" className="mt-6 border-accent bg-transparent text-accent hover:bg-accent hover:text-accent-foreground"><Link href="/services">Explore All Services <ArrowRight className="size-4" /></Link></Button>
           </article>
           <article className="rounded-lg border border-border bg-card p-6 shadow-sm">
             <h2 className="text-xl font-bold uppercase text-primary">Packaging Solutions</h2>

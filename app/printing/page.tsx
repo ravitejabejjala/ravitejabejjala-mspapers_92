@@ -3,7 +3,7 @@ import Link from "next/link"
 import { ArrowRight, Phone, MessageCircle, CheckCircle2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { business } from "@/lib/business-info"
-import { printingServices } from "@/components/printing-submenu"
+import { printingServices } from "@/lib/printing-services"
 import {
   Breadcrumb,
   BreadcrumbItem,
