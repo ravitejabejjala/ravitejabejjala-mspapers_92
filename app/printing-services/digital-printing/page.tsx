@@ -16,9 +16,9 @@ import {
 } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Digital Printing Services in Hyderabad | Quick & Cost-Effective | MS Paper Products",
+  title: "Digital Printing Services | Quick & Cost-Effective | MS Paper Products",
   description:
-    "Fast digital printing services for small to medium runs. Perfect for educational materials, marketing collateral, and personalized prints. Quick turnaround with cost-effective pricing.",
+    "Fast digital printing for small to medium runs, educational materials, marketing collateral, and personalized prints with quick turnaround.",
   keywords: [
     "digital printing Hyderabad",
     "quick print services",

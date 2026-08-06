@@ -4,9 +4,9 @@ import PrintingServicePage, { type PrintingServiceData } from "@/components/prin
 import { business } from "@/lib/business-info"
 
 export const metadata: Metadata = {
-  title: "Flyer Printing Hyderabad | MS Paper Products",
-  description: "Fast and affordable flyer and leaflet printing in Hyderabad. A4, A5, A6 and DL sizes. Single and double-sided. Ideal for promotions, events and local marketing campaigns.",
-  keywords: ["flyer printing Hyderabad", "leaflet printing Hyderabad", "promotional flyer printing", "event flyer printing", "A5 flyer printing Hyderabad"],
+  title: "Flyer Printing | MS Paper Products",
+  description: "Fast and affordable flyer and leaflet printing in A4, A5, A6, and DL sizes for promotions, events, and marketing campaigns.",
+  keywords: ["flyer printing", "leaflet printing", "promotional flyer printing", "event flyer printing", "A5 flyer printing"],
   openGraph: {
     title: "Flyer Printing Hyderabad | MS Paper Products",
     description: "Fast and affordable flyer and leaflet printing in Hyderabad for promotions and events.",

@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import PrintingServicesTemplate from '@/components/printing-services-template'
 
 export const metadata: Metadata = {
-  title: 'Professional Business Card Printing | MS Paper Products Hyderabad',
+  title: 'Professional Business Card Printing | MS Paper Products',
   description: 'High-quality business card printing with premium finishes. Professional designs, fast printing, competitive pricing for all business types.',
   keywords: ['business card printing', 'professional cards', 'printed business cards', 'company cards'],
 }

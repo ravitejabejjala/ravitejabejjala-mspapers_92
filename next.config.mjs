@@ -10,7 +10,7 @@ const nextConfig = {
     return [
       {
         source: '/printing-services-hyderabad',
-        destination: '/services',
+        destination: '/printing',
         permanent: true,
       },
     ]

@@ -15,6 +15,7 @@ const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://mspaperproducts.com"),
   title: {
     default: "MS Paper Products | Premium Paper Bag & Packaging Manufacturer in Hyderabad",
     template: "%s | MS Paper Products",

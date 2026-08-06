@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Phone, MessageCircle, FileText } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Booklet Printing Services | Professional Catalogs & Manuals | Hyderabad",
+  title: "Booklet Printing Services | Professional Catalogs & Manuals | MS Paper Products",
   description: "Custom booklet printing for catalogs, manuals, and brochures. Perfect binding with professional quality printing.",
   keywords: ["booklet printing", "catalog printing", "manual printing", "perfect binding", "multi-page printing"],
   openGraph: {

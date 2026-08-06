@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Phone, MessageCircle, FileText } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Custom Printing Solutions | Specialized Printing Services | Hyderabad",
+  title: "Custom Printing Solutions | Specialized Printing Services | MS Paper Products",
   description: "Tailored custom printing solutions for unique business needs. From specialty materials to unique finishes, we deliver bespoke printing services.",
   keywords: ["custom printing", "specialized printing", "bespoke printing", "unique printing", "custom finishing"],
   openGraph: {

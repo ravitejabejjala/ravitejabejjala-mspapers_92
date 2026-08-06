@@ -9,10 +9,10 @@ export type SearchEntry = {
 }
 
 export const printingServices = [
-  ['Offset Printing', '/printing-services/offset-printing'],
-  ['Digital Printing', '/printing-services/digital-printing'],
-  ['Brochure Printing', '/printing-services/brochure-printing'],
-  ['Flyer Printing', '/printing-services/flyer-printing'],
+  ['Offset Printing', '/printing/offset'],
+  ['Digital Printing', '/printing/digital'],
+  ['Brochure Printing', '/printing/brochures'],
+  ['Flyer Printing', '/printing/flyers'],
   ['Business Cards', '/printing-services/business-cards'],
   ['Label Printing', '/printing-services/label-printing'],
   ['Envelope Printing', '/printing-services/envelope-printing'],

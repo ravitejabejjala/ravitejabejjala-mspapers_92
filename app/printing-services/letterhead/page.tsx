@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import PrintingServicesTemplate from '@/components/printing-services-template'
 
 export const metadata: Metadata = {
-  title: 'Professional Letterhead Printing | MS Paper Products Hyderabad',
+  title: 'Professional Letterhead Printing | MS Paper Products',
   description: 'Branded letterhead printing for corporate stationery. Premium paper quality, professional design integration, bulk order discounts.',
   keywords: ['letterhead printing', 'corporate letterhead', 'printed letterhead', 'stationery printing'],
 }

@@ -4,9 +4,9 @@ import PrintingServicePage, { type PrintingServiceData } from "@/components/prin
 import { business } from "@/lib/business-info"
 
 export const metadata: Metadata = {
-  title: "Brochure Printing Hyderabad | MS Paper Products",
-  description: "Custom brochure printing in Hyderabad – tri-fold, bi-fold and z-fold brochures for B2B marketing, real estate, hospitality and retail. Quality offset and digital printing.",
-  keywords: ["brochure printing Hyderabad", "tri-fold brochure printing", "bi-fold brochure", "marketing brochure printing", "company brochure Hyderabad"],
+  title: "Brochure Printing | MS Paper Products",
+  description: "Custom tri-fold, bi-fold, and z-fold brochure printing for B2B marketing, real estate, hospitality, and retail businesses.",
+  keywords: ["brochure printing", "tri-fold brochure printing", "bi-fold brochure", "marketing brochure printing", "company brochure"],
   openGraph: {
     title: "Brochure Printing Hyderabad | MS Paper Products",
     description: "Custom brochure printing in Hyderabad – tri-fold, bi-fold and z-fold for every business need.",

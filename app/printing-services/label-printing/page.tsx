@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import PrintingServicesTemplate from '@/components/printing-services-template'
 
 export const metadata: Metadata = {
-  title: 'Custom Label Printing | MS Paper Products Hyderabad',
+  title: 'Custom Label Printing | MS Paper Products',
   description: 'Professional label printing for products, bottles, jars. Various shapes, sizes, and materials. Barcode and QR code printing available.',
   keywords: ['label printing', 'custom labels', 'product labels', 'barcode labels', 'self-adhesive labels'],
 }

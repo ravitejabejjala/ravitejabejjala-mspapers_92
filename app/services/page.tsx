@@ -8,9 +8,8 @@ import { ClipboardCheck, Palette, Factory, Truck, CheckCircle } from "lucide-rea
 export const metadata: Metadata = {
   title: "Premium Finishing Services - Gold Foiling, Punching & Lamination",
   description:
-    "Elevate your packaging with MS Paper Products premium finishing services: Gold & Silver Foiling, Precision Punching, and Gloss/Matte Lamination. Serving Hyderabad & Telangana. Call +91 81433 30028",
+    "Elevate your packaging with MS Paper Products premium finishing services: Gold & Silver Foiling, Precision Punching, and Gloss/Matte Lamination. Call +91 81433 30028",
   keywords: [
-    "gold foiling Hyderabad",
     "silver foiling packaging",
     "paper bag lamination",
     "punching services",
@@ -20,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Premium Finishing Services | MS Paper Products",
     description:
-      "Gold & Silver Foiling, Precision Punching, and Lamination services for premium packaging in Hyderabad.",
+      "Gold & Silver Foiling, Precision Punching, and Lamination services for premium packaging.",
     url: "https://mspaperproducts.com/services",
   },
 }
@@ -83,7 +82,7 @@ export default function ServicesPage() {
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">Premium Finishing Services</h1>
             <p className="text-lg md:text-xl text-gray-300">
-              Elevate your packaging with our expert finishing techniques. Serving Hyderabad & Telangana.
+              Elevate your packaging with our expert finishing techniques for premium packaging and branded print production.
             </p>
           </div>
         </div>
@@ -162,7 +161,7 @@ export default function ServicesPage() {
             Want to add a premium finish to your packaging?
           </h2>
           <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
-            Get in touch with our team to discuss your finishing requirements. Serving Hyderabad & all of Telangana.
+            Get in touch with our team to discuss your finishing requirements and production brief.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Button asChild size="lg" className="bg-[#132635] hover:bg-[#132635]/90 text-white">

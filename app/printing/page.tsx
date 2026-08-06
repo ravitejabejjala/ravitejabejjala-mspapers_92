@@ -14,22 +14,22 @@ import {
 } from "@/components/ui/breadcrumb"
 
 export const metadata: Metadata = {
-  title: "Printing Services Hyderabad | Offset, Digital & Custom | MS Paper Products",
+  title: "Professional Printing Services | Offset, Digital & Custom | MS Paper Products",
   description:
-    "Professional printing services in Hyderabad — booklets, catalogues, brochures, flyers, offset printing, digital printing and custom specialty finishes. Factory-direct pricing with PAN India delivery.",
+    "Professional booklets, catalogues, brochures, flyers, offset, digital, and custom specialty printing. Factory-direct pricing with PAN India delivery.",
   keywords: [
-    "printing services Hyderabad",
-    "offset printing Hyderabad",
-    "digital printing Hyderabad",
-    "brochure printing Hyderabad",
-    "booklet printing Hyderabad",
-    "flyer printing Hyderabad",
-    "custom printing Hyderabad",
+    "printing services",
+    "offset printing",
+    "digital printing",
+    "brochure printing",
+    "booklet printing",
+    "flyer printing",
+    "custom printing",
   ],
   openGraph: {
-    title: "Printing Services Hyderabad | MS Paper Products",
+    title: "Professional Printing Services | MS Paper Products",
     description:
-      "Professional offset, digital and custom printing in Hyderabad. Bulk orders with PAN India delivery.",
+      "Professional offset, digital and custom printing for business orders with PAN India delivery.",
     url: "https://mspaperproducts.com/printing",
     images: [{ url: business.socialImage, width: 751, height: 751, alt: "MS Paper Products Printing Services" }],
   },
@@ -102,10 +102,10 @@ export default function PrintingIndexPage() {
         <div className="mx-auto max-w-7xl px-4">
           <div className="max-w-3xl">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-4 py-1.5 text-sm font-semibold text-accent">
-              MS Paper Products · Hyderabad
+              MS Paper Products · Business Printing
             </div>
             <h1 className="text-balance text-4xl font-bold leading-tight md:text-5xl">
-              Professional Printing Services in Hyderabad
+              Professional Printing Services for Business Orders
             </h1>
             <p className="mt-4 max-w-2xl text-lg text-primary-foreground/80">
               Factory-direct offset, digital and specialty printing for businesses across India. Booklets,
@@ -165,7 +165,7 @@ export default function PrintingIndexPage() {
             <div>
               <h2 className="text-3xl font-bold text-primary">Why Choose MS Paper Products?</h2>
               <p className="mt-4 text-muted-foreground">
-                We are a Hyderabad-based factory-direct printing company. Every job is produced on our in-house presses — no outsourcing, no quality compromise.
+                We are a factory-direct printing company. Every job is produced on our in-house presses — no outsourcing, no quality compromise.
               </p>
               <ul className="mt-6 grid gap-3 sm:grid-cols-2">
                 {whyUs.map((point) => (
@@ -206,7 +206,7 @@ export default function PrintingIndexPage() {
         <div className="mx-auto max-w-3xl px-4 text-center">
           <h2 className="text-3xl font-bold">Ready to Print?</h2>
           <p className="mt-3 text-primary-foreground/80">
-            Bulk orders, rush jobs and custom requirements welcome. Our Hyderabad team is ready to help.
+            Bulk orders, rush jobs and custom requirements welcome. Our production team is ready to help.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Button asChild size="lg" className="bg-accent font-semibold text-accent-foreground hover:bg-accent/90">

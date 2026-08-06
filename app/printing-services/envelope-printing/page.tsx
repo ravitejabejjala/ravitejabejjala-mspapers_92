@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import PrintingServicesTemplate from '@/components/printing-services-template'
 
 export const metadata: Metadata = {
-  title: 'Professional Envelope Printing | MS Paper Products Hyderabad',
+  title: 'Professional Envelope Printing | MS Paper Products',
   description: 'Branded envelope printing for business correspondence. Multiple sizes, colored envelopes, premium printing. Complete stationery solutions available.',
   keywords: ['envelope printing', 'corporate envelopes', 'printed envelopes', 'stationery printing'],
 }

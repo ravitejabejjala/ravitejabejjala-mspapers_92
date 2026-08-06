@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Phone, MessageCircle, CheckCircle2, FileText } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Professional Brochure Printing | Tri-Fold & Booklet | Hyderabad",
+  title: "Professional Brochure Printing | Tri-Fold & Booklet | MS Paper Products",
   description:
     "High-quality brochure printing for real estate, education, pharma, and healthcare. Professional tri-fold brochures with custom finishing options.",
   keywords: [

@@ -16,9 +16,9 @@ import {
 } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Offset Printing Services in Hyderabad | MS Paper Products",
+  title: "Offset Printing Services | MS Paper Products",
   description:
-    "Professional offset printing services for bulk orders. High-quality prints for education institutions, pharma, real estate, and hospitals. Direct manufacturer with competitive pricing.",
+    "Professional offset printing services for bulk orders. High-quality commercial printing for education, pharma, real estate, and healthcare businesses.",
   keywords: [
     "offset printing Hyderabad",
     "bulk printing services",

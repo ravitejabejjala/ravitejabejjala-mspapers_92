@@ -45,24 +45,24 @@ export const metadata: Metadata = {
 const categories = [
   { name: "Paper Bags", image: "/categories/all-paper-bags.jpg", href: "/products/paper-bags" },
   { name: "Packaging Boxes", image: "/categories/carton-boxes.jpg", href: "/products/boxes-cartons" },
-  { name: "Brochures", image: "/printing-services/brochure-printing.jpg", href: "/printing-services/brochure-printing" },
-  { name: "Flyers", image: "/printing-services/flyer-printing.jpg", href: "/printing-services/flyer-printing" },
-  { name: "Booklets", image: "/printing-services/booklet-printing.jpg", href: "/printing-services/booklet-printing" },
+  { name: "Brochures", image: "/printing-services/brochure-printing.jpg", href: "/printing/brochures" },
+  { name: "Flyers", image: "/printing-services/flyer-printing.jpg", href: "/printing/flyers" },
+  { name: "Booklets", image: "/printing-services/booklet-printing.jpg", href: "/printing/booklets-catalogues" },
   { name: "Labels & Stickers", image: "/products/barcode-labels.jpg", href: "/products/thermal-label-rolls" },
   { name: "Courier Covers", image: "/products/courier-covers-hero.jpg", href: "/products/ecommerce-courier-covers" },
   { name: "Calendars & Diaries", image: "/categories/calendars-diaries.jpg", href: "/products/calendars-diaries" },
   { name: "Corporate Gifts", image: "/categories/corporate-gift-bags.jpg", href: "/products/custom-packaging" },
   { name: "Files & Folders", image: "/categories/files-folders.jpg", href: "/products/files-folders" },
-  { name: "Offset Printing", image: "/printing-services/offset-printing.jpg", href: "/printing-services/offset-printing" },
-  { name: "Digital Printing", image: "/printing-services/digital-printing.jpg", href: "/printing-services/digital-printing" },
+  { name: "Offset Printing", image: "/printing-services/offset-printing.jpg", href: "/printing/offset" },
+  { name: "Digital Printing", image: "/printing-services/digital-printing.jpg", href: "/printing/digital" },
 ]
 
 const featured = [
-  { name: "Corporate Brochures", description: "Premium quality brochures for your brand.", image: "/printing-services/brochure-printing.jpg", href: "/printing-services/brochure-printing" },
+  { name: "Corporate Brochures", description: "Premium quality brochures for your brand.", image: "/printing-services/brochure-printing.jpg", href: "/printing/brochures" },
   { name: "Kraft Paper Bags", description: "Eco-friendly and durable paper bags.", image: "/categories/kraft-paper-bags.jpg", href: "/products/paper-bags" },
   { name: "Corrugated Boxes", description: "Strong and secure packaging for every need.", image: "/categories/corrugated-boxes.jpg", href: "/products/boxes-cartons" },
   { name: "Barcode Labels", description: "High-quality labels for all industries.", image: "/products/barcode-labels.jpg", href: "/products/thermal-label-rolls" },
-  { name: "Booklets & Catalogues", description: "Perfect for product and company profiles.", image: "/printing-services/booklet-printing.jpg", href: "/printing-services/booklet-printing" },
+  { name: "Booklets & Catalogues", description: "Perfect for product and company profiles.", image: "/printing-services/booklet-printing.jpg", href: "/printing/booklets-catalogues" },
   { name: "Custom Packaging", description: "Professional designs that leave a mark.", image: "/categories/custom-paper-bags.jpg", href: "/products/custom-packaging" },
 ]
 

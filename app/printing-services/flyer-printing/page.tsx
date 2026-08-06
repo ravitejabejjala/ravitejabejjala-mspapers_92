@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Phone, MessageCircle, FileText } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Flyer Printing Services | Bulk Promotional Flyers | Hyderabad",
+  title: "Flyer Printing Services | Bulk Promotional Flyers | MS Paper Products",
   description: "Cost-effective flyer printing for promotions and marketing. Fast turnaround for bulk orders with vibrant color printing.",
   keywords: ["flyer printing", "promotional flyers", "bulk flyers", "marketing flyers", "event flyers"],
   openGraph: {

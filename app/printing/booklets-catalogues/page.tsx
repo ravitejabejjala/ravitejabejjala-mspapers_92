@@ -4,9 +4,9 @@ import PrintingServicePage, { type PrintingServiceData } from "@/components/prin
 import { business } from "@/lib/business-info"
 
 export const metadata: Metadata = {
-  title: "Booklet & Catalogue Printing Hyderabad | MS Paper Products",
-  description: "Professional booklet and catalogue printing services in Hyderabad. Multi-page saddle-stitch and perfect-bound catalogues for retail, corporate and B2B. Bulk orders, custom sizes.",
-  keywords: ["booklet printing Hyderabad", "catalogue printing Hyderabad", "product catalogue printing", "company profile printing", "saddle stitch booklet", "perfect bound catalogue"],
+  title: "Booklet & Catalogue Printing | MS Paper Products",
+  description: "Professional multi-page saddle-stitch and perfect-bound booklet and catalogue printing for retail, corporate, and B2B orders.",
+  keywords: ["booklet printing", "catalogue printing", "product catalogue printing", "company profile printing", "saddle stitch booklet", "perfect bound catalogue"],
   openGraph: {
     title: "Booklet & Catalogue Printing Hyderabad | MS Paper Products",
     description: "Professional booklet and product catalogue printing in Hyderabad with bulk pricing.",

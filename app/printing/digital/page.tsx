@@ -4,9 +4,9 @@ import PrintingServicePage, { type PrintingServiceData } from "@/components/prin
 import { business } from "@/lib/business-info"
 
 export const metadata: Metadata = {
-  title: "Digital Printing Services Hyderabad | MS Paper Products",
-  description: "Fast short-run digital printing in Hyderabad. Variable data, personalised prints, short runs from 50 copies. Ideal for business cards, brochures, flyers and promotional materials.",
-  keywords: ["digital printing Hyderabad", "short run printing Hyderabad", "variable data printing", "personalised printing Hyderabad", "on demand printing Hyderabad"],
+  title: "Digital Printing Services | MS Paper Products",
+  description: "Fast short-run digital printing with variable data, personalised prints, and runs from 50 copies for business and promotional materials.",
+  keywords: ["digital printing", "short run printing", "variable data printing", "personalised printing", "on demand printing"],
   openGraph: {
     title: "Digital Printing Services Hyderabad | MS Paper Products",
     description: "Fast short-run digital printing in Hyderabad with variable data capability and quick turnaround.",

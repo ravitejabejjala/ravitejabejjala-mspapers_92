@@ -4,11 +4,11 @@ import PrintingServicePage, { type PrintingServiceData } from "@/components/prin
 import { business } from "@/lib/business-info"
 
 export const metadata: Metadata = {
-  title: "Offset Printing Services Hyderabad | MS Paper Products",
-  description: "Industrial-grade offset printing in Hyderabad. High-volume CMYK and Pantone printing for packaging, brochures, labels and catalogues. Lithrone press technology for consistent quality.",
-  keywords: ["offset printing Hyderabad", "lithographic printing Hyderabad", "commercial offset printing", "bulk printing Hyderabad", "Pantone offset printing", "Lithrone press Hyderabad"],
+  title: "Offset Printing Services | MS Paper Products",
+  description: "Industrial-grade offset printing for high-volume CMYK and Pantone printing across packaging, brochures, labels, and catalogues.",
+  keywords: ["offset printing", "lithographic printing", "commercial offset printing", "bulk printing", "Pantone offset printing", "Lithrone press"],
   openGraph: {
-    title: "Offset Printing Services Hyderabad | MS Paper Products",
+    title: "Offset Printing Services | MS Paper Products",
     description: "Industrial-grade offset printing in Hyderabad using Lithrone press technology for high-volume bulk orders.",
     url: "https://mspaperproducts.com/printing/offset",
     images: [{ url: business.socialImage, width: 751, height: 751, alt: "MS Paper Products – Offset Printing" }],
