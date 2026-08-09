@@ -231,7 +231,7 @@ module.exports = withGA({
 ## Emergency Contacts
 
 - **Hostinger Support**: support@hostinger.com
-- **MS Paper Products**: contact@mspaperproducts.com
+- **MS Paper Products**: info@mspaperproducts.com
 - **Phone**: +91 8143330028
 - **WhatsApp**: https://wa.me/918143330028
 

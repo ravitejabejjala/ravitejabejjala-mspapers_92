@@ -17,11 +17,11 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] })
 export const metadata: Metadata = {
   metadataBase: new URL("https://mspaperproducts.com"),
   title: {
-    default: "MS Paper Products | Premium Paper Bag & Packaging Manufacturer in Hyderabad",
+    default: "Printing & Packaging Company in Hyderabad | MS Paper Products",
     template: "%s | MS Paper Products",
   },
   description:
-    "Leading manufacturer of premium paper bags, food packaging, medicine boxes, carton boxes & eco-friendly packaging solutions in Hyderabad, Telangana. Quality craftsmanship with 15+ years experience. Call +91 81433 30028",
+    "MS Paper Products offers printing, packaging boxes, paper bags, labels, brochures and commercial printing services in Hyderabad. Bulk orders and PAN India delivery.",
   keywords: [
     "paper bags manufacturer Hyderabad",
     "paper packaging Telangana",
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://mspaperproducts.com",
+    canonical: "https://mspaperproducts.com/",
   },
   openGraph: {
     type: "website",
@@ -78,9 +78,6 @@ export const metadata: Metadata = {
     icon: business.logoSquare,
     shortcut: business.logoSquare,
     apple: business.logoSquare,
-  },
-  verification: {
-    google: "google-site-verification-code",
   },
     generator: 'v0.app'
 }
@@ -118,12 +115,9 @@ const jsonLd = {
           "@type": "OpeningHoursSpecification",
           dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
           opens: "09:00",
-          closes: "18:00",
+          closes: "19:00",
         },
       ],
-      priceRange: "$$",
-      paymentAccepted: "Bank transfer, UPI, and approved business payment methods",
-      currenciesAccepted: "INR",
       areaServed: [
         { "@type": "City", name: "Hyderabad" },
         { "@type": "State", name: "Telangana" },

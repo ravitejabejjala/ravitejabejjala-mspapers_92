@@ -32,6 +32,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'custom-printing',
   ]
 
+  const currentPrintingServices = ['offset', 'digital', 'brochures', 'flyers', 'booklets-catalogues', 'custom']
+
   const industries = [
     'food-beverage',
     'pharmaceuticals',
@@ -70,6 +72,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/services`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/printing`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.9,
@@ -116,6 +124,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Printing service pages
     ...printingServices.map((slug) => ({
       url: `${baseUrl}/printing-services/${slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    })),
+    ...currentPrintingServices.map((slug) => ({
+      url: `${baseUrl}/printing/${slug}`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.8,

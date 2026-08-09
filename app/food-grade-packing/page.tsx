@@ -41,10 +41,10 @@ export const metadata: Metadata = {
         "Premium food-grade transparent window pouches for dry fruits, grains, spices, and more. FDA compliant packaging.",
       address: {
         "@type": "PostalAddress",
-        streetAddress: "Banjara Hills",
+        streetAddress: "7-1-307/14/G/95, DNM Colony, BK Guda, Balkampet",
         addressLocality: "Hyderabad",
         addressRegion: "Telangana",
-        postalCode: "500034",
+        postalCode: "500018",
         addressCountry: "IN",
       },
       telephone: "+918143330028",

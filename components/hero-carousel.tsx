@@ -52,7 +52,7 @@ export default function HeroCarousel() {
               <div className="mx-auto flex min-h-[340px] max-w-7xl flex-col lg:flex-row">
                 <div className="relative z-10 flex w-full flex-col justify-center px-6 py-8 lg:w-[43%] lg:px-4 lg:pr-12">
                   <p className="mb-3 text-sm font-bold uppercase tracking-wide text-accent">Premium printing & packaging solutions</p>
-                  <h1 className="text-balance text-3xl font-bold leading-[1.05] sm:text-4xl">{slide.title} <span className="text-accent">{slide.subtitle}</span></h1>
+                  <h1 className="text-balance text-3xl font-bold leading-[1.05] sm:text-4xl">Printing &amp; Packaging Solutions for Businesses <span className="text-accent">in Hyderabad</span></h1>
                   <p className="mt-4 max-w-xl text-sm leading-relaxed text-primary-foreground/75 sm:text-base">{slide.description}</p>
                   <div className="mt-7 flex flex-wrap gap-x-5 gap-y-3">
                     {trustItems.map((item) => <div key={item.label} className="flex items-center gap-2 text-xs font-medium"><item.icon className="size-5 text-accent" /><span>{item.label}</span></div>)}

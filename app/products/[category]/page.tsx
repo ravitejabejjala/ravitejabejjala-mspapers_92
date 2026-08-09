@@ -431,7 +431,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
               name: "MS Paper Products",
               address: {
                 "@type": "PostalAddress",
-                streetAddress: "7-1-307/14/G/119, DNM Colony, Tulasi Nagar, Balkampet",
+                streetAddress: "7-1-307/14/G/95, DNM Colony, BK Guda, Balkampet",
                 addressLocality: "Hyderabad",
                 addressRegion: "Telangana",
                 postalCode: "500018",

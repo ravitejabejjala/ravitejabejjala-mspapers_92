@@ -28,18 +28,18 @@ import HeroCarousel from "@/components/hero-carousel"
 import ClientsSection from "@/components/clients-section"
 
 export const metadata: Metadata = {
-  title: "MS Paper Products | Premium Paper Bag & Packaging Solutions in Hyderabad",
-  description: "Leading manufacturer of premium paper bags, courier covers, thermal labels & eco-friendly packaging in Hyderabad. 15+ years experience. Bulk orders, custom designs. Free quote!",
+  title: "Printing & Packaging Company in Hyderabad | MS Paper Products",
+  description: "MS Paper Products offers printing, packaging boxes, paper bags, labels, brochures and commercial printing services in Hyderabad. Bulk orders and PAN India delivery.",
   keywords: ["paper bags manufacturer Hyderabad", "courier covers", "thermal labels", "eco-friendly packaging", "custom packaging", "bulk paper bags", "food packaging", "medicine boxes", "printing services", "barcode labels"],
-  alternates: { canonical: "https://mspaperproducts.com" },
+  alternates: { canonical: "https://mspaperproducts.com/" },
   openGraph: {
-    title: "MS Paper Products | Premium Paper Packaging Solutions",
-    description: "Quality paper bags, courier covers, thermal labels and eco-friendly packaging manufactured in Hyderabad.",
+    title: "Printing & Packaging Company in Hyderabad | MS Paper Products",
+    description: "Printing, packaging boxes, paper bags, labels, brochures and commercial printing services in Hyderabad. Bulk orders and PAN India delivery.",
     type: "website",
-    url: "https://mspaperproducts.com",
-    images: [{ url: "/brand/ms-paper-products-social.png", width: 751, height: 751, alt: "MS Paper Products" }],
+    url: "https://mspaperproducts.com/",
+    images: [{ url: "/brand/ms-paper-products-social.png", width: 751, height: 751, alt: "MS Paper Products printing and packaging products" }],
   },
-  twitter: { card: "summary_large_image", title: "MS Paper Products | Premium Packaging Solutions", description: "Quality paper bags and packaging manufacturer in Hyderabad", images: ["/brand/ms-paper-products-social.png"] },
+  twitter: { card: "summary_large_image", title: "Printing & Packaging Company in Hyderabad | MS Paper Products", description: "Printing, packaging boxes, paper bags, labels and brochures from Hyderabad.", images: ["/brand/ms-paper-products-social.png"] },
 }
 
 const categories = [

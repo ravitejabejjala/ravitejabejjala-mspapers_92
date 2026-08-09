@@ -115,7 +115,7 @@ See [DEPLOYMENT_GUIDE.md](./DEPLOYMENT_GUIDE.md) for detailed instructions.
 Create a `.env.local` file for sensitive information:
 ```env
 NEXT_PUBLIC_BUSINESS_PHONE=+918143330028
-NEXT_PUBLIC_BUSINESS_EMAIL=contact@mspaperproducts.com
+NEXT_PUBLIC_BUSINESS_EMAIL=info@mspaperproducts.com
 NEXT_PUBLIC_WHATSAPP_NUMBER=918143330028
 ```
 
@@ -159,8 +159,8 @@ All pages include:
 **MS Paper Products**
 - Phone: +91 81433 30028
 - WhatsApp: +91 81433 30028
-- Email: contact@mspaperproducts.com
-- Location: Banjara Hills, Hyderabad, Telangana 500034
+- Email: info@mspaperproducts.com
+- Location: 7-1-307/14/G/95, DNM Colony, BK Guda, Balkampet, Hyderabad, Telangana 500018, India
 
 ## License
 
