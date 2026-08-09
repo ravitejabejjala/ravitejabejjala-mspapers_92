@@ -34,6 +34,20 @@ export default function ProductPageTemplate({ title, subtitle, description, imag
   return (
     <main className="min-h-screen bg-background">
       <TrackViewedProduct item={{ name: title, href, image }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: faqs.map(([question, answer]) => ({
+              '@type': 'Question',
+              name: question,
+              acceptedAnswer: { '@type': 'Answer', text: answer },
+            })),
+          }),
+        }}
+      />
       <div className="mx-auto max-w-7xl px-4 py-4">
         <Breadcrumb><BreadcrumbList><BreadcrumbItem><BreadcrumbLink asChild><Link href="/">Home</Link></BreadcrumbLink></BreadcrumbItem><BreadcrumbSeparator /><BreadcrumbItem><BreadcrumbLink asChild><Link href="/products">Products</Link></BreadcrumbLink></BreadcrumbItem><BreadcrumbSeparator /><BreadcrumbItem><BreadcrumbPage>{title}</BreadcrumbPage></BreadcrumbItem></BreadcrumbList></Breadcrumb>
       </div>
@@ -82,6 +96,18 @@ export default function ProductPageTemplate({ title, subtitle, description, imag
       <section className="mx-auto max-w-4xl px-4 py-14"><h2 className="text-center text-3xl font-bold text-primary">Frequently asked questions</h2><Accordion type="single" collapsible className="mt-6">{faqs.map(([question, answer]) => <AccordionItem key={question} value={question}><AccordionTrigger>{question}</AccordionTrigger><AccordionContent>{answer}</AccordionContent></AccordionItem>)}</Accordion></section>
 
       <section className="border-t border-border py-14"><div className="mx-auto max-w-7xl px-4"><div className="mb-6 flex items-end justify-between"><div><p className="text-sm font-bold uppercase tracking-wider text-accent">You may also need</p><h2 className="text-3xl font-bold text-primary">Related categories</h2></div><Link href="/products" className="text-sm font-semibold text-primary hover:text-accent">View all</Link></div><div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">{related.map((item) => <Link key={item.href} href={item.href} className="group overflow-hidden rounded-xl border border-border bg-card shadow-sm hover:border-accent"><div className="relative aspect-[4/3] bg-muted"><Image src={item.image!} alt={item.name} fill className="object-cover transition-transform group-hover:scale-105" /></div><div className="p-4 font-bold text-primary group-hover:text-accent">{item.name}</div></Link>)}</div></div></section>
+      <section className="border-t border-border bg-muted/40 py-12">
+        <div className="mx-auto max-w-7xl px-4">
+          <p className="section-kicker">Need more than one item?</p>
+          <h2 className="mt-2 text-3xl font-bold text-primary">Build a complete business order</h2>
+          <div className="mt-5 flex flex-wrap gap-3">
+            <Button asChild variant="outline"><Link href="/printing">Explore Printing Services</Link></Button>
+            <Button asChild variant="outline"><Link href="/industries">Browse Industry Solutions</Link></Button>
+            <Button asChild variant="outline"><Link href="/resources">Read Packaging Guides</Link></Button>
+            <Button asChild className="bg-accent text-accent-foreground hover:bg-accent/90"><Link href="/contact">Discuss Your Requirement <ArrowRight data-icon="inline-end" /></Link></Button>
+          </div>
+        </div>
+      </section>
       <RecentlyViewedProducts />
     </main>
   )
