@@ -4,8 +4,8 @@ import PrintingServicePage, { type PrintingServiceData } from "@/components/prin
 import { business } from "@/lib/business-info"
 
 export const metadata: Metadata = {
-  title: "Offset Printing Services | MS Paper Products",
-  description: "Industrial-grade offset printing for high-volume CMYK and Pantone printing across packaging, brochures, labels, and catalogues.",
+  title: "Offset Printing Services in Hyderabad | MS Paper Products",
+  description: "Offset printing services in Hyderabad for commercial, packaging and bulk print orders. Request colour-accurate high-volume printing from MS Paper Products.",
   keywords: ["offset printing", "lithographic printing", "commercial offset printing", "bulk printing", "Pantone offset printing", "Lithrone press"],
   openGraph: {
     title: "Offset Printing Services | MS Paper Products",

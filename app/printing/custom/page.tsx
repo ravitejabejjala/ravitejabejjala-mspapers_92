@@ -4,8 +4,8 @@ import PrintingServicePage, { type PrintingServiceData } from "@/components/prin
 import { business } from "@/lib/business-info"
 
 export const metadata: Metadata = {
-  title: "Custom Printing Solutions | MS Paper Products",
-  description: "Bespoke custom printing with foiling, embossing, spot UV, die-cutting, and specialty finishes tailored to your brand requirements.",
+  title: "Custom Printing Services in Hyderabad | MS Paper Products",
+  description: "Custom printing services in Hyderabad for branded packaging and business materials. Foiling, embossing, spot UV and die-cut finishes for bulk orders.",
   keywords: ["custom printing", "specialty printing", "foil printing", "embossing printing", "die cut printing", "bespoke print solutions"],
   openGraph: {
     title: "Custom Printing Solutions Hyderabad | MS Paper Products",

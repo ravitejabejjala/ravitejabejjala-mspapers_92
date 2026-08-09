@@ -42,7 +42,7 @@ export default function ProductPageTemplate({ title, subtitle, description, imag
         <div className="mx-auto flex max-w-7xl flex-col gap-10 px-4 lg:flex-row">
           <div className="flex-1">
             <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-border bg-card shadow-sm">
-              <Image src={image} alt={title} fill priority className="object-cover" sizes="(max-width: 1024px) 100vw, 52vw" />
+              <Image src={image} alt={`${title} for business orders in Hyderabad`} fill priority className="object-cover" sizes="(max-width: 1024px) 100vw, 52vw" />
             </div>
             <p className="mt-3 text-center text-xs text-muted-foreground">Product appearance can be customized to your brand and specifications.</p>
           </div>

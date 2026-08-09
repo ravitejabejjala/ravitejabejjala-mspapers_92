@@ -45,9 +45,9 @@ export const mainCategories: MainCategory[] = [
           "Our kraft paper bags are made from premium quality virgin kraft paper, offering excellent strength and durability. The natural brown color gives an eco-friendly appearance that appeals to environmentally conscious consumers. Perfect for retail stores, grocery shops, and businesses looking for sustainable packaging solutions.",
         image: "/categories/kraft-paper-bags.jpg",
         icon: "Package",
-        seoTitle: "Kraft Paper Bags | Natural Brown Paper Bags | MS Paper Products Hyderabad",
+        seoTitle: "Paper Bag Manufacturers in Hyderabad | MS Paper Products",
         seoDescription:
-          "Premium kraft paper bags manufacturer in Hyderabad. Natural brown paper bags with twisted handles, flat handles, and custom printing options. Eco-friendly and durable.",
+          "Paper bag manufacturers in Hyderabad supplying kraft, custom and printed paper carry bags for retail and business orders. Request a bulk quote from MS Paper Products.",
         seoKeywords: [
           "kraft paper bags",
           "brown paper bags",
@@ -93,9 +93,9 @@ export const mainCategories: MainCategory[] = [
           "Transform your packaging into a powerful marketing tool with our custom printed paper bags. We offer full-color offset printing, flexographic printing, and digital printing options to bring your brand designs to life. Our state-of-the-art printing technology ensures vibrant colors, sharp details, and consistent quality across all your bags.",
         image: "/categories/printed-paper-bags.jpg",
         icon: "Printer",
-        seoTitle: "Printed Paper Bags | Custom Logo Paper Bags | MS Paper Products",
+        seoTitle: "Custom Printed Paper Bags in Hyderabad | MS Paper Products",
         seoDescription:
-          "Custom printed paper bags with your logo and brand design. Full-color printing, flexographic and offset printing available. Quality paper bags manufacturer in Hyderabad.",
+          "Custom printed paper bags in Hyderabad with logo and brand printing for retail, gifting and business orders. Ask MS Paper Products about bulk quantities and sizes.",
         seoKeywords: [
           "printed paper bags",
           "custom logo bags",
@@ -516,9 +516,9 @@ export const mainCategories: MainCategory[] = [
           "Our paper boxes offer excellent protection and presentation for your products. Made from high-quality materials with precise construction, these boxes are perfect for retail packaging, gifting, and product storage. Available in various styles including folding cartons, rigid boxes, and display boxes.",
         image: "/categories/paper-boxes.jpg",
         icon: "Box",
-        seoTitle: "Paper Boxes | Product Packaging Boxes | MS Paper Products Hyderabad",
+        seoTitle: "Packaging Box Manufacturers in Hyderabad | MS Paper Products",
         seoDescription:
-          "Premium paper boxes for product packaging. Folding cartons, rigid boxes, and display boxes. Paper box manufacturer in Hyderabad.",
+          "Packaging box manufacturers in Hyderabad for custom printed product, retail and folding boxes. Share your size, artwork and quantity for a business quote.",
         seoKeywords: ["paper boxes", "product boxes", "packaging boxes", "folding cartons", "rigid boxes"],
         products: [
           {
@@ -615,9 +615,9 @@ export const mainCategories: MainCategory[] = [
           "Our corrugated carton boxes offer superior protection for heavy and fragile items. Available in various flute types (B, C, E, BC double wall), these boxes provide excellent cushioning and compression strength. Ideal for e-commerce, industrial shipping, and warehouse storage.",
         image: "/categories/corrugated-boxes.jpg",
         icon: "Package",
-        seoTitle: "Corrugated Carton Boxes | Heavy Duty Shipping | MS Paper Products",
+        seoTitle: "Corrugated Box Manufacturers in Hyderabad | MS Paper Products",
         seoDescription:
-          "Heavy-duty corrugated boxes for industrial packing. Multiple flute options with excellent protection. Corrugated box manufacturer in Hyderabad.",
+          "Corrugated box manufacturers in Hyderabad for shipping, ecommerce and industrial packing. Custom sizes and bulk corrugated boxes available for business orders.",
         seoKeywords: [
           "corrugated boxes",
           "heavy duty boxes",
@@ -654,9 +654,9 @@ export const mainCategories: MainCategory[] = [
           "Our pharmaceutical packaging boxes meet strict industry standards for hygiene and safety. Designed for medicines, medical devices, and healthcare products, these boxes provide tamper-evident packaging with clear labeling areas. Available in various sizes with child-resistant options.",
         image: "/categories/pharmaceutical-boxes.jpg",
         icon: "Pill",
-        seoTitle: "Pharmaceutical Packaging Boxes | Medicine Boxes | MS Paper Products",
+        seoTitle: "Pharmaceutical Packaging Boxes in Hyderabad | MS Paper Products",
         seoDescription:
-          "Hygienic pharmaceutical packaging boxes for medicine and healthcare products. Tamper-evident, compliant packaging. Pharma box manufacturer in Hyderabad.",
+          "Pharmaceutical packaging boxes in Hyderabad for medicine cartons and healthcare products. Custom printed pharma boxes for business and bulk packaging requirements.",
         seoKeywords: [
           "pharmaceutical boxes",
           "medicine boxes",
@@ -1335,9 +1335,9 @@ export const mainCategories: MainCategory[] = [
           "Our paper food boxes are designed for food service businesses. Made from food-grade materials, these boxes are perfect for takeaway, delivery, and dine-in service. Available in various sizes and styles including meal boxes, snack boxes, and specialty containers.",
         image: "/categories/paper-food-boxes.jpg",
         icon: "Box",
-        seoTitle: "Paper Food Boxes | Takeaway Containers | MS Paper Products",
+        seoTitle: "Food Packaging Boxes in Hyderabad | MS Paper Products",
         seoDescription:
-          "Food-safe paper boxes for restaurants, cafes, and food delivery. Custom takeaway boxes and meal containers. Food packaging manufacturer in Hyderabad.",
+          "Food packaging boxes in Hyderabad for restaurants, cafes, takeaway and delivery. Custom printed food boxes for bulk food-service and FMCG orders.",
         seoKeywords: ["paper food boxes", "takeaway boxes", "food containers", "meal boxes", "delivery packaging"],
         products: [
           {
@@ -2033,9 +2033,9 @@ export const mainCategories: MainCategory[] = [
           "MS Paper Products offers premium quality waterproof courier covers in Indian standard sizes perfect for ecommerce, logistics, and courier services. Our LDPE courier covers provide excellent protection against moisture, dust, and damage during transit. Available in popular Indian business sizes from compact to large.",
         image: "/products/medium-courier-cover.png",
         icon: "Package",
-        seoTitle: "Courier Covers India | Waterproof Shipping Bags | MS Paper Products Hyderabad",
+        seoTitle: "Courier Bag Manufacturers in Hyderabad | MS Paper Products",
         seoDescription:
-          "Premium waterproof courier covers in Indian sizes. Standard 10x14, 12x16, 14x20 inches. Bulk orders, custom printing available. Direct manufacturer Hyderabad.",
+          "Courier bag manufacturers in Hyderabad supplying waterproof ecommerce courier covers, printed courier bags and bulk shipping packaging for businesses.",
         seoKeywords: [
           "courier covers",
           "waterproof courier bags",
@@ -2223,9 +2223,9 @@ export const mainCategories: MainCategory[] = [
           "High-quality barcode labels designed for clear scanning and professional appearance. Our barcode labels are compatible with all thermal printers and widely used in Indian retail, logistics, and warehouse operations.",
         image: "/products/custom-barcode-label.png",
         icon: "BarChart3",
-        seoTitle: "Barcode Labels India | Thermal Barcode Labels | MS Paper Products",
+        seoTitle: "Barcode Labels Hyderabad | MS Paper Products",
         seoDescription:
-          "Premium barcode label rolls in Indian standard sizes. 4x6, 3x5 labels. Custom printing, high scan accuracy. Wholesale pricing.",
+          "Barcode label printing in Hyderabad for product, inventory and shipping labels. Thermal barcode labels and roll formats available for bulk business orders.",
         seoKeywords: [
           "barcode labels",
           "barcode label rolls",
